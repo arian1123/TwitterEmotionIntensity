@@ -1,7 +1,7 @@
 #main script to run system
-import preprocess
-import SVM
 from sklearn.model_selection import KFold
+from Arian import preprocess
+
 
 def main():
 

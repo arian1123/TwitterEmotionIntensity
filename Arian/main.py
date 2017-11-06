@@ -5,7 +5,7 @@ from Arian import preprocess
 
 def main():
 
-    training_dir = "data"
+    training_dir = "Arian/data"
     features_obj = preprocess.TweetFeatureGenerator(training_dir)
     bag_words = features_obj.bag_words_model
     emotion_intensities = features_obj.tweet_data.tweet_list_dataframe['emotion_intensity']

@@ -1,7 +1,6 @@
 #pre processing and feature extraction for training files
 
 import os
-
 import pandas as pd
 from sklearn.feature_extraction.text import CountVectorizer
 
@@ -17,6 +16,8 @@ class TweetPreprocessor:
 
         # traverse down directory recursively
         for dirpath, dirs, files in os.walk(directory):
+
+            print(dirpath)
 
             for filename in files:
 

@@ -6,7 +6,7 @@ from sklearn.feature_extraction.text import CountVectorizer
 
 
 #Use this class to prepare and parse tweets for feature generatio
-class TweetPreprocessor:
+class TweetParser:
 
     #pass in directory with training data files
     def __init__(self, directory):
@@ -52,10 +52,9 @@ class TweetPreprocessor:
 #generate variety of features
 class TweetFeatureGenerator:
 
-    def __init__(self, directory):
+    def __init__(self, TweetParser):
 
-        self.tweet_data = TweetPreprocessor(directory) #TweetPreprocessorObject
-        self.vocabulary_list, self.bag_words_model = self.build_bag_words()
+        self.tweet_data = TweetParser #TweetProcessor Object, generated features from parsed data
 
     #end init
 

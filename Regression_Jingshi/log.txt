@@ -1,0 +1,179 @@
+Emotion: anger
+training data has 1391 samples
+XGBoost regressor
+**  1 fold: 
+Pearson correlation: 0.340680245525 Spearman correlation: 0.279462706409
+**  2 fold: 
+Pearson correlation: 0.247089160981 Spearman correlation: 0.237098696641
+**  3 fold: 
+Pearson correlation: 0.0377905063669 Spearman correlation: 0.0501961255496
+**  4 fold: 
+Pearson correlation: 0.0956202646016 Spearman correlation: 0.163026992292
+**  5 fold: 
+Pearson correlation: 0.0792612990909 Spearman correlation: 0.0744059632468
+**  6 fold: 
+Pearson correlation: 0.560602427687 Spearman correlation: 0.527588728219
+**  7 fold: 
+Pearson correlation: 0.570129824616 Spearman correlation: 0.542774213799
+**  8 fold: 
+Pearson correlation: 0.385448880192 Spearman correlation: 0.321943359209
+**  9 fold: 
+Pearson correlation: 0.559530044529 Spearman correlation: 0.580143799381
+**  10 fold: 
+Pearson correlation: 0.567392376732 Spearman correlation: 0.557491157182
+MLP regressor
+**  1 fold: 
+Pearson correlation: 0.255570478413 Spearman correlation: 0.279191498295
+**  2 fold: 
+Pearson correlation: 0.126554634504 Spearman correlation: 0.100529674265
+**  3 fold: 
+Pearson correlation: -0.0239015702384 Spearman correlation: -0.0923044813099
+**  4 fold: 
+Pearson correlation: 0.0790186051316 Spearman correlation: 0.143900880191
+**  5 fold: 
+Pearson correlation: 0.123235805762 Spearman correlation: 0.110444929972
+**  6 fold: 
+Pearson correlation: 0.538516527487 Spearman correlation: 0.506258191966
+**  7 fold: 
+Pearson correlation: 0.466454811172 Spearman correlation: 0.466427376125
+**  8 fold: 
+Pearson correlation: 0.3875209212 Spearman correlation: 0.343560727663
+**  9 fold: 
+Pearson correlation: 0.543964105488 Spearman correlation: 0.550045624674
+**  10 fold: 
+Pearson correlation: 0.487209842096 Spearman correlation: 0.452960694995
+
+Emotion: fear
+training data has 1740 samples
+XGBoost regressor
+**  1 fold: 
+Pearson correlation: 0.216016253262 Spearman correlation: 0.22337761642
+**  2 fold: 
+Pearson correlation: 0.125895000888 Spearman correlation: 0.0781581968431
+**  3 fold: 
+Pearson correlation: 0.059840766991 Spearman correlation: 0.144747880566
+**  4 fold: 
+Pearson correlation: -0.0374216567156 Spearman correlation: -0.0290483961174
+**  5 fold: 
+Pearson correlation: 0.127160841491 Spearman correlation: 0.165215686483
+**  6 fold: 
+Pearson correlation: 0.570544484037 Spearman correlation: 0.526350461883
+**  7 fold: 
+Pearson correlation: 0.448747555541 Spearman correlation: 0.385222363203
+**  8 fold: 
+Pearson correlation: 0.522276609066 Spearman correlation: 0.450657162618
+**  9 fold: 
+Pearson correlation: 0.36961271895 Spearman correlation: 0.322409363456
+**  10 fold: 
+Pearson correlation: 0.566134341809 Spearman correlation: 0.559369340302
+MLP regressor
+**  1 fold: 
+Pearson correlation: 0.208726198333 Spearman correlation: 0.227444995056
+**  2 fold: 
+Pearson correlation: 0.119594548267 Spearman correlation: 0.0295303699047
+**  3 fold: 
+Pearson correlation: 0.0346266492931 Spearman correlation: 0.0332410801221
+**  4 fold: 
+Pearson correlation: 0.0153246854132 Spearman correlation: -0.00683933485358
+**  5 fold: 
+Pearson correlation: 0.146038799298 Spearman correlation: 0.112086182413
+**  6 fold: 
+Pearson correlation: 0.479742880338 Spearman correlation: 0.432260121153
+**  7 fold: 
+Pearson correlation: 0.449617485012 Spearman correlation: 0.434691599965
+**  8 fold: 
+Pearson correlation: 0.492528061513 Spearman correlation: 0.391301726858
+**  9 fold: 
+Pearson correlation: 0.372629138566 Spearman correlation: 0.3652554558
+**  10 fold: 
+Pearson correlation: 0.506711349922 Spearman correlation: 0.526483029786
+
+Emotion: joy
+training data has 1297 samples
+XGBoost regressor
+**  1 fold: 
+Pearson correlation: 0.162062637155 Spearman correlation: 0.166247102688
+**  2 fold: 
+Pearson correlation: 0.2998707661 Spearman correlation: 0.311091833213
+**  3 fold: 
+Pearson correlation: 0.174338713967 Spearman correlation: 0.165988984212
+**  4 fold: 
+Pearson correlation: 0.122580297624 Spearman correlation: 0.138461619721
+**  5 fold: 
+Pearson correlation: 0.0237791409261 Spearman correlation: 0.0246091532039
+**  6 fold: 
+Pearson correlation: 0.582355033862 Spearman correlation: 0.58287779319
+**  7 fold: 
+Pearson correlation: 0.485076651043 Spearman correlation: 0.495855605882
+**  8 fold: 
+Pearson correlation: 0.551013865214 Spearman correlation: 0.549205085467
+**  9 fold: 
+Pearson correlation: 0.537843128228 Spearman correlation: 0.57769967288
+**  10 fold: 
+Pearson correlation: 0.621519331826 Spearman correlation: 0.618524874533
+MLP regressor
+**  1 fold: 
+Pearson correlation: 0.2276163579 Spearman correlation: 0.234173400805
+**  2 fold: 
+Pearson correlation: 0.295923461937 Spearman correlation: 0.281916871692
+**  3 fold: 
+Pearson correlation: 0.141379092143 Spearman correlation: 0.157317412166
+**  4 fold: 
+Pearson correlation: 0.0548448993838 Spearman correlation: 0.0311481559656
+**  5 fold: 
+Pearson correlation: -0.116022206549 Spearman correlation: -0.114485156817
+**  6 fold: 
+Pearson correlation: -0.00756034901129 Spearman correlation: -0.0310083449326
+**  7 fold: 
+Pearson correlation: 0.546761316893 Spearman correlation: 0.578000072163
+**  8 fold: 
+Pearson correlation: 0.120019724359 Spearman correlation: 0.11439701365
+**  9 fold: 
+Pearson correlation: 0.583390075988 Spearman correlation: 0.60618252123
+**  10 fold: 
+Pearson correlation: 0.607241038568 Spearman correlation: 0.567738683302
+
+Emotion: sadness
+training data has 1425 samples
+XGBoost regressor
+**  1 fold: 
+Pearson correlation: 0.248718528776 Spearman correlation: 0.232639084446
+**  2 fold: 
+Pearson correlation: 0.0699344200709 Spearman correlation: 0.0333644861859
+**  3 fold: 
+Pearson correlation: 0.0590455982022 Spearman correlation: 0.0765416487697
+**  4 fold: 
+Pearson correlation: 0.0295496023231 Spearman correlation: 0.0489982075456
+**  5 fold: 
+Pearson correlation: 0.0998636063936 Spearman correlation: 0.0985196123269
+**  6 fold: 
+Pearson correlation: 0.417806112096 Spearman correlation: 0.447796524308
+**  7 fold: 
+Pearson correlation: 0.422460095341 Spearman correlation: 0.411019168636
+**  8 fold: 
+Pearson correlation: 0.448356272049 Spearman correlation: 0.440971142654
+**  9 fold: 
+Pearson correlation: 0.42627633902 Spearman correlation: 0.372238053645
+**  10 fold: 
+Pearson correlation: 0.510001406138 Spearman correlation: 0.504415441674
+MLP regressor
+**  1 fold: 
+Pearson correlation: 0.249487506822 Spearman correlation: 0.237393264
+**  2 fold: 
+Pearson correlation: -0.02053468466 Spearman correlation: 0.0179330738993
+**  3 fold: 
+Pearson correlation: 0.146823611393 Spearman correlation: 0.0879804950486
+**  4 fold: 
+Pearson correlation: 0.0290418386071 Spearman correlation: 0.0183998620545
+**  5 fold: 
+Pearson correlation: 0.0233443599355 Spearman correlation: 0.0529646108989
+**  6 fold: 
+Pearson correlation: 0.394747333666 Spearman correlation: 0.378556789593
+**  7 fold: 
+Pearson correlation: 0.325204415015 Spearman correlation: 0.27481785543
+**  8 fold: 
+Pearson correlation: 0.374796075667 Spearman correlation: 0.421854661438
+**  9 fold: 
+Pearson correlation: 0.384364492834 Spearman correlation: 0.369671202003
+**  10 fold: 
+Pearson correlation: 0.538289163437 Spearman correlation: 0.486871181197

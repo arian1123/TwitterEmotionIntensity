@@ -10,7 +10,9 @@ def measure_clf(y, z):
 	print ('confusion matrix = ', confusion_matrix(y, z))
 
 def measure_reg(y, z):
-#	return np.corrcoef(y, z)[0,1]
+	
+	#return np.corrcoef(y, z)[0,1]
 	pears_corr = scipy.stats.pearsonr(y, z)[0]
 	spear_corr = scipy.stats.spearmanr(y, z)[0]
-	print("Pearson correlation: " + str(pears_corr) + " Spearman correlation: " + str(spear_corr))
+	output = "Pearson correlation: " + str(pears_corr) + "; Spearman correlation: " + str(spear_corr)
+	return output

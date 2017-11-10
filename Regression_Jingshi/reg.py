@@ -16,7 +16,7 @@ for _emotion in ['anger', 'fear', 'joy', 'sadness']:
 	print ('')
 	print ('Emotion:', _emotion)
 	train_x, train_y = load_reg(emotion=_emotion)
-	dev_x, dev_y = load_reg(path='./data/2018-EI-reg-En-dev', emotion=_emotion)
+	#dev_x, dev_y = load_reg(path='./data/2018-EI-reg-En-dev', emotion=_emotion)
 
 	cdict = build_dict_from_corpus(train_x, min_freq=5)
 	train_x = lexicon_feature(train_x, cdict)
@@ -24,25 +24,8 @@ for _emotion in ['anger', 'fear', 'joy', 'sadness']:
 
 	print ('training data has', len(train_x), 'samples')
 	print ('XGBoost regressor')
-#	kfold = 0
-#	for idx1, idx2 in StratifiedKFold(n_splits=10).split(train_x, train_y):
-#		kfold += 1
-#		XGboost.fit(train_x[idx1,:], train_y[idx1])
-#		print ('** ', kfold, 'fold: pearson coef = ', measure_reg(train_y[idx2], XGboost.predict(train_x[idx2,:])))
-#		print ('** ', 'testing coef = ', measure_reg(dev_y, XGboost.predict(dev_x)))
-#
-#	print ('MLP regressor')
-#	kfold = 0
-#	for idx1, idx2 in StratifiedKFold(n_splits=10).split(train_x, train_y):
-#		kfold += 1
-#		MLP.fit(train_x[idx1,:], train_y[idx1])
-#		print ('** ', kfold, 'fold: pearson coef = ', measure_reg(train_y[idx2], MLP.predict(train_x[idx2,:])))
-#		print ('** ', 'testing coef = ', measure_reg(dev_y, MLP.predict(dev_x)))
-		
-	#folds
 	
-	
-	kf = KFold(n_splits=10, random_state=2)
+	kf = KFold(n_splits=10, random_state=2 , shuffle=True)
 	folds = kf.split(train_x, train_y)
 	kfold = 0
 	for idx1, idx2 in folds:
@@ -56,11 +39,11 @@ for _emotion in ['anger', 'fear', 'joy', 'sadness']:
 
 		kfold += 1
 		XGboost.fit(training_input, training_output)
-		print ('** ', kfold, 'fold: ')
-		measure_reg(test_output, XGboost.predict(test_input))
+		print ('** ', kfold, 'fold: ', measure_reg(test_output, XGboost.predict(test_input)))
+
 	
 	print ('MLP regressor')
-	kf = KFold(n_splits=10, random_state=2)
+	kf = KFold(n_splits=10, random_state=2, shuffle=True)
 	folds = kf.split(train_x, train_y)
 	kfold = 0
 	for idx1, idx2 in folds:
@@ -74,5 +57,4 @@ for _emotion in ['anger', 'fear', 'joy', 'sadness']:
 
 		kfold += 1
 		MLP.fit(training_input, training_output)
-		print ('** ', kfold, 'fold: ')
-		measure_reg(test_output, MLP.predict(test_input))
+		print ('** ', kfold, 'fold: ', measure_reg(test_output, MLP.predict(test_input)))

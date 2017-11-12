@@ -5,27 +5,16 @@ import pandas as pd
 from sklearn.feature_extraction.text import CountVectorizer
 
 
-#Use this class to prepare and parse tweets for feature generatio
+#Use this class to prepare and parse tweets for feature generation
 class TweetParser:
 
     #pass in directory with training data files
-    def __init__(self, directory):
+    def __init__(self, filepath):
 
         self.tweet_list = [] #list of dictionaries to hold tweets data
         self.tweet_list_dataframe = []
 
-        # traverse down directory recursively
-        for dirpath, dirs, files in os.walk(directory):
-
-            print(dirpath)
-
-            for filename in files:
-
-                #read each txt file
-                if (filename.endswith(".txt")):
-
-                    self.process_file(os.path.join(dirpath, filename))
-
+        self.process_file(filepath)
         self.tweet_list_dataframe = pd.DataFrame(self.tweet_list)
 
     #end init

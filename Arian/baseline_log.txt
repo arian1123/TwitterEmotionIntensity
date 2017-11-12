@@ -1,0 +1,168 @@
+Emotion: anger
+Fold No. 1
+SVM result: Pearson correlation: 0.186898367395; Spearman correlation: 0.171427218394
+XGBoost result: Pearson correlation: 0.297318881622; Spearman correlation: 0.271710111312
+MLP result: Pearson correlation: 0.271100009734; Spearman correlation: 0.268410964567
+Fold No. 2
+SVM result: Pearson correlation: 0.0863415808822; Spearman correlation: 0.1250097166
+XGBoost result: Pearson correlation: 0.134744067683; Spearman correlation: 0.141732068341
+MLP result: Pearson correlation: 0.150077721807; Spearman correlation: 0.15169994809
+Fold No. 3
+SVM result: Pearson correlation: -0.0528323420279; Spearman correlation: -0.0971459658015
+XGBoost result: Pearson correlation: 0.0232275607333; Spearman correlation: 0.0434275743462
+MLP result: Pearson correlation: -0.00500876365903; Spearman correlation: -0.029356662887
+Fold No. 4
+SVM result: Pearson correlation: 0.044247823906; Spearman correlation: 0.0519744920166
+XGBoost result: Pearson correlation: 0.206108376816; Spearman correlation: 0.217777829303
+MLP result: Pearson correlation: 0.172319622573; Spearman correlation: 0.221512381929
+Fold No. 5
+SVM result: Pearson correlation: 0.162468937487; Spearman correlation: 0.157461802567
+XGBoost result: Pearson correlation: 0.180880473598; Spearman correlation: 0.164929634972
+MLP result: Pearson correlation: 0.219972111723; Spearman correlation: 0.161172738216
+Fold No. 6
+SVM result: Pearson correlation: 0.438390874385; Spearman correlation: 0.412274789336
+XGBoost result: Pearson correlation: 0.649001746415; Spearman correlation: 0.608868880143
+MLP result: Pearson correlation: 0.650280388347; Spearman correlation: 0.603390081352
+Fold No. 7
+SVM result: Pearson correlation: 0.494988239122; Spearman correlation: 0.500196280204
+XGBoost result: Pearson correlation: 0.690602114274; Spearman correlation: 0.657336546546
+MLP result: Pearson correlation: 0.641953210059; Spearman correlation: 0.632121805565
+Fold No. 8
+SVM result: Pearson correlation: 0.284947648784; Spearman correlation: 0.307383264228
+XGBoost result: Pearson correlation: 0.501015804534; Spearman correlation: 0.466266915332
+MLP result: Pearson correlation: 0.455457513708; Spearman correlation: 0.437797286038
+Fold No. 9
+SVM result: Pearson correlation: 0.34466089799; Spearman correlation: 0.383758628272
+XGBoost result: Pearson correlation: 0.553042113614; Spearman correlation: 0.573119774011
+MLP result: Pearson correlation: 0.611604176235; Spearman correlation: 0.590454474484
+Fold No. 10
+SVM result: Pearson correlation: 0.393280384021; Spearman correlation: 0.392701799
+XGBoost result: Pearson correlation: 0.630707733861; Spearman correlation: 0.623614325896
+MLP result: Pearson correlation: 0.576252379431; Spearman correlation: 0.574886182952
+*********************
+Emotion: fear
+Fold No. 1
+SVM result: Pearson correlation: 0.274711547502; Spearman correlation: 0.272750670006
+XGBoost result: Pearson correlation: 0.245168567635; Spearman correlation: 0.253112802657
+MLP result: Pearson correlation: 0.31630877559; Spearman correlation: 0.312876477705
+Fold No. 2
+SVM result: Pearson correlation: 0.000226708977033; Spearman correlation: -0.0122080735138
+XGBoost result: Pearson correlation: 0.166150626327; Spearman correlation: 0.183787473446
+MLP result: Pearson correlation: 0.11309963525; Spearman correlation: 0.0853915445916
+Fold No. 3
+SVM result: Pearson correlation: 0.0262725015684; Spearman correlation: 0.0329065774179
+XGBoost result: Pearson correlation: 0.220633730505; Spearman correlation: 0.24760976127
+MLP result: Pearson correlation: 0.125909534148; Spearman correlation: 0.129175178887
+Fold No. 4
+SVM result: Pearson correlation: 0.028939924648; Spearman correlation: 0.0133741369958
+XGBoost result: Pearson correlation: 0.0925119654783; Spearman correlation: 0.0804266990745
+MLP result: Pearson correlation: 0.0281596933321; Spearman correlation: 0.0482955538684
+Fold No. 5
+SVM result: Pearson correlation: 0.110512625474; Spearman correlation: 0.106975862297
+XGBoost result: Pearson correlation: 0.238018427084; Spearman correlation: 0.227248826379
+MLP result: Pearson correlation: 0.182665927004; Spearman correlation: 0.139614681743
+Fold No. 6
+SVM result: Pearson correlation: 0.324951071466; Spearman correlation: 0.278307812006
+XGBoost result: Pearson correlation: 0.625622396587; Spearman correlation: 0.586852426985
+MLP result: Pearson correlation: 0.631049327276; Spearman correlation: 0.601289888766
+Fold No. 7
+SVM result: Pearson correlation: 0.387824394673; Spearman correlation: 0.346696499632
+XGBoost result: Pearson correlation: 0.605674368222; Spearman correlation: 0.545307368567
+MLP result: Pearson correlation: 0.550514841171; Spearman correlation: 0.503445953789
+Fold No. 8
+SVM result: Pearson correlation: 0.412214157339; Spearman correlation: 0.419169744018
+XGBoost result: Pearson correlation: 0.570920890035; Spearman correlation: 0.516988938818
+MLP result: Pearson correlation: 0.571951474739; Spearman correlation: 0.553864030134
+Fold No. 9
+SVM result: Pearson correlation: 0.363165786135; Spearman correlation: 0.36288931183
+XGBoost result: Pearson correlation: 0.557282077689; Spearman correlation: 0.531856498354
+MLP result: Pearson correlation: 0.503643422991; Spearman correlation: 0.528608939898
+Fold No. 10
+SVM result: Pearson correlation: 0.472664287425; Spearman correlation: 0.502523591545
+XGBoost result: Pearson correlation: 0.600286522072; Spearman correlation: 0.574177601367
+MLP result: Pearson correlation: 0.619456435475; Spearman correlation: 0.630425792325
+*********************
+Emotion: joy
+Fold No. 1
+SVM result: Pearson correlation: 0.33396702477; Spearman correlation: 0.329500613024
+XGBoost result: Pearson correlation: 0.235963300205; Spearman correlation: 0.234470343923
+MLP result: Pearson correlation: 0.327361003898; Spearman correlation: 0.333228220822
+Fold No. 2
+SVM result: Pearson correlation: -0.0282168227099; Spearman correlation: -0.00735113172684
+XGBoost result: Pearson correlation: 0.111447165385; Spearman correlation: 0.188960511371
+MLP result: Pearson correlation: 0.126416447045; Spearman correlation: 0.18454669053
+Fold No. 3
+SVM result: Pearson correlation: 0.0223788745601; Spearman correlation: 0.00329187641815
+XGBoost result: Pearson correlation: 0.233723596001; Spearman correlation: 0.232689734436
+MLP result: Pearson correlation: 0.181257089988; Spearman correlation: 0.201201599543
+Fold No. 4
+SVM result: Pearson correlation: 0.033182353658; Spearman correlation: 0.0341226680659
+XGBoost result: Pearson correlation: 0.09443460964; Spearman correlation: 0.0613870796617
+MLP result: Pearson correlation: -0.0050225770743; Spearman correlation: -0.00649860817828
+Fold No. 5
+SVM result: Pearson correlation: 0.00405961489529; Spearman correlation: 0.0470913321156
+XGBoost result: Pearson correlation: 0.0576760197877; Spearman correlation: 0.0876821548226
+MLP result: Pearson correlation: 0.0392439356559; Spearman correlation: 0.0239687351393
+Fold No. 6
+SVM result: Pearson correlation: 0.580486363264; Spearman correlation: 0.591981067194
+XGBoost result: Pearson correlation: 0.624299978272; Spearman correlation: 0.626601072337
+MLP result: Pearson correlation: 0.661160126433; Spearman correlation: 0.681342106142
+Fold No. 7
+SVM result: Pearson correlation: 0.448613488754; Spearman correlation: 0.472272451263
+XGBoost result: Pearson correlation: 0.567364649519; Spearman correlation: 0.589994105964
+MLP result: Pearson correlation: 0.637654682156; Spearman correlation: 0.662256124653
+Fold No. 8
+SVM result: Pearson correlation: 0.343675715361; Spearman correlation: 0.310247346154
+XGBoost result: Pearson correlation: 0.486200166844; Spearman correlation: 0.489229910214
+MLP result: Pearson correlation: 0.575614950696; Spearman correlation: 0.576971916817
+Fold No. 9
+SVM result: Pearson correlation: 0.247163182494; Spearman correlation: 0.262803397963
+XGBoost result: Pearson correlation: 0.496078596066; Spearman correlation: 0.56898289474
+MLP result: Pearson correlation: 0.540581372368; Spearman correlation: 0.542352048249
+Fold No. 10
+SVM result: Pearson correlation: 0.392065425053; Spearman correlation: 0.390766503134
+XGBoost result: Pearson correlation: 0.502351055526; Spearman correlation: 0.493658767942
+MLP result: Pearson correlation: 0.644209847109; Spearman correlation: 0.623556685142
+*********************
+Emotion: sadness
+Fold No. 1
+SVM result: Pearson correlation: 0.324669931773; Spearman correlation: 0.279114473918
+XGBoost result: Pearson correlation: 0.347977352413; Spearman correlation: 0.331711226041
+MLP result: Pearson correlation: 0.332769139213; Spearman correlation: 0.310951698257
+Fold No. 2
+SVM result: Pearson correlation: 0.180321307769; Spearman correlation: 0.155601300642
+XGBoost result: Pearson correlation: 0.197802680698; Spearman correlation: 0.146062227867
+MLP result: Pearson correlation: 0.188906217461; Spearman correlation: 0.173891307236
+Fold No. 3
+SVM result: Pearson correlation: 0.217053582139; Spearman correlation: 0.216049579744
+XGBoost result: Pearson correlation: 0.157594510183; Spearman correlation: 0.151166097876
+MLP result: Pearson correlation: 0.114747614579; Spearman correlation: 0.153197706061
+Fold No. 4
+SVM result: Pearson correlation: -0.0572118026356; Spearman correlation: -0.0333814263657
+XGBoost result: Pearson correlation: 0.241725394316; Spearman correlation: 0.260658438109
+MLP result: Pearson correlation: 0.156196166001; Spearman correlation: 0.129080721053
+Fold No. 5
+SVM result: Pearson correlation: 0.0486809901141; Spearman correlation: 0.0690490989778
+XGBoost result: Pearson correlation: 0.0888053327798; Spearman correlation: 0.124255858679
+MLP result: Pearson correlation: 0.0472556885906; Spearman correlation: 0.0954009341265
+Fold No. 6
+SVM result: Pearson correlation: 0.420581107127; Spearman correlation: 0.429463087138
+XGBoost result: Pearson correlation: 0.574519415453; Spearman correlation: 0.589907682286
+MLP result: Pearson correlation: 0.552114623891; Spearman correlation: 0.5540862797
+Fold No. 7
+SVM result: Pearson correlation: 0.568831527574; Spearman correlation: 0.558147747336
+XGBoost result: Pearson correlation: 0.657100741953; Spearman correlation: 0.667114041638
+MLP result: Pearson correlation: 0.573880783798; Spearman correlation: 0.555504499166
+Fold No. 8
+SVM result: Pearson correlation: 0.485176189233; Spearman correlation: 0.494747394939
+XGBoost result: Pearson correlation: 0.671325328605; Spearman correlation: 0.689567996398
+MLP result: Pearson correlation: 0.68601021702; Spearman correlation: 0.710611781057
+Fold No. 9
+SVM result: Pearson correlation: 0.525518647978; Spearman correlation: 0.533553023286
+XGBoost result: Pearson correlation: 0.68229512902; Spearman correlation: 0.663300778776
+MLP result: Pearson correlation: 0.644525361116; Spearman correlation: 0.639279301225
+Fold No. 10
+SVM result: Pearson correlation: 0.431216203143; Spearman correlation: 0.475259107337
+XGBoost result: Pearson correlation: 0.682535886913; Spearman correlation: 0.691089040703
+MLP result: Pearson correlation: 0.682519667017; Spearman correlation: 0.678945652375
+*********************

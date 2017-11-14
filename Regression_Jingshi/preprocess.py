@@ -104,6 +104,19 @@ def load_reg(path='./data/EI-reg-English-Train', emotion='sadness'):
 	x, y = [t[0].split('#')[0] for t in text], [float(t[2]) for t in text]
 	return x, y
 
+def load_original_reg(path='./data/EI-reg-English-Train', emotion='sadness'):
+	map_emoji = def_regular_emoji()
+	emoji = map_emoji.keys()
+	
+	for f in os.listdir(path):
+		if f.find(emotion) >= 0 and f.find('_re_') < 0:
+			text = [l.split('\t')[1:]
+			        for l in open(os.path.join(path, f)).readlines()]
+			break
+	
+	x, y = [t[0].split('#')[0] for t in text], [float(t[2]) for t in text]
+	return x, y
+
 def regular_tweet(x):
 	'''
 	to regular a single tweet

@@ -1,143 +1,155 @@
 Emotion: anger
 training data has 1391 samples
 SVM regressor
-**  1 fold:  Pearson correlation: 0.256845415318; Spearman correlation: 0.225116900252 **  test on dev:  Pearson correlation: 0.152355085171; Spearman correlation: 0.16227216247
-**  2 fold:  Pearson correlation: 0.262003091828; Spearman correlation: 0.33630729471 **  test on dev:  Pearson correlation: 0.164512165446; Spearman correlation: 0.181566598281
-**  3 fold:  Pearson correlation: 0.395799560036; Spearman correlation: 0.389892973618 **  test on dev:  Pearson correlation: 0.157792251732; Spearman correlation: 0.176181773044
-**  4 fold:  Pearson correlation: 0.428707914072; Spearman correlation: 0.366587827342 **  test on dev:  Pearson correlation: 0.153056247206; Spearman correlation: 0.167591712552
-**  5 fold:  Pearson correlation: 0.309190218963; Spearman correlation: 0.318068357603 **  test on dev:  Pearson correlation: 0.130317595176; Spearman correlation: 0.133071658996
-**  6 fold:  Pearson correlation: 0.526999281692; Spearman correlation: 0.493119773838 **  test on dev:  Pearson correlation: 0.143883095123; Spearman correlation: 0.146540849837
-**  7 fold:  Pearson correlation: 0.422140184494; Spearman correlation: 0.434473589841 **  test on dev:  Pearson correlation: 0.163587843151; Spearman correlation: 0.174198008528
-**  8 fold:  Pearson correlation: 0.508250105678; Spearman correlation: 0.459364136331 **  test on dev:  Pearson correlation: 0.133448803347; Spearman correlation: 0.151363708501
-**  9 fold:  Pearson correlation: 0.570237197085; Spearman correlation: 0.56241767761 **  test on dev:  Pearson correlation: 0.153805942435; Spearman correlation: 0.165052734064
-**  10 fold:  Pearson correlation: 0.37696103844; Spearman correlation: 0.396289507459 **  test on dev:  Pearson correlation: 0.161592531837; Spearman correlation: 0.168248965848
+test on dev:  Pearson correlation: 0.230703902315; Spearman correlation: 0.258711043641
+**  1 fold:  Pearson correlation: 0.256845415318; Spearman correlation: 0.225116900252
+**  2 fold:  Pearson correlation: 0.262003091828; Spearman correlation: 0.33630729471
+**  3 fold:  Pearson correlation: 0.395799560036; Spearman correlation: 0.389892973618
+**  4 fold:  Pearson correlation: 0.428707914072; Spearman correlation: 0.366587827342
+**  5 fold:  Pearson correlation: 0.309190218963; Spearman correlation: 0.318068357603
+**  6 fold:  Pearson correlation: 0.526999281692; Spearman correlation: 0.493119773838
+**  7 fold:  Pearson correlation: 0.422140184494; Spearman correlation: 0.434473589841
+**  8 fold:  Pearson correlation: 0.508250105678; Spearman correlation: 0.459364136331
+**  9 fold:  Pearson correlation: 0.570237197085; Spearman correlation: 0.56241767761
+**  10 fold:  Pearson correlation: 0.37696103844; Spearman correlation: 0.396289507459
 XGBoost regressor
-**  1 fold:  Pearson correlation: 0.475958654975; Spearman correlation: 0.437598155882 **  test on dev:  Pearson correlation: 0.254889084233; Spearman correlation: 0.237568419466
-**  2 fold:  Pearson correlation: 0.320807716235; Spearman correlation: 0.323861665036 **  test on dev:  Pearson correlation: 0.247205455595; Spearman correlation: 0.219153832371
-**  3 fold:  Pearson correlation: 0.516224810279; Spearman correlation: 0.501362591364 **  test on dev:  Pearson correlation: 0.254615002857; Spearman correlation: 0.245987627013
-**  4 fold:  Pearson correlation: 0.513132518851; Spearman correlation: 0.440755908834 **  test on dev:  Pearson correlation: 0.243880433367; Spearman correlation: 0.252980934516
-**  5 fold:  Pearson correlation: 0.421309309984; Spearman correlation: 0.376132282086 **  test on dev:  Pearson correlation: 0.247626470746; Spearman correlation: 0.201228193167
-**  6 fold:  Pearson correlation: 0.61168533717; Spearman correlation: 0.561222484125 **  test on dev:  Pearson correlation: 0.281219487391; Spearman correlation: 0.256340987591
-**  7 fold:  Pearson correlation: 0.477095112436; Spearman correlation: 0.49812057394 **  test on dev:  Pearson correlation: 0.249060481764; Spearman correlation: 0.207632403477
-**  8 fold:  Pearson correlation: 0.583652979378; Spearman correlation: 0.574337148426 **  test on dev:  Pearson correlation: 0.255538743559; Spearman correlation: 0.243002223854
-**  9 fold:  Pearson correlation: 0.608904078473; Spearman correlation: 0.59470872834 **  test on dev:  Pearson correlation: 0.3036493015; Spearman correlation: 0.252242453668
-**  10 fold:  Pearson correlation: 0.427476506167; Spearman correlation: 0.46339447531 **  test on dev:  Pearson correlation: 0.253540493999; Spearman correlation: 0.217261745204
+test on dev:  Pearson correlation: 0.380064301178; Spearman correlation: 0.372046784538
+**  1 fold:  Pearson correlation: 0.480599141044; Spearman correlation: 0.436416646013
+**  2 fold:  Pearson correlation: 0.335464369299; Spearman correlation: 0.341225678284
+**  3 fold:  Pearson correlation: 0.521904795527; Spearman correlation: 0.503835303736
+**  4 fold:  Pearson correlation: 0.516569177268; Spearman correlation: 0.430753968746
+**  5 fold:  Pearson correlation: 0.424799538151; Spearman correlation: 0.3794769918
+**  6 fold:  Pearson correlation: 0.595020907299; Spearman correlation: 0.539291483883
+**  7 fold:  Pearson correlation: 0.471914580408; Spearman correlation: 0.495834434834
+**  8 fold:  Pearson correlation: 0.590432549073; Spearman correlation: 0.569101082375
+**  9 fold:  Pearson correlation: 0.609455585564; Spearman correlation: 0.599117029653
+**  10 fold:  Pearson correlation: 0.429545138615; Spearman correlation: 0.478628922949
 MLP regressor
-**  1 fold:  Pearson correlation: 0.311523885636; Spearman correlation: 0.307442414863 **  test on dev:  Pearson correlation: 0.219305685673; Spearman correlation: 0.219515473258
-**  2 fold:  Pearson correlation: 0.389184100495; Spearman correlation: 0.412157258712 **  test on dev:  Pearson correlation: 0.20290870408; Spearman correlation: 0.204494684452
-**  3 fold:  Pearson correlation: 0.483610785005; Spearman correlation: 0.467872015521 **  test on dev:  Pearson correlation: 0.237580418825; Spearman correlation: 0.238539054686
-**  4 fold:  Pearson correlation: 0.505808107051; Spearman correlation: 0.441725836515 **  test on dev:  Pearson correlation: 0.172382796588; Spearman correlation: 0.153000839429
-**  5 fold:  Pearson correlation: 0.415783151908; Spearman correlation: 0.410346828114 **  test on dev:  Pearson correlation: 0.202682709559; Spearman correlation: 0.194836962498
-**  6 fold:  Pearson correlation: 0.506325229512; Spearman correlation: 0.452548962228 **  test on dev:  Pearson correlation: 0.199519144789; Spearman correlation: 0.187416602793
-**  7 fold:  Pearson correlation: 0.478347052537; Spearman correlation: 0.507966356838 **  test on dev:  Pearson correlation: 0.217793672072; Spearman correlation: 0.233851998359
-**  8 fold:  Pearson correlation: 0.522687428498; Spearman correlation: 0.517388444592 **  test on dev:  Pearson correlation: 0.172023048125; Spearman correlation: 0.172978788657
-**  9 fold:  Pearson correlation: 0.57873014963; Spearman correlation: 0.571913157144 **  test on dev:  Pearson correlation: 0.203596678214; Spearman correlation: 0.2011994145
-**  10 fold:  Pearson correlation: 0.396431972058; Spearman correlation: 0.412238876572 **  test on dev:  Pearson correlation: 0.222204584388; Spearman correlation: 0.200296066362
+test on dev:  Pearson correlation: 0.284165953913; Spearman correlation: 0.279658133907
+**  1 fold:  Pearson correlation: 0.308457432689; Spearman correlation: 0.305176996709
+**  2 fold:  Pearson correlation: 0.39416331083; Spearman correlation: 0.410281687837
+**  3 fold:  Pearson correlation: 0.478880982749; Spearman correlation: 0.476471264149
+**  4 fold:  Pearson correlation: 0.517795611961; Spearman correlation: 0.45543057663
+**  5 fold:  Pearson correlation: 0.440888521074; Spearman correlation: 0.428221814275
+**  6 fold:  Pearson correlation: 0.50703710411; Spearman correlation: 0.447517287466
+**  7 fold:  Pearson correlation: 0.479846995297; Spearman correlation: 0.519595539315
+**  8 fold:  Pearson correlation: 0.530123188791; Spearman correlation: 0.515115216751
+**  9 fold:  Pearson correlation: 0.573383891391; Spearman correlation: 0.573194275527
+**  10 fold:  Pearson correlation: 0.418032428094; Spearman correlation: 0.431906188051
 
 Emotion: fear
 training data has 1740 samples
 SVM regressor
-**  1 fold:  Pearson correlation: 0.35214094869; Spearman correlation: 0.285197147007 **  test on dev:  Pearson correlation: 0.294543044351; Spearman correlation: 0.296679738305
-**  2 fold:  Pearson correlation: 0.416357449786; Spearman correlation: 0.339977893982 **  test on dev:  Pearson correlation: 0.27861224191; Spearman correlation: 0.320926452029
-**  3 fold:  Pearson correlation: 0.398240474084; Spearman correlation: 0.345955994436 **  test on dev:  Pearson correlation: 0.262455399448; Spearman correlation: 0.264832232715
-**  4 fold:  Pearson correlation: 0.410883762613; Spearman correlation: 0.339473236357 **  test on dev:  Pearson correlation: 0.274026847351; Spearman correlation: 0.282675513885
-**  5 fold:  Pearson correlation: 0.391623294919; Spearman correlation: 0.388222118617 **  test on dev:  Pearson correlation: 0.266978033315; Spearman correlation: 0.280883603744
-**  6 fold:  Pearson correlation: 0.412647149892; Spearman correlation: 0.382142855387 **  test on dev:  Pearson correlation: 0.2647313336; Spearman correlation: 0.279969256633
-**  7 fold:  Pearson correlation: 0.364473754628; Spearman correlation: 0.310229223807 **  test on dev:  Pearson correlation: 0.251499285056; Spearman correlation: 0.246195466409
-**  8 fold:  Pearson correlation: 0.465918017176; Spearman correlation: 0.39551180034 **  test on dev:  Pearson correlation: 0.278961068857; Spearman correlation: 0.279561628981
-**  9 fold:  Pearson correlation: 0.409455704084; Spearman correlation: 0.316088538694 **  test on dev:  Pearson correlation: 0.265678412184; Spearman correlation: 0.277479950379
-**  10 fold:  Pearson correlation: 0.281387869639; Spearman correlation: 0.258656358018 **  test on dev:  Pearson correlation: 0.269449431477; Spearman correlation: 0.271393311323
+test on dev:  Pearson correlation: 0.216210530199; Spearman correlation: 0.185743352091
+**  1 fold:  Pearson correlation: 0.35214094869; Spearman correlation: 0.285197147007
+**  2 fold:  Pearson correlation: 0.416357449786; Spearman correlation: 0.339977893982
+**  3 fold:  Pearson correlation: 0.398240474084; Spearman correlation: 0.345955994436
+**  4 fold:  Pearson correlation: 0.410883762613; Spearman correlation: 0.339473236357
+**  5 fold:  Pearson correlation: 0.391623294919; Spearman correlation: 0.388222118617
+**  6 fold:  Pearson correlation: 0.412647149892; Spearman correlation: 0.382142855387
+**  7 fold:  Pearson correlation: 0.364473754628; Spearman correlation: 0.310229223807
+**  8 fold:  Pearson correlation: 0.465918017176; Spearman correlation: 0.39551180034
+**  9 fold:  Pearson correlation: 0.409455704084; Spearman correlation: 0.316088538694
+**  10 fold:  Pearson correlation: 0.281387869639; Spearman correlation: 0.258656358018
 XGBoost regressor
-**  1 fold:  Pearson correlation: 0.43261964429; Spearman correlation: 0.400265979245 **  test on dev:  Pearson correlation: 0.40742730441; Spearman correlation: 0.356430090915
-**  2 fold:  Pearson correlation: 0.526795131545; Spearman correlation: 0.51262825555 **  test on dev:  Pearson correlation: 0.399954601229; Spearman correlation: 0.34100533614
-**  3 fold:  Pearson correlation: 0.496513318555; Spearman correlation: 0.407178963018 **  test on dev:  Pearson correlation: 0.401389689903; Spearman correlation: 0.310155011651
-**  4 fold:  Pearson correlation: 0.478052231624; Spearman correlation: 0.382213796189 **  test on dev:  Pearson correlation: 0.412841208803; Spearman correlation: 0.396702638632
-**  5 fold:  Pearson correlation: 0.447020554575; Spearman correlation: 0.397327359709 **  test on dev:  Pearson correlation: 0.407889091805; Spearman correlation: 0.375976774253
-**  6 fold:  Pearson correlation: 0.485566306226; Spearman correlation: 0.399228125877 **  test on dev:  Pearson correlation: 0.389722892565; Spearman correlation: 0.362489406244
-**  7 fold:  Pearson correlation: 0.473025410266; Spearman correlation: 0.439696654886 **  test on dev:  Pearson correlation: 0.392251246596; Spearman correlation: 0.343209591394
-**  8 fold:  Pearson correlation: 0.487249846706; Spearman correlation: 0.427880703116 **  test on dev:  Pearson correlation: 0.426532308944; Spearman correlation: 0.35291723139
-**  9 fold:  Pearson correlation: 0.546983346878; Spearman correlation: 0.479196695177 **  test on dev:  Pearson correlation: 0.400490357797; Spearman correlation: 0.353963932557
-**  10 fold:  Pearson correlation: 0.379588233894; Spearman correlation: 0.353773133596 **  test on dev:  Pearson correlation: 0.419283191123; Spearman correlation: 0.345956234994
+test on dev:  Pearson correlation: 0.411277740514; Spearman correlation: 0.310529600177
+**  1 fold:  Pearson correlation: 0.442138009942; Spearman correlation: 0.404876731263
+**  2 fold:  Pearson correlation: 0.519089786663; Spearman correlation: 0.517981322217
+**  3 fold:  Pearson correlation: 0.505537472152; Spearman correlation: 0.4239331185
+**  4 fold:  Pearson correlation: 0.482739937452; Spearman correlation: 0.378409156144
+**  5 fold:  Pearson correlation: 0.446230870698; Spearman correlation: 0.413908311105
+**  6 fold:  Pearson correlation: 0.481861380226; Spearman correlation: 0.388228034453
+**  7 fold:  Pearson correlation: 0.471992909529; Spearman correlation: 0.438383113207
+**  8 fold:  Pearson correlation: 0.485220789934; Spearman correlation: 0.424459335596
+**  9 fold:  Pearson correlation: 0.535787963105; Spearman correlation: 0.468412949693
+**  10 fold:  Pearson correlation: 0.380813174418; Spearman correlation: 0.360524097499
 MLP regressor
-**  1 fold:  Pearson correlation: 0.460074353681; Spearman correlation: 0.44304683933 **  test on dev:  Pearson correlation: 0.443445403705; Spearman correlation: 0.396006511053
-**  2 fold:  Pearson correlation: 0.458728515372; Spearman correlation: 0.3813711547 **  test on dev:  Pearson correlation: 0.422286412959; Spearman correlation: 0.358172208908
-**  3 fold:  Pearson correlation: 0.416936946842; Spearman correlation: 0.4043209331 **  test on dev:  Pearson correlation: 0.409978985187; Spearman correlation: 0.353683049861
-**  4 fold:  Pearson correlation: 0.488541487166; Spearman correlation: 0.406866496552 **  test on dev:  Pearson correlation: 0.448454881102; Spearman correlation: 0.390633032715
-**  5 fold:  Pearson correlation: 0.446454624517; Spearman correlation: 0.422013996548 **  test on dev:  Pearson correlation: 0.447417340942; Spearman correlation: 0.398413240803
-**  6 fold:  Pearson correlation: 0.463792533317; Spearman correlation: 0.435048019535 **  test on dev:  Pearson correlation: 0.405723936904; Spearman correlation: 0.35413947272
-**  7 fold:  Pearson correlation: 0.414961279991; Spearman correlation: 0.407880739458 **  test on dev:  Pearson correlation: 0.416675858958; Spearman correlation: 0.363927791252
-**  8 fold:  Pearson correlation: 0.455160875512; Spearman correlation: 0.394037531956 **  test on dev:  Pearson correlation: 0.44926616776; Spearman correlation: 0.383103556922
-**  9 fold:  Pearson correlation: 0.50324839625; Spearman correlation: 0.424979182953 **  test on dev:  Pearson correlation: 0.378187799743; Spearman correlation: 0.303881160168
-**  10 fold:  Pearson correlation: 0.4006387208; Spearman correlation: 0.366644077001 **  test on dev:  Pearson correlation: 0.405554760713; Spearman correlation: 0.342316769403
+test on dev:  Pearson correlation: 0.355879293203; Spearman correlation: 0.319767988391
+**  1 fold:  Pearson correlation: 0.464020300726; Spearman correlation: 0.445091300084
+**  2 fold:  Pearson correlation: 0.47427384238; Spearman correlation: 0.389635448033
+**  3 fold:  Pearson correlation: 0.422591356703; Spearman correlation: 0.400987584558
+**  4 fold:  Pearson correlation: 0.483856828593; Spearman correlation: 0.399475595236
+**  5 fold:  Pearson correlation: 0.442020419212; Spearman correlation: 0.42590889695
+**  6 fold:  Pearson correlation: 0.461779969763; Spearman correlation: 0.430205936934
+**  7 fold:  Pearson correlation: 0.418461474335; Spearman correlation: 0.405777447997
+**  8 fold:  Pearson correlation: 0.452724963916; Spearman correlation: 0.391831825934
+**  9 fold:  Pearson correlation: 0.504808375589; Spearman correlation: 0.430902329069
+**  10 fold:  Pearson correlation: 0.398297643027; Spearman correlation: 0.362604351963
 
 Emotion: joy
 training data has 1297 samples
 SVM regressor
-**  1 fold:  Pearson correlation: 0.544468010104; Spearman correlation: 0.573123793618 **  test on dev:  Pearson correlation: 0.328894490089; Spearman correlation: 0.295066975552
-**  2 fold:  Pearson correlation: 0.585652158972; Spearman correlation: 0.576018476186 **  test on dev:  Pearson correlation: 0.344112002691; Spearman correlation: 0.276603902912
-**  3 fold:  Pearson correlation: 0.540243294479; Spearman correlation: 0.568390634603 **  test on dev:  Pearson correlation: 0.344128073118; Spearman correlation: 0.301327641095
-**  4 fold:  Pearson correlation: 0.530018895013; Spearman correlation: 0.520652546668 **  test on dev:  Pearson correlation: 0.33477195271; Spearman correlation: 0.307236364635
-**  5 fold:  Pearson correlation: 0.563402192689; Spearman correlation: 0.593262262371 **  test on dev:  Pearson correlation: 0.3429339233; Spearman correlation: 0.325533596799
-**  6 fold:  Pearson correlation: 0.469008850417; Spearman correlation: 0.427630024871 **  test on dev:  Pearson correlation: 0.327701366022; Spearman correlation: 0.299541666746
-**  7 fold:  Pearson correlation: 0.546204206885; Spearman correlation: 0.551781499973 **  test on dev:  Pearson correlation: 0.329506886344; Spearman correlation: 0.298198433938
-**  8 fold:  Pearson correlation: 0.473496488065; Spearman correlation: 0.427624644583 **  test on dev:  Pearson correlation: 0.335205577239; Spearman correlation: 0.291441747787
-**  9 fold:  Pearson correlation: 0.474893043268; Spearman correlation: 0.51544904761 **  test on dev:  Pearson correlation: 0.336303407161; Spearman correlation: 0.280167597107
-**  10 fold:  Pearson correlation: 0.481072470811; Spearman correlation: 0.476779521377 **  test on dev:  Pearson correlation: 0.338179228109; Spearman correlation: 0.30572804176
+test on dev:  Pearson correlation: 0.465619790536; Spearman correlation: 0.412806059533
+**  1 fold:  Pearson correlation: 0.544468010104; Spearman correlation: 0.573123793618
+**  2 fold:  Pearson correlation: 0.585652158972; Spearman correlation: 0.576018476186
+**  3 fold:  Pearson correlation: 0.540243294479; Spearman correlation: 0.568390634603
+**  4 fold:  Pearson correlation: 0.530018895013; Spearman correlation: 0.520652546668
+**  5 fold:  Pearson correlation: 0.563402192689; Spearman correlation: 0.593262262371
+**  6 fold:  Pearson correlation: 0.469008850417; Spearman correlation: 0.427630024871
+**  7 fold:  Pearson correlation: 0.546204206885; Spearman correlation: 0.551781499973
+**  8 fold:  Pearson correlation: 0.473496488065; Spearman correlation: 0.427624644583
+**  9 fold:  Pearson correlation: 0.474893043268; Spearman correlation: 0.51544904761
+**  10 fold:  Pearson correlation: 0.481072470811; Spearman correlation: 0.476779521377
 XGBoost regressor
-**  1 fold:  Pearson correlation: 0.474269674751; Spearman correlation: 0.495524925118 **  test on dev:  Pearson correlation: 0.347906854619; Spearman correlation: 0.281016228776
-**  2 fold:  Pearson correlation: 0.590606864817; Spearman correlation: 0.59434081016 **  test on dev:  Pearson correlation: 0.31933262094; Spearman correlation: 0.252824730598
-**  3 fold:  Pearson correlation: 0.56122476857; Spearman correlation: 0.578939096767 **  test on dev:  Pearson correlation: 0.3340673436; Spearman correlation: 0.262331913177
-**  4 fold:  Pearson correlation: 0.528242623783; Spearman correlation: 0.522543749136 **  test on dev:  Pearson correlation: 0.330506343587; Spearman correlation: 0.288729444823
-**  5 fold:  Pearson correlation: 0.535297414393; Spearman correlation: 0.546753512319 **  test on dev:  Pearson correlation: 0.304295781039; Spearman correlation: 0.261060854265
-**  6 fold:  Pearson correlation: 0.501716496838; Spearman correlation: 0.473182824579 **  test on dev:  Pearson correlation: 0.333665746042; Spearman correlation: 0.250697429663
-**  7 fold:  Pearson correlation: 0.611175147968; Spearman correlation: 0.607715799571 **  test on dev:  Pearson correlation: 0.328501134039; Spearman correlation: 0.258292951788
-**  8 fold:  Pearson correlation: 0.492474026162; Spearman correlation: 0.445306832688 **  test on dev:  Pearson correlation: 0.335515348234; Spearman correlation: 0.267573672975
-**  9 fold:  Pearson correlation: 0.46770561591; Spearman correlation: 0.504678750364 **  test on dev:  Pearson correlation: 0.367823723753; Spearman correlation: 0.26051449749
-**  10 fold:  Pearson correlation: 0.541371519936; Spearman correlation: 0.523758935736 **  test on dev:  Pearson correlation: 0.365049756005; Spearman correlation: 0.303257520895
+test on dev:  Pearson correlation: 0.470394209967; Spearman correlation: 0.433336154083
+**  1 fold:  Pearson correlation: 0.478333626203; Spearman correlation: 0.49131966803
+**  2 fold:  Pearson correlation: 0.588178218351; Spearman correlation: 0.592078549018
+**  3 fold:  Pearson correlation: 0.575169797405; Spearman correlation: 0.58099178636
+**  4 fold:  Pearson correlation: 0.520811040968; Spearman correlation: 0.519727317126
+**  5 fold:  Pearson correlation: 0.538359374183; Spearman correlation: 0.553778832199
+**  6 fold:  Pearson correlation: 0.496172553222; Spearman correlation: 0.460697991547
+**  7 fold:  Pearson correlation: 0.610420981352; Spearman correlation: 0.611952427973
+**  8 fold:  Pearson correlation: 0.494336880989; Spearman correlation: 0.455077065404
+**  9 fold:  Pearson correlation: 0.475277583485; Spearman correlation: 0.51321058282
+**  10 fold:  Pearson correlation: 0.54335823905; Spearman correlation: 0.526291805735
 MLP regressor
-**  1 fold:  Pearson correlation: 0.507343404126; Spearman correlation: 0.490647989644 **  test on dev:  Pearson correlation: 0.309436680018; Spearman correlation: 0.289411139977
-**  2 fold:  Pearson correlation: 0.207750408259; Spearman correlation: 0.215369634235 **  test on dev:  Pearson correlation: 0.24796266655; Spearman correlation: 0.221166658792
-**  3 fold:  Pearson correlation: 0.605520924206; Spearman correlation: 0.639770330165 **  test on dev:  Pearson correlation: 0.367001563944; Spearman correlation: 0.3267882813
-**  4 fold:  Pearson correlation: 0.543720927971; Spearman correlation: 0.549625109275 **  test on dev:  Pearson correlation: 0.318824347973; Spearman correlation: 0.283452139008
-**  5 fold:  Pearson correlation: 0.589511954531; Spearman correlation: 0.576395378218 **  test on dev:  Pearson correlation: 0.357984482283; Spearman correlation: 0.305264288757
-**  6 fold:  Pearson correlation: 0.565354637838; Spearman correlation: 0.535897152718 **  test on dev:  Pearson correlation: 0.363729454144; Spearman correlation: 0.305948662121
-**  7 fold:  Pearson correlation: 0.567951473488; Spearman correlation: 0.556657077175 **  test on dev:  Pearson correlation: 0.332485781662; Spearman correlation: 0.272846603095
-**  8 fold:  Pearson correlation: 0.517023607263; Spearman correlation: 0.457830668454 **  test on dev:  Pearson correlation: 0.35407439554; Spearman correlation: 0.312388675509
-**  9 fold:  Pearson correlation: 0.49737717213; Spearman correlation: 0.529090178101 **  test on dev:  Pearson correlation: 0.32037560483; Spearman correlation: 0.281035070362
-**  10 fold:  Pearson correlation: 0.516146533551; Spearman correlation: 0.517405928016 **  test on dev:  Pearson correlation: 0.336867068853; Spearman correlation: 0.301584281107
+test on dev:  Pearson correlation: 0.439447100778; Spearman correlation: 0.417421234099
+**  1 fold:  Pearson correlation: 0.513591504057; Spearman correlation: 0.509789085247
+**  2 fold:  Pearson correlation: 0.664083336214; Spearman correlation: 0.659681752641
+**  3 fold:  Pearson correlation: 0.605443520148; Spearman correlation: 0.638491936781
+**  4 fold:  Pearson correlation: 0.539899919393; Spearman correlation: 0.545533386943
+**  5 fold:  Pearson correlation: 0.582538749602; Spearman correlation: 0.562216269613
+**  6 fold:  Pearson correlation: 0.566825651653; Spearman correlation: 0.53469254571
+**  7 fold:  Pearson correlation: 0.581806303372; Spearman correlation: 0.570174853969
+**  8 fold:  Pearson correlation: 0.483747240037; Spearman correlation: 0.43229645742
+**  9 fold:  Pearson correlation: 0.48977686798; Spearman correlation: 0.523430143637
+**  10 fold:  Pearson correlation: 0.511563092283; Spearman correlation: 0.513240694004
 
 Emotion: sadness
 training data has 1425 samples
 SVM regressor
-**  1 fold:  Pearson correlation: 0.359622093378; Spearman correlation: 0.356690348482 **  test on dev:  Pearson correlation: 0.300624877385; Spearman correlation: 0.306924427906
-**  2 fold:  Pearson correlation: 0.266136105922; Spearman correlation: 0.252879333474 **  test on dev:  Pearson correlation: 0.326559647094; Spearman correlation: 0.349129890806
-**  3 fold:  Pearson correlation: 0.390459123181; Spearman correlation: 0.39598094652 **  test on dev:  Pearson correlation: 0.307308212537; Spearman correlation: 0.315254137453
-**  4 fold:  Pearson correlation: 0.325392747447; Spearman correlation: 0.278157186849 **  test on dev:  Pearson correlation: 0.292335358006; Spearman correlation: 0.27749048579
-**  5 fold:  Pearson correlation: 0.342964427834; Spearman correlation: 0.327433296698 **  test on dev:  Pearson correlation: 0.338811221234; Spearman correlation: 0.347513936161
-**  6 fold:  Pearson correlation: 0.43133996799; Spearman correlation: 0.434881520246 **  test on dev:  Pearson correlation: 0.313919887901; Spearman correlation: 0.324023674879
-**  7 fold:  Pearson correlation: 0.335971787931; Spearman correlation: 0.342238114564 **  test on dev:  Pearson correlation: 0.302997789478; Spearman correlation: 0.316498565137
-**  8 fold:  Pearson correlation: 0.397238746741; Spearman correlation: 0.428662837932 **  test on dev:  Pearson correlation: 0.318704934674; Spearman correlation: 0.317559105738
-**  9 fold:  Pearson correlation: 0.425106632662; Spearman correlation: 0.455882744228 **  test on dev:  Pearson correlation: 0.321749519188; Spearman correlation: 0.325286115991
-**  10 fold:  Pearson correlation: 0.441817673746; Spearman correlation: 0.447155737221 **  test on dev:  Pearson correlation: 0.324042172889; Spearman correlation: 0.327642122323
+test on dev:  Pearson correlation: 0.36764940935; Spearman correlation: 0.370016862098
+**  1 fold:  Pearson correlation: 0.359622093378; Spearman correlation: 0.356690348482
+**  2 fold:  Pearson correlation: 0.266136105922; Spearman correlation: 0.252879333474
+**  3 fold:  Pearson correlation: 0.390459123181; Spearman correlation: 0.39598094652
+**  4 fold:  Pearson correlation: 0.325392747447; Spearman correlation: 0.278157186849
+**  5 fold:  Pearson correlation: 0.342964427834; Spearman correlation: 0.327433296698
+**  6 fold:  Pearson correlation: 0.43133996799; Spearman correlation: 0.434881520246
+**  7 fold:  Pearson correlation: 0.335971787931; Spearman correlation: 0.342238114564
+**  8 fold:  Pearson correlation: 0.397238746741; Spearman correlation: 0.428662837932
+**  9 fold:  Pearson correlation: 0.425106632662; Spearman correlation: 0.455882744228
+**  10 fold:  Pearson correlation: 0.441817673746; Spearman correlation: 0.447155737221
 XGBoost regressor
-**  1 fold:  Pearson correlation: 0.423623325631; Spearman correlation: 0.433042675306 **  test on dev:  Pearson correlation: 0.363917236713; Spearman correlation: 0.34867039569
-**  2 fold:  Pearson correlation: 0.488979917152; Spearman correlation: 0.453536384514 **  test on dev:  Pearson correlation: 0.38611402757; Spearman correlation: 0.387726977618
-**  3 fold:  Pearson correlation: 0.449269730385; Spearman correlation: 0.471192524616 **  test on dev:  Pearson correlation: 0.417062292699; Spearman correlation: 0.413519310391
-**  4 fold:  Pearson correlation: 0.425295341069; Spearman correlation: 0.391717068148 **  test on dev:  Pearson correlation: 0.369745441058; Spearman correlation: 0.33895418268
-**  5 fold:  Pearson correlation: 0.462929322709; Spearman correlation: 0.409899628549 **  test on dev:  Pearson correlation: 0.395050314057; Spearman correlation: 0.423656300572
-**  6 fold:  Pearson correlation: 0.511082857519; Spearman correlation: 0.502852901027 **  test on dev:  Pearson correlation: 0.362596623628; Spearman correlation: 0.399017079028
-**  7 fold:  Pearson correlation: 0.309158341925; Spearman correlation: 0.342070844925 **  test on dev:  Pearson correlation: 0.347652209197; Spearman correlation: 0.324098513862
-**  8 fold:  Pearson correlation: 0.423444920784; Spearman correlation: 0.445790186818 **  test on dev:  Pearson correlation: 0.361260323968; Spearman correlation: 0.367899427101
-**  9 fold:  Pearson correlation: 0.38545437101; Spearman correlation: 0.428995674468 **  test on dev:  Pearson correlation: 0.325141111839; Spearman correlation: 0.358125930279
-**  10 fold:  Pearson correlation: 0.346562302893; Spearman correlation: 0.336057800402 **  test on dev:  Pearson correlation: 0.364678769949; Spearman correlation: 0.381026259393
+test on dev:  Pearson correlation: 0.43116876587; Spearman correlation: 0.404099108446
+**  1 fold:  Pearson correlation: 0.427678473661; Spearman correlation: 0.43354169424
+**  2 fold:  Pearson correlation: 0.493841129251; Spearman correlation: 0.460088248134
+**  3 fold:  Pearson correlation: 0.445224592433; Spearman correlation: 0.484138485801
+**  4 fold:  Pearson correlation: 0.422263658975; Spearman correlation: 0.401080102568
+**  5 fold:  Pearson correlation: 0.458850366019; Spearman correlation: 0.412522246828
+**  6 fold:  Pearson correlation: 0.509064543069; Spearman correlation: 0.507235527374
+**  7 fold:  Pearson correlation: 0.315484867556; Spearman correlation: 0.340281529007
+**  8 fold:  Pearson correlation: 0.419021483727; Spearman correlation: 0.433127880792
+**  9 fold:  Pearson correlation: 0.367843391141; Spearman correlation: 0.414721719819
+**  10 fold:  Pearson correlation: 0.347544172272; Spearman correlation: 0.339444106353
 MLP regressor
-**  1 fold:  Pearson correlation: 0.437849290804; Spearman correlation: 0.416296487842 **  test on dev:  Pearson correlation: 0.35996177276; Spearman correlation: 0.322977394909
-**  2 fold:  Pearson correlation: 0.371390260105; Spearman correlation: 0.356411701703 **  test on dev:  Pearson correlation: 0.404068883752; Spearman correlation: 0.365558137569
-**  3 fold:  Pearson correlation: 0.440141516019; Spearman correlation: 0.443165769483 **  test on dev:  Pearson correlation: 0.357855244804; Spearman correlation: 0.337638074003
-**  4 fold:  Pearson correlation: 0.319945401551; Spearman correlation: 0.352030722067 **  test on dev:  Pearson correlation: 0.340189018374; Spearman correlation: 0.316199842448
-**  5 fold:  Pearson correlation: 0.0269347475982; Spearman correlation: 0.0421533566668 **  test on dev:  Pearson correlation: 0.19478232556; Spearman correlation: 0.176566500002
-**  6 fold:  Pearson correlation: 0.468959973808; Spearman correlation: 0.44576770841 **  test on dev:  Pearson correlation: 0.369000012015; Spearman correlation: 0.351065583807
-**  7 fold:  Pearson correlation: 0.413920884225; Spearman correlation: 0.426171642091 **  test on dev:  Pearson correlation: 0.375164726784; Spearman correlation: 0.342244257774
-**  8 fold:  Pearson correlation: 0.373989623114; Spearman correlation: 0.376998524066 **  test on dev:  Pearson correlation: 0.339529117975; Spearman correlation: 0.314779783837
-**  9 fold:  Pearson correlation: 0.386693883019; Spearman correlation: 0.411307896639 **  test on dev:  Pearson correlation: 0.349061199658; Spearman correlation: 0.313442286773
-**  10 fold:  Pearson correlation: 0.444124952458; Spearman correlation: 0.433679322663 **  test on dev:  Pearson correlation: 0.367170948733; Spearman correlation: 0.339083651638
+test on dev:  Pearson correlation: 0.453401161154; Spearman correlation: 0.424448516823
+**  1 fold:  Pearson correlation: 0.437967618931; Spearman correlation: 0.415579949448
+**  2 fold:  Pearson correlation: 0.365784142331; Spearman correlation: 0.346830046736
+**  3 fold:  Pearson correlation: 0.442769443515; Spearman correlation: 0.444467278195
+**  4 fold:  Pearson correlation: 0.221116444759; Spearman correlation: 0.261980410375
+**  5 fold:  Pearson correlation: 0.406663445267; Spearman correlation: 0.403221463599
+**  6 fold:  Pearson correlation: 0.459228266243; Spearman correlation: 0.435954835929
+**  7 fold:  Pearson correlation: 0.399508355076; Spearman correlation: 0.417734468032
+**  8 fold:  Pearson correlation: 0.398098834888; Spearman correlation: 0.418501909969
+**  9 fold:  Pearson correlation: 0.386725485911; Spearman correlation: 0.412767030018
+**  10 fold:  Pearson correlation: 0.434788357762; Spearman correlation: 0.422670509216

@@ -69,17 +69,18 @@ def feed_to_embedding():
 		for d in os.listdir(path):
 			if d == '.DS_Store': 
 				continue
-			# for each file
+			# notice that we process the files that are regularized before
 			for f in os.listdir(os.path.join(path, d)):
-				print ('processing', os.path.join(path, d, f))
-				text = [t.strip().split('\t')[1] 
-			            for t in open(os.path.join(path, d, f)).readlines()]  # get tweets
-				# for each tweets, replace emoji with unique text
-				for t in text:
-					for e in emoji:
-						if e in t:
-							t = t.replace(e, map_emoji[e])
-					_f.write(t+'\n')
+				if f.find('_re_') >= 0:
+					print ('processing', os.path.join(path, d, f))
+					text = [t.strip().split('\t')[1] 
+				            for t in open(os.path.join(path, d, f)).readlines()]  # get tweets
+					# for each tweets, replace emoji with unique text
+					for t in text:
+						for e in emoji:
+							if e in t:
+								t = t.replace(e, map_emoji[e])
+						_f.write(t+'\n')
 	
 	# check correctness. For example, joint emoji (like emoji5emoji5) is wrong
 	uni_emoji = set()
@@ -147,16 +148,25 @@ def regular_tweet(x):
 
 	# acronym
 	x = re.sub(r"can\'t", "can not", x)
+	x = re.sub(r"can’t", "can not", x)
 	x = re.sub(r"cannot", "can not ", x)
 	x = re.sub(r"what\'s", "what is", x)
-	x = re.sub(r"What\'s", "what is", x)
+	x = re.sub(r"What’s", "what is", x)
 	x = re.sub(r"\'ve ", " have ", x)
+	x = re.sub(r"’ve ", " have ", x)
 	x = re.sub(r"n\'t", " not ", x)
+	x = re.sub(r"n’t", " not ", x)
 	x = re.sub(r"i\'m", "i am ", x)
+	x = re.sub(r"i’m", "i am ", x)
 	x = re.sub(r"I\'m", "i am ", x)
+	x = re.sub(r"I’m", "i am ", x)
 	x = re.sub(r"\'re", " are ", x)
+	x = re.sub(r"’re", " are ", x)
 	x = re.sub(r"\'d", " would ", x)
+	x = re.sub(r"’d", " would ", x)
 	x = re.sub(r"\'ll", " will ", x)
+	x = re.sub(r"’ll", " will ", x)
+	x = re.sub(r"yrs", " years ", x)
 	x = re.sub(r"c\+\+", "cplusplus", x)
 	x = re.sub(r"c \+\+", "cplusplus", x)
 	x = re.sub(r"c \+ \+", "cplusplus", x)
@@ -168,6 +178,7 @@ def regular_tweet(x):
 	x = re.sub(r" e\-mail ", " email ", x)
 	x = re.sub(r",000", '000', x)
 	x = re.sub(r"\'s", " ", x)
+	x = re.sub(r"’s", " ", x)
 
 	# spelling correction
 	x = re.sub(r"ph\.d", "phd", x)
@@ -219,10 +230,14 @@ def regular_tweet(x):
 	x = re.sub(r"googles", " google ", x)
 	x = re.sub(r" rs(\d+)", lambda m: ' rs ' + m.group(1), x)
 	x = re.sub(r"(\d+)rs", lambda m: ' rs ' + m.group(1), x)
-	x = re.sub(r"the european union", " eu ", x)
+	x = re.sub(r"€", " eu ", x)
+	x = re.sub(r"€", " euro ", x)
+	x = re.sub(r"£", " pound ", x)
 	x = re.sub(r"dollars", " dollar ", x)
 
 	# punctuation
+	x = re.sub(r"\*", " * ", x)
+	x = re.sub(r"\\n", " ", x)
 	x = re.sub(r"\+", " + ", x)
 	x = re.sub(r"'", " ", x)
 	x = re.sub(r"-", " - ", x)
@@ -242,13 +257,37 @@ def regular_tweet(x):
 	x = re.sub(r"\(", " ( ", x)
 	x = re.sub(r"\)", " ( ", x)
 
+	# punc as prefix of a word should be separated
+	x = re.sub(r"(?<=[a-zA-Z\d])_+", " _ ", x)
+	x = re.sub(r"(?<=[a-zA-Z\d])-+", " - ", x)
+	x = re.sub(r"(?<=[a-zA-Z\d])–+", " - ", x)
+	x = re.sub(r"(?<=[a-zA-Z\d])—+", " - ", x)
+	x = re.sub(r"(?<=[a-zA-Z\d])―+", " ― ", x)
+	x = re.sub(r"(?<=[a-zA-Z\d])“+", " “ ", x)
+	x = re.sub(r"(?<=[a-zA-Z\d])”+", " ” ", x)
+	x = re.sub(r"(?<=[a-zA-Z\d])‘+", " ‘ ", x)
+	x = re.sub(r"(?<=[a-zA-Z\d])’+", " ’ ", x)
+	x = re.sub(r"(?<=[a-zA-Z\d])#+", " # ", x)
+	x = re.sub(r"(?<=[a-zA-Z\d])…+", " … ", x)
+	# punc as postfix of a word should be separated
+	x = re.sub(r"_+(?=[a-zA-Z\d])", " _ ", x)
+	x = re.sub(r"-+(?=[a-zA-Z\d])", " - ", x)
+	x = re.sub(r"–+(?=[a-zA-Z\d])", " - ", x)
+	x = re.sub(r"—+(?=[a-zA-Z\d])", " - ", x)
+	x = re.sub(r"―+(?=[a-zA-Z\d])", " ― ", x)
+	x = re.sub(r"“+(?=[a-zA-Z\d])", " “ ", x)
+	x = re.sub(r"”+(?=[a-zA-Z\d])", " ” ", x)
+	x = re.sub(r"‘+(?=[a-zA-Z\d])", " ‘ ", x)
+	x = re.sub(r"’+(?=[a-zA-Z\d])", " ’ ", x)
+	x = re.sub(r"#+(?=[a-zA-Z\d])", " # ", x)
+	x = re.sub(r"…+(?=[a-zA-Z\d])", " … ", x)
 	# symbol replacement
 	x = re.sub(r"&", " and ", x)
 	x = re.sub(r"\|", " or ", x)
 	x = re.sub(r"=", " equal ", x)
 	x = re.sub(r"\+", " plus ", x)
 	x = re.sub(r"₹", " rs ", x) 
-	x = re.sub(r"\$", " dollar ", x)	
+	x = re.sub(r"\$", " dollar ", x)
 	
 	# 4. seperate puncuation, because they look like a postfix for the final words
 	punc = re.findall('[.!?]+', x)
@@ -297,8 +336,16 @@ if __name__ == '__main__':
 	#define_emoji()		
 
 	# 2.
-	#feed_to_embedding()
-	
 	for _emotion in ['anger', 'fear', 'joy', 'sadness']:
 		regular_file('./data/EI-reg-English-Train/EI-reg-en_'+_emotion+'_train.txt')
 		regular_file('./data/2018-EI-reg-En-dev/2018-EI-reg-En-'+_emotion+'-dev.txt')
+# 		regular_file('./data/EI-oc-En-train/EI-oc-En-'+_emotion+'-train.txt')
+# 		regular_file('./data/2018-EI-oc-En-dev/2018-EI-oc-En-'+_emotion+'-dev.txt')
+	
+	# 3.
+	feed_to_embedding()
+#	import tensorflow as tf
+#	hello = tf.constant('Hello, TensorFlow!')
+#	sess = tf.Session()
+#	print(sess.run(hello))
+

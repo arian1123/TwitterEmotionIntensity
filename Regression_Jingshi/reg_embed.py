@@ -19,7 +19,9 @@ for _emotion in ['anger', 'fear', 'joy', 'sadness']:
     
 	print ('')
 	print ('Emotion:', _emotion)
-	train_x, train_y = load_reg(emotion=_emotion)
+	train_x, train_y = load_original_reg(emotion=_emotion)
+	for i in range(len(train_x)):
+		train_x[i] = regular_tweet(train_x[i])
 	#dev_x, dev_y = load_reg(path='./data/2018-EI-reg-En-dev', emotion=_emotion)
 
 	cdict = build_dict_from_corpus(train_x, min_freq=5)

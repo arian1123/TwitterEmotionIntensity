@@ -21,8 +21,10 @@ svm_coef, boost_coef, mlp_coef = [], [], []
 for _emotion in ['anger', 'fear', 'joy', 'sadness']:
 	print ('')
 	print ('Emotion:', _emotion)
-	train_x, train_y = load_reg(emotion=_emotion)
+	train_x, train_y = load_original_reg(emotion=_emotion)
 	dev_x, dev_y = load_original_reg(path='./data/2018-EI-reg-En-dev', emotion=_emotion)
+	for i in range(len(train_x)):
+		train_x[i] = regular_tweet(train_x[i])
 	for i in range(len(dev_x)):
 		dev_x[i] = regular_tweet(dev_x[i])
 

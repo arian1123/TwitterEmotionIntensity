@@ -3,6 +3,8 @@
 
 import re
 import os, sys
+import nltk
+from nltk.sentiment.util import mark_negation
 import numpy as np
 
 path = './data'
@@ -330,6 +332,52 @@ def regular_file(path):
 			out_file.write(l+'\n')
 	
 	print ('Finished writing', out_file)
+
+
+### Create function to break apart contractions to its derivative words
+### A text file containing this('contractions.txt') should be located at the
+### working directory along with this script.
+
+def break_contractions(text):
+    #### Import dictionary of contractions: contractions.txt
+    with open('contractions.txt', 'r') as inf:
+        contractions = eval(inf.read())
+
+    pattern = re.compile(r'\b(' + '|'.join(contractions.keys()) + r')\b')
+    result = pattern.sub(lambda x: contractions[x.group()], text)
+    return (result)
+
+
+### Create function to lemmatize (stem) words to their root
+### This requires the NLTK wordnet dataset.
+
+def lemmatize_words(text):
+    # Create a lemmatizer object
+    wordnet_lemmatizer = nltk.stem.WordNetLemmatizer()
+    return (wordnet_lemmatizer.lemmatize(text.lower()))
+    # out = []
+    # for word in text:
+    #     out.append(wordnet_lemmatizer.lemmatize(word.lower()))
+    # return (out)
+
+
+#### Create function to remove stopwords (e.g., and, if, to)
+#### Removes stopwords from a list of words (i.e., to be used on lyrics after splitting).
+#### This requires the NLTK stopwords dataset.
+def remove_stopwords(text):
+    # Create set of all stopwords
+    stopword_set = set(w.lower() for w in nltk.corpus.stopwords.words())
+    out = ''
+    for word in text.split(' '):
+        # Convert words to lower case alphabetical letters only
+        # word = ''.join(w.lower() for w in word if w.isalpha())
+        if word not in stopword_set:
+            out += word
+    # Return only words that are not stopwords
+    return (out)
+
+
+
 	
 if __name__ == '__main__':
 	# 1.
@@ -341,7 +389,6 @@ if __name__ == '__main__':
 		regular_file('./data/2018-EI-reg-En-dev/2018-EI-reg-En-'+_emotion+'-dev.txt')
 # 		regular_file('./data/EI-oc-En-train/EI-oc-En-'+_emotion+'-train.txt')
 # 		regular_file('./data/2018-EI-oc-En-dev/2018-EI-oc-En-'+_emotion+'-dev.txt')
-	
 	# 3.
 	feed_to_embedding()
 #	import tensorflow as tf

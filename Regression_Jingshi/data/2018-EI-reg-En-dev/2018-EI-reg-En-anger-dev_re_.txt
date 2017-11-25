@@ -104,7 +104,7 @@
 2018-en-anger-dev-104	Blah blah blah Kyrie ,  IT ,  etc  .    leaving Boston is the real news and I am  # devastated  !   # celtics  # fave   # someonegetmeajerseyteeasap	anger	0.609
 2018-en-anger-dev-105	    .   Are you kidding  ?   Delayed from 7 : 30pm to 11 : 00  -  only to cancel it because the pilot is overtime   .  	anger	0.844
 2018-en-anger-dev-106	    The only word worse than  moist  in my opinion is  crape   .   # ugh  # shudder	anger	0.581
-2018-en-anger-dev-107	very very irritated  emoji23 	anger	0.8574999999999999
+2018-en-anger-dev-107	very very irritated  emoji23 	anger	0.871
 2018-en-anger-dev-108	Leviticus 19 : 14 You shall not curse the  # deaf or put a stumbling  # block before the  # blind ,  but you shall  # fear your  # God :  I am the [1 / 2]	anger	0.212
 2018-en-anger-dev-109	if not then  # teamchristine bc all tana has done is provoke her by tweeting shady shit and trying to be a hard bitch begging for a fight	anger	0.656
 2018-en-anger-dev-110	Why have  # Emmerdale had to rob  # robron of having their first child together for that vile woman / cheating sl smh  # bitter	anger	0.703
@@ -158,6 +158,7 @@
 2018-en-anger-dev-158	Not letting anyone anger me or change who I am  . 	anger	0.265
 2018-en-anger-dev-159	A goal should scare you a little ,  and excite you a lot  .   -  Joe Vitale  # quote	anger	0.194
 2018-en-anger-dev-160	 - c -  and disarmed of her equipment on suspicion of being a potential accomplice to Annie Leonhart  . 	anger	0.516
+2018-en-anger-dev-161	Shit getting me irritated  emoji22 	anger	0.844
 2018-en-anger-dev-162	Time to  # impeachtrump    .  He is  # crazy  # mentally  # sick and spews  # hatred    .   # America is in trouble with him having  # access to  # nuclearcodes  emoji41  emoji41 	anger	0.813
 2018-en-anger-dev-163	  Maybe to stand in the field to scare away the crows	anger	0.391
 2018-en-anger-dev-164	I feel exhausted      .      .      .  I tried to do a good job ,  but apparently God does not see me right     .  i am  weary   !  I EXIST   !   emoji13  emoji42  emoji43   # exist  # weary  # misonorotta	anger	0.613

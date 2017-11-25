@@ -1,4 +1,4 @@
-2018-en-joy-dev-1	    Philippines  emoji29 	joy	0.47
+2018-en-joy-dev-1	    Philippines  emoji29 	joy	0.409
 2018-en-joy-dev-2	My new favourite  # film with out a shadow of a doubt it  # Okja  # beautifull  # funny  # sad  # emotional  # real  # Netflix  # MUSTWATCH  # now	joy	0.563
 2018-en-joy-dev-3	Enter this code for 10 free Lyfts PARX  # Is not  it great to save money when you shop  ?   # blissful  # FREECAB	joy	0.419
 2018-en-joy-dev-4	 Let me no longer languish in  # pain ,  but look forward with  # joy to all I have been gifted to achieve in my life  .   ~  # Eleesha  emoji72   # quote	joy	0.364
@@ -51,6 +51,7 @@
 2018-en-joy-dev-51	Just got a gift via this cool virtual assistant    .  Wanna experience  ?  Let me know ,  I can send you a gift emoji80    # magical  # delightful  emoji65 	joy	0.662
 2018-en-joy-dev-52	A loss ai not  a loss it  a lesson  # smile	joy	0.250
 2018-en-joy-dev-53	  No need to thank me   .    .  i am  just telling it like it is  emoji65  Hope you have a great day too  !   emoji29 	joy	0.641
+2018-en-joy-dev-54	    My pleasure  emoji65 	joy	0.531
 2018-en-joy-dev-55	The greatest happiness is seeing someone you like stay happy  -  Daidouji Tomoyo [Cardcaptor Sakura ]	joy	0.706
 2018-en-joy-dev-56	Waking up to the  # scent of  # coffee ,  there  no other  # pleasure   .    # morning  # carliforniadreaming  # Writers	joy	0.777
 2018-en-joy-dev-57	@ _ ruthharvey _  happy bday Ruth ,  hope you have an amazing day  emoji81  emoji81 x	joy	0.703

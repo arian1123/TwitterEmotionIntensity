@@ -347,8 +347,6 @@ class TweetFeatureGenerator:
         else:
             score = self.placehold_emotion_intensity
 
-        print(str(w) + " " + str(score))
-
         return score
 
     #end get_depechemood_score

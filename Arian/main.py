@@ -24,27 +24,29 @@ def main():
                 emotion_tweets_file = os.path.join(tweets_directory, file)
 
         parsed_tweets = preprocess.TweetParser(emotion_tweets_file)
-        fg = preprocess.TweetFeatureGenerator(parsed_tweets)
-        vocab, bag_words_model = fg.build_bag_words() #input
-        emotion_intensities = fg.tweet_data.tweet_list_dataframe['emotion_intensity'] #output
+        fg = preprocess.TweetFeatureGenerator(parsed_tweets, emotion=emotion, bag_of_words=False)
+        print(fg.depechemood_dict['damn'])
 
-        #exit()
+        exit()
+
+        features_vector = fg.features_vector #input
+        emotion_intensities = fg.tweet_data.tweet_list_dataframe['emotion_intensity'] #output
 
         # folds
         num_folds = 10
         kf = KFold(n_splits=num_folds, random_state=2)
-        folds = kf.split(bag_words_model)
+        folds = kf.split(features_vector)
 
         temp_folds = []  # hold tuples holding split data for each fold
 
         # populate folds
         for train_index, test_index in folds:
             # training data
-            training_input = [bag_words_model[i] for i in train_index]
+            training_input = [features_vector[i] for i in train_index]
             training_output = [float(emotion_intensities[i]) for i in train_index]
 
             # test data
-            test_input = [bag_words_model[i] for i in test_index]
+            test_input = [features_vector[i] for i in test_index]
             test_output = [float(emotion_intensities[i]) for i in test_index]
 
             temp_folds.append((training_input, training_output, test_input, test_output))

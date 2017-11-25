@@ -4,8 +4,9 @@ import os
 import re
 import pandas as pd
 import numpy as np
+from nltk.stem import WordNetLemmatizer
 from sklearn.feature_extraction.text import CountVectorizer
-
+import scipy as sp
 
 #Use this class to prepare and parse tweets for feature generation
 class TweetParser:
@@ -34,10 +35,34 @@ class TweetParser:
             data['content'] = self.clean_tweet(tokens[1])
             data['emotion'] = tokens[2]
             data['emotion_intensity'] = tokens[3]
+            data['hashtags'] = self.extract_hashtags(tokens[1])
 
             self.tweet_list.append(data)
 
+    #
+    #
     #end read_file
+    #
+    #
+
+
+    #extract hashtags from tweet
+    def extract_hashtags(self, tweet_body):
+
+        hashtags = re.findall(r"#(\w+)", tweet_body)
+        return hashtags
+
+    #end extract hashtags
+
+
+    #use DepecheMood to get a 0-1 intensity of hashtagged term
+    def hashtag_intensity(self, term):
+
+        print('blah')
+
+
+    #end hashtag_intensity
+
 
     #from Regression_Jingshi/preprocess.py
     def clean_tweet(self, x):
@@ -165,6 +190,9 @@ class TweetParser:
         for p in punc:
             x = (' ' + p).join(x.split(p))
 
+        #delete hashtag symbol
+        x = re.sub(r"#", "", x)
+
         return x
 
     #end regular tweet
@@ -173,24 +201,44 @@ class TweetParser:
 #generate variety of features
 class TweetFeatureGenerator:
 
-    def __init__(self, TweetParser):
+    def __init__(self, TweetParser, emotion='angry', bag_of_words=True,
+                 glove=True, hashtag_intensity=True, truncate_dict=True):
 
         self.tweet_data = TweetParser #TweetProcessor Object, generated features from parsed data
+        self.truncate_dict = truncate_dict
+        self.depechemood_dict = {} #populate later, if need be
+        self.emotion = emotion
+        self.placehold_emotion_intensity = 0.5 #use value to fill missing/incomplete value for intensity
+
+        #get all individual features
+        if(bag_of_words == True):
+            self.vocab, self.bag_words_model = self.build_bag_words()  # input
+
+        if(hashtag_intensity == True):
+            self.hashtag_intensity_model = self.build_hashtag_intensity()
+
+        #self.features_vector = np.column_stack((self.bag_words_model, self.hashtag_intensity_model))
 
     #end init
 
+    #
+    #
+    # Functions for Bag of Words Model
+    #
+    #
+    #
 
-    #generate bag of words model
+    #generate bag of words model (for use in feature vector)
     #Param:
     #bool truncate, remove words from dictionary under word frequency threshold
-    def build_bag_words(self, truncate=True):
+    def build_bag_words(self):
 
         vectorizer = CountVectorizer()
         corpus = self.tweet_data.tweet_list_dataframe['content'].tolist()
         bag_of_words = vectorizer.fit_transform(corpus).toarray()
         dictionary = vectorizer.get_feature_names()
 
-        if(truncate == True):
+        if(self.truncate_dict == True):
             dictionary, bag_of_words = self.truncate_dictionary(bag_of_words, dictionary, min_freq=5)
 
         return dictionary, bag_of_words
@@ -199,6 +247,7 @@ class TweetFeatureGenerator:
 
 
     #delete words from dictionary from bag of words and dictionary under frequency threshold
+    # THINK OF WAYS TO NUANCE WORD DELETION
     def truncate_dictionary(self, bag_of_words, dict, min_freq=5):
 
         new_dict = []
@@ -216,3 +265,98 @@ class TweetFeatureGenerator:
         return new_dict, new_bag_words
 
     #end truncate_dictionary
+
+    #
+    #
+    # Functions for Hashtag intensity
+    #
+    #
+    #
+
+    #create DepecheMood sentiment dictionary as python data structure
+
+    ######## add word tag to dictionary
+    def get_depechemood_dict(self, type='freq'):
+
+        path = "Arian/DepecheMood/DepecheMood_" + type + ".txt"
+
+        file = open(path)
+        dict = {}
+        emotions = [t.replace("\n", "").lower() for t in next(file).split("\t")[1:]]
+
+        for f in file:
+
+            tokens = f.split("\t")
+            word = tokens[0].split("#", 1)[0]
+            raw_intensities = [float(i.replace("\n", "")) for i in tokens[1:]] #convert str to float
+            intensities = [float(i)/max(raw_intensities) for i in raw_intensities] #normalize intensity values from 0-1
+
+            dict[word] = {e: intensities[idx] for idx, e in enumerate(emotions)}
+
+        return dict
+
+    #end get_depechemood_dict
+
+    #generate hashtag intensity model (for use in feature vector)
+    def build_hashtag_intensity(self):
+
+        self.depechemood_dict = self.get_depechemood_dict()
+        hashtags = self.tweet_data.tweet_list_dataframe['hashtags'].tolist()
+        model = np.array([self.hashtag_intensity(h, emotion=self.emotion) for h in hashtags])
+
+        return model
+
+    #end build_hashtag_intensity
+
+    #get intensity of hashtag words from depechemood dictionary
+    # return average of all hashtags for single tweet for passed emotion
+    def hashtag_intensity(self, hashtags, emotion='angry'):
+
+        depeche_emotion = self.map_emotion_depechemood(emotion)
+
+        if not hashtags:
+            avg_intensity = self.placehold_emotion_intensity
+        else:
+            avg_intensity = np.average([self.get_depechemood_score(i, depeche_emotion) for i in hashtags])
+
+        return avg_intensity
+
+    #end hashtag_intnsities
+
+    #return matching emotion for depechemood dictionary
+    def map_emotion_depechemood(self, emotion):
+
+        if(emotion == 'anger'): return 'angry'
+        if(emotion == 'fear'): return 'afraid'
+        if(emotion == 'joy'): return 'happy'
+        if(emotion == 'sadness'): return 'sad'
+        else: return False
+    #end map_emotion_depechemood
+
+    #get a depechemood intensity for word + target emotion
+    #LEMMATIZE WORDS
+    def get_depechemood_score(self, word="", emotion="angry"):
+
+        #format input properly
+        w = word.lower()
+        e = emotion.lower()
+
+        #if word is not found in dict, return 0 /// THINK OF ALTERNATIVE METHOD HANDLING
+        if(w in self.depechemood_dict):
+            score = self.depechemood_dict[w][e]
+        else:
+            score = self.placehold_emotion_intensity
+
+        print(str(w) + " " + str(score))
+
+        return score
+
+    #end get_depechemood_score
+
+    #
+    #
+    # Emoji extraction and evaluation
+    #
+    #
+
+#End class TweetFeatureGenerator

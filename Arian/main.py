@@ -110,7 +110,6 @@ def test():
 #end test
 
 def measure_reg(y, z):
-    # return np.corrcoef(y, z)[0,1]
     pears_corr = scipy.stats.pearsonr(y, z)[0]
     spear_corr = scipy.stats.spearmanr(y, z)[0]
     output = "Pearson correlation: " + str(pears_corr) + "; Spearman correlation: " + str(spear_corr)

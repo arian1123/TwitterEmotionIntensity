@@ -1,13 +1,22 @@
 import numpy as np
-from sklearn.metrics import recall_score, confusion_matrix
+from sklearn.metrics import recall_score, accuracy_score, confusion_matrix
+import pickle
 
 import scipy.stats
 
 def measure_clf(y, z):
-	print ('accuracy = ', np.mean(y == z))	
+	#print ('accuracy = ', np.mean(y == z))
+	print ('accuracy = ', accuracy_score(y, z))
 	print ('micro-recall = ', recall_score(y, z, average='micro'))	
 	print ('macro-recall = ', recall_score(y, z, average='macro'))
-	print ('confusion matrix = ', confusion_matrix(y, z))
+
+	accuracy = np.mean(y == z)
+	micro_recall = recall_score(y, z, average='micro')
+	macro_recall = recall_score(y, z, average='macro')
+	from sklearn.metrics import confusion_matrix
+	cm = confusion_matrix(y, z)
+	print('confusion matrix: ', '\n',  cm)
+	return accuracy, micro_recall, macro_recall, cm
 
 def measure_reg(y, z):
 	

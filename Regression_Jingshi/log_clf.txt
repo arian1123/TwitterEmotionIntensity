@@ -1,0 +1,7 @@
+Classification (metric: accuracy score):
+tf-idf + normalized w2v(400 dim):
+              MLP       GDB
+     anger    0.4221    0.4227
+      fear    0.6199    0.6661
+       joy    0.4055    0.4167
+   sadness    0.4125    0.4077

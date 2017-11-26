@@ -1,11 +1,15 @@
 #pre processing and feature extraction for training files
 
-import os
 import re
 import pandas as pd
 import numpy as np
-from nltk.stem import WordNetLemmatizer
 from sklearn.feature_extraction.text import CountVectorizer
+from sklearn.feature_extraction.text import TfidfVectorizer
+from nltk.tokenize import TweetTokenizer
+from sklearn import preprocessing
+from random import shuffle
+from nltk.stem import WordNetLemmatizer
+import nltk
 import scipy as sp
 
 #Use this class to prepare and parse tweets for feature generation
@@ -36,8 +40,11 @@ class TweetParser:
             data['emotion'] = tokens[2]
             data['emotion_intensity'] = tokens[3]
             data['hashtags'] = self.extract_hashtags(tokens[1])
+            data['pos_tags'] = self.tag_token_pos(data['content'])
 
             self.tweet_list.append(data)
+
+        shuffle(self.tweet_list)
 
     #
     #
@@ -54,6 +61,14 @@ class TweetParser:
 
     #end extract hashtags
 
+    def tag_token_pos(self, content):
+
+        tokens = nltk.tokenize.word_tokenize(content)
+        pos = nltk.pos_tag(tokens)
+        return pos
+
+    #end tag_token_pos
+
 
     #use DepecheMood to get a 0-1 intensity of hashtagged term
     def hashtag_intensity(self, term):
@@ -64,8 +79,35 @@ class TweetParser:
     #end hashtag_intensity
 
 
+    ####### update to use emoji to word dictioanry
+    def def_regular_emoji(self):
+        '''
+        use a unique symbol emoji_#No. to replace an emoji
+        '''
+        map_emoji = dict()
+        prefix = ' emoji'  # extra space ensures independence
+        with open('Arian/data/emoji_map.txt') as f:
+            emoji = [l.strip() for l in f.readlines()]
+
+        for i, e in enumerate(emoji):
+            map_emoji.update({e: prefix + str(i) + ' '})  # extra space ensures independence
+
+        return map_emoji
+
+    #end def_regular_emoji
+
+
     #from Regression_Jingshi/preprocess.py
     def clean_tweet(self, x):
+
+        map_emoji = self.def_regular_emoji()
+        emoji = map_emoji.keys()
+
+        # 2. regular emoji
+        for e in emoji:
+            if e in x:
+                x = x.replace(e, map_emoji[e])
+
 
         # 1. filter out
         filter_table = ['\\n', '/n',
@@ -201,8 +243,8 @@ class TweetParser:
 #generate variety of features
 class TweetFeatureGenerator:
 
-    def __init__(self, TweetParser, emotion='angry', bag_of_words=True,
-                 glove=True, hashtag_intensity=True, truncate_dict=True):
+    def __init__(self, TweetParser, emotion='angry', bag_of_words=False,
+                 word2vec=False, hashtag_intensity=False, truncate_dict=False, tdidf=False):
 
         self.tweet_data = TweetParser #TweetProcessor Object, generated features from parsed data
         self.truncate_dict = truncate_dict
@@ -210,14 +252,33 @@ class TweetFeatureGenerator:
         self.emotion = emotion
         self.placehold_emotion_intensity = 0.5 #use value to fill missing/incomplete value for intensity
 
+        features = []
+
         #get all individual features
         if(bag_of_words == True):
-            self.vocab, self.bag_words_model = self.build_bag_words()  # input
+            self.vocab, self.bag_words_model = self.build_bag_words()
+            features.append(self.bag_words_model)
 
         if(hashtag_intensity == True):
             self.hashtag_intensity_model = self.build_hashtag_intensity()
+            features.append(self.hashtag_intensity_model)
 
-        #self.features_vector = np.column_stack((self.bag_words_model, self.hashtag_intensity_model))
+        if(tdidf == True):
+            self.td_idf_model = self.build_td_idf()
+            features.append(self.td_idf_model)
+
+        if(word2vec == True):
+            self.word2vec_model = self.build_word2vec_model()
+            features.append(self.word2vec_model)
+
+        #build total features vector from all individual features
+        if(features is not []):
+            self.features_vector = features[0]
+
+            if(len(features) > 1):
+
+                for f in features[1:]:
+                    self.features_vector = np.column_stack((self.features_vector, f))
 
     #end init
 
@@ -288,6 +349,7 @@ class TweetFeatureGenerator:
 
             tokens = f.split("\t")
             word = tokens[0].split("#", 1)[0]
+            pos_tag = tokens[0].split("#", 1)[1]
             raw_intensities = [float(i.replace("\n", "")) for i in tokens[1:]] #convert str to float
             intensities = [float(i)/max(raw_intensities) for i in raw_intensities] #normalize intensity values from 0-1
 
@@ -353,8 +415,77 @@ class TweetFeatureGenerator:
 
     #
     #
-    # Emoji extraction and evaluation
+    # Word2Vec implementation
     #
     #
+
+    def get_edinburg_embeddings(self):
+        edinburg_embeddings = open("Arian/data/embedding/w2v.twitter.edinburgh10M.400d.csv").readlines()
+        edinburg_word_list = [line.split('\t')[-1].strip() for line in edinburg_embeddings]
+
+        return edinburg_embeddings, edinburg_word_list
+
+    #end get_edinburgh_embeddings
+
+    def vectors_to_vector(self, arr):
+
+        global vec
+        vec = np.zeros(400)
+        if len(arr) == 0:
+            return vec
+        for i in range(len(arr[0])):
+            vals = [float(a[i]) for a in arr]
+            vec[i] = sum(vals)
+        return vec
+
+    #end vectorsToVector
+
+    def tweet_to_embeddings(self, tweet):
+
+        tokenizer = TweetTokenizer()
+        tokens = tokenizer.tokenize(tweet)
+        tweet_vec = [np.zeros(400) for _ in range(len(tokens))]
+
+        for i, token in enumerate(tokens):
+            if token in self.edinburg_word_list:
+                tweet_vec[i] = self.edinburg_embeddings[self.edinburg_word_list.index(token)].split('\t')[:-1]
+
+        return self.vectors_to_vector(tweet_vec)
+
+    #end tweetToEmbeddings
+
+    def build_word2vec_model(self):
+
+        self.edinburg_embeddings, self.edinburg_word_list = self.get_edinburg_embeddings()
+        corpus = self.tweet_data.tweet_list_dataframe['content'].tolist()
+        train_w2v = corpus
+        for i in range(len(corpus)):
+            train_w2v[i] = self.tweet_to_embeddings(corpus[i])
+        # normalize
+        train_w2v = preprocessing.normalize(train_w2v, norm='l2')
+
+        return train_w2v
+
+    #end build_word2vec_model
+
+    #
+    #
+    # td-idf model
+    #
+    #
+
+    def build_td_idf(self):
+
+        vectorizer = TfidfVectorizer(min_df=3)
+        corpus = self.tweet_data.tweet_list_dataframe['content'].tolist()
+        vectorizer.fit(corpus)
+        train_x0 = vectorizer.transform(corpus).todense()
+        train_x0 = train_x0.tolist()
+
+        return train_x0
+
+
+    #end build_td_idf
+
 
 #End class TweetFeatureGenerator

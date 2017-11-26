@@ -24,10 +24,7 @@ def main():
                 emotion_tweets_file = os.path.join(tweets_directory, file)
 
         parsed_tweets = preprocess.TweetParser(emotion_tweets_file)
-        fg = preprocess.TweetFeatureGenerator(parsed_tweets, emotion=emotion, bag_of_words=False)
-        print(fg.depechemood_dict['damn'])
-
-        exit()
+        fg = preprocess.TweetFeatureGenerator(parsed_tweets, emotion=emotion, tdidf=True, word2vec=True, hashtag_intensity=True)
 
         features_vector = fg.features_vector #input
         emotion_intensities = fg.tweet_data.tweet_list_dataframe['emotion_intensity'] #output

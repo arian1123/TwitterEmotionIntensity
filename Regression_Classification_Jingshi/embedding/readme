@@ -15,3 +15,5 @@ Finally, embed.png and embed.pkl are generated automatically.
 remark: log.txt and training.png is recording manually.
 
 To access the Word2Vec word vectors created using the Edinburgh corpus, download it from https://github.com/felipebravom/AffectiveTweets/releases/download/1.0.0/w2v.twitter.edinburgh10M.400d.csv.gz and save it in /embedding
+
+Download GloVe word vectors from https://nlp.stanford.edu/projects/glove/

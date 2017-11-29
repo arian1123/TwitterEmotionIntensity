@@ -1,0 +1,179 @@
+Emotion: anger
+training data has 1391 samples
+XGBoost regressor
+**  1 fold: pearson coef =  0.481685869403
+**  testing coef =  0.481685869403
+**  2 fold: pearson coef =  0.48483300916
+**  testing coef =  0.48483300916
+**  3 fold: pearson coef =  0.548806916286
+**  testing coef =  0.548806916286
+**  4 fold: pearson coef =  0.519733288042
+**  testing coef =  0.519733288042
+**  5 fold: pearson coef =  0.436862454647
+**  testing coef =  0.436862454647
+**  6 fold: pearson coef =  0.559717638207
+**  testing coef =  0.559717638207
+**  7 fold: pearson coef =  0.541158221225
+**  testing coef =  0.541158221225
+**  8 fold: pearson coef =  0.357055128432
+**  testing coef =  0.357055128432
+**  9 fold: pearson coef =  0.473752466411
+**  testing coef =  0.473752466411
+**  10 fold: pearson coef =  0.343075558105
+**  testing coef =  0.343075558105
+MLP regressor
+**  1 fold: pearson coef =  0.477855617869
+**  testing coef =  0.477855617869
+**  2 fold: pearson coef =  0.471034264088
+**  testing coef =  0.471034264088
+**  3 fold: pearson coef =  0.481637544798
+**  testing coef =  0.481637544798
+**  4 fold: pearson coef =  0.427406134981
+**  testing coef =  0.427406134981
+**  5 fold: pearson coef =  0.438781289443
+**  testing coef =  0.438781289443
+**  6 fold: pearson coef =  0.515002416496
+**  testing coef =  0.515002416496
+**  7 fold: pearson coef =  0.547172987493
+**  testing coef =  0.547172987493
+**  8 fold: pearson coef =  0.397110874492
+**  testing coef =  0.397110874492
+**  9 fold: pearson coef =  0.464340869421
+**  testing coef =  0.464340869421
+**  10 fold: pearson coef =  0.335479312131
+**  testing coef =  0.335479312131
+
+Emotion: fear
+training data has 1741 samples
+XGBoost regressor
+**  1 fold: pearson coef =  0.462123943056
+**  testing coef =  0.462123943056
+**  2 fold: pearson coef =  0.470056158905
+**  testing coef =  0.470056158905
+**  3 fold: pearson coef =  0.382218274654
+**  testing coef =  0.382218274654
+**  4 fold: pearson coef =  0.551260477804
+**  testing coef =  0.551260477804
+**  5 fold: pearson coef =  0.508017285957
+**  testing coef =  0.508017285957
+**  6 fold: pearson coef =  0.416352162947
+**  testing coef =  0.416352162947
+**  7 fold: pearson coef =  0.457261415766
+**  testing coef =  0.457261415766
+**  8 fold: pearson coef =  0.381532631364
+**  testing coef =  0.381532631364
+**  9 fold: pearson coef =  0.535765771903
+**  testing coef =  0.535765771903
+**  10 fold: pearson coef =  0.500010873276
+**  testing coef =  0.500010873276
+MLP regressor
+**  1 fold: pearson coef =  0.451540999991
+**  testing coef =  0.451540999991
+**  2 fold: pearson coef =  0.442521584014
+**  testing coef =  0.442521584014
+**  3 fold: pearson coef =  0.40905889903
+**  testing coef =  0.40905889903
+**  4 fold: pearson coef =  0.536060396834
+**  testing coef =  0.536060396834
+**  5 fold: pearson coef =  0.422044744413
+**  testing coef =  0.422044744413
+**  6 fold: pearson coef =  0.396612418832
+**  testing coef =  0.396612418832
+**  7 fold: pearson coef =  0.391991224734
+**  testing coef =  0.391991224734
+**  8 fold: pearson coef =  0.277792612772
+**  testing coef =  0.277792612772
+**  9 fold: pearson coef =  0.466558687162
+**  testing coef =  0.466558687162
+**  10 fold: pearson coef =  0.463019201157
+**  testing coef =  0.463019201157
+
+Emotion: joy
+training data has 1299 samples
+XGBoost regressor
+**  1 fold: pearson coef =  0.523414698726
+**  testing coef =  0.523414698726
+**  2 fold: pearson coef =  0.531898030932
+**  testing coef =  0.531898030932
+**  3 fold: pearson coef =  0.565218271869
+**  testing coef =  0.565218271869
+**  4 fold: pearson coef =  0.632344183403
+**  testing coef =  0.632344183403
+**  5 fold: pearson coef =  0.656119352341
+**  testing coef =  0.656119352341
+**  6 fold: pearson coef =  0.432616130356
+**  testing coef =  0.432616130356
+**  7 fold: pearson coef =  0.453344441417
+**  testing coef =  0.453344441417
+**  8 fold: pearson coef =  0.582911673163
+**  testing coef =  0.582911673163
+**  9 fold: pearson coef =  0.532324590024
+**  testing coef =  0.532324590024
+**  10 fold: pearson coef =  0.410052617879
+**  testing coef =  0.410052617879
+MLP regressor
+**  1 fold: pearson coef =  0.53800793018
+**  testing coef =  0.53800793018
+**  2 fold: pearson coef =  0.549456755663
+**  testing coef =  0.549456755663
+**  3 fold: pearson coef =  0.626399923211
+**  testing coef =  0.626399923211
+**  4 fold: pearson coef =  0.631404629901
+**  testing coef =  0.631404629901
+**  5 fold: pearson coef =  0.606477538744
+**  testing coef =  0.606477538744
+**  6 fold: pearson coef =  0.559140791135
+**  testing coef =  0.559140791135
+**  7 fold: pearson coef =  0.568233582446
+**  testing coef =  0.568233582446
+**  8 fold: pearson coef =  0.49329364178
+**  testing coef =  0.49329364178
+**  9 fold: pearson coef =  0.577341681834
+**  testing coef =  0.577341681834
+**  10 fold: pearson coef =  0.381977755224
+**  testing coef =  0.381977755224
+
+Emotion: sadness
+training data has 1425 samples
+XGBoost regressor
+**  1 fold: pearson coef =  0.398070800505
+**  testing coef =  0.398070800505
+**  2 fold: pearson coef =  0.43796738332
+**  testing coef =  0.43796738332
+**  3 fold: pearson coef =  0.396881713206
+**  testing coef =  0.396881713206
+**  4 fold: pearson coef =  0.433040970435
+**  testing coef =  0.433040970435
+**  5 fold: pearson coef =  0.305093321428
+**  testing coef =  0.305093321428
+**  6 fold: pearson coef =  0.467552376827
+**  testing coef =  0.467552376827
+**  7 fold: pearson coef =  0.545945746368
+**  testing coef =  0.545945746368
+**  8 fold: pearson coef =  0.304903636796
+**  testing coef =  0.304903636796
+**  9 fold: pearson coef =  0.481968387202
+**  testing coef =  0.481968387202
+**  10 fold: pearson coef =  0.419977234311
+**  testing coef =  0.419977234311
+MLP regressor
+**  1 fold: pearson coef =  0.039252395483
+**  testing coef =  0.039252395483
+**  2 fold: pearson coef =  0.39767615857
+**  testing coef =  0.39767615857
+**  3 fold: pearson coef =  0.373296041959
+**  testing coef =  0.373296041959
+**  4 fold: pearson coef =  0.375078287083
+**  testing coef =  0.375078287083
+**  5 fold: pearson coef =  0.212132290126
+**  testing coef =  0.212132290126
+**  6 fold: pearson coef =  0.419874754667
+**  testing coef =  0.419874754667
+**  7 fold: pearson coef =  0.497346544913
+**  testing coef =  0.497346544913
+**  8 fold: pearson coef =  0.295220088002
+**  testing coef =  0.295220088002
+**  9 fold: pearson coef =  0.518485293818
+**  testing coef =  0.518485293818
+**  10 fold: pearson coef =  0.341210936873
+**  testing coef =  0.341210936873

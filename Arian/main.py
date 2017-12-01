@@ -9,22 +9,31 @@ from sklearn.neural_network import MLPRegressor
 from sklearn.ensemble import GradientBoostingRegressor
 from sklearn.model_selection import KFold
 
-
 #changeable function to run test individual features
 def main():
 
-    for emotion in ['anger', 'fear', 'joy', 'sadness']:
+    for emotion in ['sadness', 'fear', 'anger', 'joy']:
 
         print("Emotion: " + emotion)
 
         tweets_directory = "Arian/data/el_reg_training/"
+        data_files = []
 
         for file in os.listdir(tweets_directory):
             if(file.find(emotion) != -1):
                 emotion_tweets_file = os.path.join(tweets_directory, file)
+                data_files.append(emotion_tweets_file)
 
-        parsed_tweets = preprocess.TweetParser(emotion_tweets_file)
-        fg = preprocess.TweetFeatureGenerator(parsed_tweets, emotion=emotion, tdidf=True, word2vec=True, hashtag_intensity=True)
+            # add opposite files to tweet corpus
+            """if(emotion == 'sadness'):
+                if (file.find("joy") != -1):
+                    data_files.append(os.path.join(tweets_directory, file))"""
+
+        #done parsing files
+
+        parsed_tweets = preprocess.TweetParser(data_files, emotion=emotion)
+        fg = preprocess.TweetFeatureGenerator(parsed_tweets, tfidf=False, word2vec=True,
+                                              hashtag_intensity=False, lexicon=False)
 
         features_vector = fg.features_vector #input
         emotion_intensities = fg.tweet_data.tweet_list_dataframe['emotion_intensity'] #output
@@ -55,8 +64,11 @@ def main():
         svm_spearman_totals = []
         mlp_pearson_totals = []
         mlp_spearman_totals = []
+        xgb_pearson_totals = []
+        xgb_spearman_totals = []
 
         # Test through SVM + Pearson's correlation for each fold
+
         for idx, fold in fold_data.iterrows():
 
             print("Fold No. " + str(idx + 1))
@@ -73,13 +85,16 @@ def main():
             svm_spearman_totals.append(svm_correlations[1])
 
             ###XBoost###
-            """XGboost = GradientBoostingRegressor(n_estimators=200)
+            XGboost = GradientBoostingRegressor(n_estimators=200)
             XGboost.fit(fold['training_input'], fold['training_output'])
             xgb_prediction = XGboost.predict(fold['test_input'])
 
             #correlation
-            xgb_measure = measure_reg(xgb_prediction.tolist(), fold['test_output'])
-            print("XGBoost result: " + xgb_measure)"""
+            xgb_measure, xgb_correlations = measure_reg(xgb_prediction.tolist(), fold['test_output'])
+            print("XGBoost result: " + xgb_measure)
+
+            xgb_pearson_totals.append(xgb_correlations[0])
+            xgb_spearman_totals.append(xgb_correlations[1])
 
             ###MLP####
             MLP = MLPRegressor(hidden_layer_sizes=[100, 50], activation='logistic')
@@ -96,6 +111,8 @@ def main():
 
         print("Average SVM Pearson correlation: " + str(np.average(svm_pearson_totals)))
         print("Average SVM Spearman correlation: " + str(np.average(svm_spearman_totals)))
+        print("Average XGBoost Pearson correlation: " + str(np.average(xgb_pearson_totals)))
+        print("Average XGBoost Spearman correlation: " + str(np.average(xgb_spearman_totals)))
         print("Average MLP Pearson correlation: " + str(np.average(mlp_pearson_totals)))
         print("Average MLP Spearman correlation: " + str(np.average(mlp_spearman_totals)))
 

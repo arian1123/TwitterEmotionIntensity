@@ -11,22 +11,33 @@ from random import shuffle
 from nltk.stem import WordNetLemmatizer
 import nltk
 import scipy as sp
+from Arian import lexicon_functions
+from sklearn.decomposition import PCA
 
 #Use this class to prepare and parse tweets for feature generation
 class TweetParser:
 
     #pass in directory with training data files
-    def __init__(self, filepath):
+    def __init__(self, filepath, emotion="anger"):
 
         self.tweet_list = [] #list of dictionaries to hold tweets data
         self.tweet_list_dataframe = []
+        self.emotion = emotion
 
-        self.process_file(filepath)
+        for file in filepath:
+            self.process_file(file)
+
         self.tweet_list_dataframe = pd.DataFrame(self.tweet_list)
 
     #end init
 
     def process_file(self, path):
+
+        #flag to see if we are parsing the file of the emotion or its opposite emotion i.e. sadness vs joy
+        if(path.find(self.emotion) != -1):
+            emotion_file = True
+        else:
+            emotion_file = False
 
         file = open(path)
         for f in file:
@@ -38,7 +49,13 @@ class TweetParser:
             data['id'] = tokens[0]
             data['content'] = self.clean_tweet(tokens[1])
             data['emotion'] = tokens[2]
-            data['emotion_intensity'] = tokens[3]
+
+            #if parsing opposite emotion set emotion intensity to 1 -
+            if(emotion_file):
+                data['emotion_intensity'] = tokens[3]
+            else:
+                data['emotion_intensity'] = 1 - float(tokens[3])
+
             data['hashtags'] = self.extract_hashtags(tokens[1])
             data['pos_tags'] = self.tag_token_pos(data['content'])
 
@@ -243,14 +260,15 @@ class TweetParser:
 #generate variety of features
 class TweetFeatureGenerator:
 
-    def __init__(self, TweetParser, emotion='angry', bag_of_words=False,
-                 word2vec=False, hashtag_intensity=False, truncate_dict=False, tdidf=False):
+    def __init__(self, TweetParser, bag_of_words=False,
+                 word2vec=False, hashtag_intensity=False, truncate_dict=False, tfidf=False, lexicon=False):
 
         self.tweet_data = TweetParser #TweetProcessor Object, generated features from parsed data
         self.truncate_dict = truncate_dict
         self.depechemood_dict = {} #populate later, if need be
-        self.emotion = emotion
+        self.emotion = self.tweet_data.emotion
         self.placehold_emotion_intensity = 0.5 #use value to fill missing/incomplete value for intensity
+        self.pca_n = 140
 
         features = []
 
@@ -263,24 +281,48 @@ class TweetFeatureGenerator:
             self.hashtag_intensity_model = self.build_hashtag_intensity()
             features.append(self.hashtag_intensity_model)
 
-        if(tdidf == True):
-            self.td_idf_model = self.build_td_idf()
-            features.append(self.td_idf_model)
+        if(tfidf == True):
+            self.tf_idf_model = self.build_tf_idf()
+            features.append(self.tf_idf_model)
 
         if(word2vec == True):
             self.word2vec_model = self.build_word2vec_model()
             features.append(self.word2vec_model)
 
+        if(lexicon == True):
+            self.lexicon_model, self.lexicon_vectors_dict, self.used_lexicon_list = self.build_lexicon_model()
+            features.append(self.lexicon_model)
+
         #build total features vector from all individual features
+
         if(features is not []):
-            self.features_vector = features[0]
+
+
+            self.features_vector = self.pca_feature(features[0])
 
             if(len(features) > 1):
 
                 for f in features[1:]:
+                    f = self.pca_feature(f)
                     self.features_vector = np.column_stack((self.features_vector, f))
 
     #end init
+
+    #compress dimension of individual feature vector
+    def pca_feature(self, feature):
+
+        pca = PCA(n_components=self.pca_n)
+        shape = np.array(feature).shape
+
+        #list
+        if(len(shape) <= 1):
+            return feature
+        elif shape[1] <= self.pca_n:
+            return feature
+        else:
+            return pca.fit_transform(feature)
+
+    #end pca_feature
 
     #
     #
@@ -462,7 +504,7 @@ class TweetFeatureGenerator:
         for i in range(len(corpus)):
             train_w2v[i] = self.tweet_to_embeddings(corpus[i])
         # normalize
-        train_w2v = preprocessing.normalize(train_w2v, norm='l2')
+        #train_w2v = preprocessing.normalize(train_w2v, norm='l2')
 
         return train_w2v
 
@@ -474,7 +516,7 @@ class TweetFeatureGenerator:
     #
     #
 
-    def build_td_idf(self):
+    def build_tf_idf(self):
 
         vectorizer = TfidfVectorizer(min_df=3)
         corpus = self.tweet_data.tweet_list_dataframe['content'].tolist()
@@ -486,6 +528,126 @@ class TweetFeatureGenerator:
 
 
     #end build_td_idf
+
+    #
+    #
+    # Lexicon features
+    #
+    #
+
+    def build_lexicon_model(self, Emoji=False, AFINN=False, BingLiu=False, MPQA=False, NRC_Hash_Emo=False, SentiStrength=False,
+                            all_lexicons=True):
+
+        #list of tweets
+        train_x = self.tweet_data.tweet_list_dataframe['content'].tolist()
+
+        lex_dict, lex_list  = self.get_lexicon_ids()
+
+        #list of lexicon names being used
+        lexicons = []
+
+        #dict of list of lexicon vectors
+        lex_vectors = {}
+
+        #add all lexicons individually
+        if(all_lexicons == True):
+            lexicons = lex_list
+        else:
+            if(Emoji == True):
+                lexicons.append(lex_dict['emoji'])
+            if(AFINN == True):
+                lexicons.append((lex_dict['bingliu']))
+            if(BingLiu == True):
+                lexicons.append(lex_dict['bingliu'])
+            if(MPQA == True):
+                lexicons.append(lex_dict['mpqa'])
+            if(NRC_Hash_Emo == True):
+                lexicons.append(lex_dict['nrc_hashemo'])
+            if(SentiStrength == True):
+                lexicons.append(lex_dict['sentistrength'])
+
+        #pathological case
+        if(lexicons is []):
+            return
+
+        #initialize all individual dictionary vectors
+        for lex in lexicons:
+            lex_vectors[lex] = []
+
+        #populate dictionary vectors
+        for tweet in train_x:
+
+            for lex in lexicons:
+
+                vec = self.tweet_to_lexicon_vec(tweet, lexicon=lex)
+                lex_vectors[lex].append(vec)
+
+        #concatenate model
+        model = lex_vectors[lexicons[0]]
+
+        if (len(lexicons) > 1):
+
+            for lex in lexicons[1:]:
+                model = np.column_stack((model, lex_vectors[lex]))
+
+        #condense vector size
+        pca = PCA(n_components=300)
+        model = pca.fit_transform(model)
+
+        return model, lex_vectors, lexicons
+
+    #end build lexicon
+
+    def tweet_to_lexicon_vec(self, tweet, lexicon="Emoji"):
+
+        lex_dict = self.get_lexicon_ids()[0]
+
+        if(lexicon == lex_dict['emoji']):
+            return lexicon_functions.tweetToEmoji(tweet)
+        elif(lexicon == lex_dict['afinn']):
+            return lexicon_functions.tweetToAFINNVector(tweet)
+        elif(lexicon == lex_dict['bingliu']):
+            return lexicon_functions.tweetToBingLiuVector(tweet)
+        elif(lexicon == lex_dict['mpqa']):
+            return lexicon_functions.tweetToMPQAVector(tweet)
+        elif(lexicon == lex_dict['nrc_hashemo']):
+            return lexicon_functions.tweetToHSEVector(tweet, self.emotion)
+        elif(lexicon == lex_dict['sentistrength']):
+            return lexicon_functions.tweetToSentiStrength(tweet)
+        else:
+            return
+
+    #end tweet_to_lexicon_vec
+
+    def get_lexicon_ids(self):
+
+        #dictionary name constant identifiers
+        dict = {}
+        list = []
+        emoji = "Emoji"
+        afinn = "AFINN"
+        bingliu = "BingLiu"
+        mpqa = "MPQA"
+        nrc = "NRC_Hash_Emo"
+        senti = "SentiStrength"
+        dict['emoji'] = emoji
+        list.append(emoji)
+        dict['afinn'] = afinn
+        list.append(afinn)
+        dict['bingliu'] = bingliu
+        list.append(bingliu)
+        dict['mpqa'] = mpqa
+        list.append(mpqa)
+        dict['nrc_hashemo'] = nrc
+        list.append(nrc)
+        dict['sentistrength'] = senti
+        list.append(senti)
+
+        #return dictionary and list of all dictionaries used
+        return dict, list
+
+    #end get_lexicon_ids
+
 
 
 #End class TweetFeatureGenerator

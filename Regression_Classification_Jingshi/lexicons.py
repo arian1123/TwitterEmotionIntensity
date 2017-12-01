@@ -16,6 +16,7 @@ bingliu_pos = open("data/Lexicons/BingLiu/BingLiu_positive-words.txt").readlines
 bingliu_neg = open("data/Lexicons/BingLiu/BingLiu_negative-words.txt").readlines()
 mpqa = open("data/Lexicons/MPQA/MPQA.tff").readlines()
 afinn = open("data/Lexicons/AFINN/afinn.txt").readlines()
+emoji  = open("emoji_lexicon.txt").readlines()
 
 
 ### Create Tokenizer object ###
@@ -133,6 +134,14 @@ def tweetToBingLiuVector(tweet):
     for i, line in enumerate(bingliu_pos):
         if line.strip() in tokens:
             vec[i+neg_len] = 1
+    return vec
+
+def tweetToEmoji(tweet):
+    vec = np.zeros(len(emoji))
+    tokens = tweet.split(' ')
+    for i, line in enumerate(emoji):
+        if line.strip() in tokens:
+            vec[i] += 1
     return vec
 
 ### Combine all the vectors ###

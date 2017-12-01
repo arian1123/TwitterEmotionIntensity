@@ -59,6 +59,16 @@ def def_regular_emoji():
 		map_emoji.update({e:prefix+str(i)+' '})   # extra space ensures independence	
 
 	return map_emoji
+
+def emoji_to_lexicon():
+	prefix = ' emoji'  # extra space ensures independence
+	with open('emoji.txt') as f:
+		emoji = [l.strip() for l in f.readlines()]
+
+	with open('emoji_lexicon.txt', 'w') as out_file:
+		for i, e in enumerate(emoji):
+			out_file.write(prefix+str(i)+'\n')
+	out_file.close()
 	
 def feed_to_embedding():
 	'''
@@ -395,18 +405,21 @@ def remove_stopwords(text):
 	
 if __name__ == '__main__':
 	# 1.
-	#define_emoji()		
+	define_emoji()
 
 	# 2.
-	for _emotion in ['anger', 'fear', 'joy', 'sadness']:
-		regular_file('./data/EI-reg-English-Train/EI-reg-en_'+_emotion+'_train.txt')
-		regular_file('./data/2018-EI-reg-En-dev/2018-EI-reg-En-'+_emotion+'-dev.txt')
+	# for _emotion in ['anger', 'fear', 'joy', 'sadness']:
+	# 	regular_file('./data/EI-reg-English-Train/EI-reg-en_'+_emotion+'_train.txt')
+	# 	regular_file('./data/2018-EI-reg-En-dev/2018-EI-reg-En-'+_emotion+'-dev.txt')
 # 		regular_file('./data/EI-oc-En-train/EI-oc-En-'+_emotion+'-train.txt')
 # 		regular_file('./data/2018-EI-oc-En-dev/2018-EI-oc-En-'+_emotion+'-dev.txt')
 	# 3.
-	feed_to_embedding()
+	# feed_to_embedding()
 #	import tensorflow as tf
 #	hello = tf.constant('Hello, TensorFlow!')
 #	sess = tf.Session()
 #	print(sess.run(hello))
+
+	# 4.
+	# emoji_to_lexicon()
 

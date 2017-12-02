@@ -144,6 +144,7 @@ if __name__ == '__main__':
         vectorizer.fit(train_x)
         train_tfidf = vectorizer.transform(train_x).todense()
         train_tfidf = train_tfidf.tolist()
+        print(len(train_tfidf[0]))
         #
         #bag of words
         cdict = build_dict_from_corpus(train_x, min_freq=5)
@@ -154,7 +155,7 @@ if __name__ == '__main__':
         train_edinburgh = deepcopy(train_x)
         for i in range(len(train_x)):
             train_edinburgh[i] = tweetToEdinburg(train_x[i])
-        # # normalize
+        # normalize
         # train_edinburgh = preprocessing.normalize(train_edinburgh, norm='l2')
 
 
@@ -166,7 +167,7 @@ if __name__ == '__main__':
         # # normalize
         # train_glove = preprocessing.normalize(train_glove, norm='l2')
 
-        # initialize lexicons
+        # # initialize lexicons
         # Emoji = deepcopy(train_x)
         # AFINN = deepcopy(train_x)
         # BingLiu = deepcopy(train_x)
@@ -177,7 +178,7 @@ if __name__ == '__main__':
         # NRC_Hash_Sent = deepcopy(train_x)
         # Sentiment140 = deepcopy(train_x)
         # SentiStrength = deepcopy(train_x)
-
+        #
         # for i in range(len(train_x)):
         #     tmp = deepcopy(train_x[i])
         #
@@ -227,14 +228,14 @@ if __name__ == '__main__':
         #print(train_x0[0], ' and ', train_x1[0], ' and ', train_x2[0])
         # reduce the dimention to 140 since each tweet has a maximum length of 140.
         print('finish generating features, next reduce dims by PCA')
-        pca_pre = PCA(n_components = 5000)
-        pca = PCA(n_components = 140)
-        #
-        # # train_tfidf = pca.fit_transform(train_tfidf)
-        # # train_BoW = pca.fit_transform(train_BoW)
-        # # train_edinburgh = pca.fit_transform(train_edinburgh)
-        # # train_glove = pca.fit_transform(train_glove)
-        #
+        # pca_pre = PCA(n_components = 5000)
+        # pca = PCA(n_components = 140)
+
+        # train_tfidf = pca.fit_transform(train_tfidf)
+        # train_BoW = pca.fit_transform(train_BoW)
+        # train_edinburgh = pca.fit_transform(train_edinburgh)
+        # train_glove = pca.fit_transform(train_glove)
+
 
         # Emoji = pca.fit_transform(Emoji)
         # AFINN = pca.fit_transform(AFINN)
@@ -243,25 +244,21 @@ if __name__ == '__main__':
         # NRC_EmoLex = pca.fit_transform(NRC_EmoLex)
         # NRC10E = pca.fit_transform(NRC10E)
         # NRC_Hash_Emo = pca.fit_transform(NRC_Hash_Emo)
-
+        #
         # print(len(NRC_Hash_Sent[0])) # dim 54129
         # NRC_Hash_Sent = pca_pre.fit_transform(NRC_Hash_Sent)
         # print('good in the first pca')
         # NRC_Hash_Sent = pca.fit_transform(NRC_Hash_Sent)
-
-
+        #
+        #
         # print(len(Sentiment140[0])) # dim 62468
         # Sentiment140 = pca_pre.fit_transform(Sentiment140)
         # print('good in the first pca')
         # Sentiment140 = pca.fit_transform(Sentiment140)
-
+        #
         # print(len(SentiStrength[0])) # dim 2700
         # SentiStrength = pca.fit_transform(SentiStrength)
 
-        train_tfidf = pca.fit_transform(train_tfidf)
-        train_BoW = pca.fit_transform(train_BoW)
-        train_edinburgh = pca.fit_transform(train_edinburgh)
-        train_glove = pca.fit_transform(train_glove)
 
         # # print(train_tfidf[0])
         # # print(train_edinburgh[0])
@@ -274,7 +271,7 @@ if __name__ == '__main__':
         write_to_file(_emotion, 'glove', train_glove, False)
 
         # write_to_file(_emotion, 'Emoji', Emoji, False)
-
+        #
         # write_to_file(_emotion, 'AFINN', AFINN, True)
         # write_to_file(_emotion, 'BingLiu', BingLiu, True)
         # write_to_file(_emotion, 'MPQA', MPQA, True)

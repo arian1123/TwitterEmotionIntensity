@@ -104,7 +104,7 @@ def feed_to_embedding():
 	
 	print (uni_emoji)
 
-def load_reg(path='./data/EI-reg-English-Train', emotion='sadness'):
+def load_reg(path='./data/EI-reg-En-Train', emotion='sadness'):
 	map_emoji = def_regular_emoji()
 	emoji = map_emoji.keys()
 	
@@ -117,7 +117,7 @@ def load_reg(path='./data/EI-reg-English-Train', emotion='sadness'):
 	x, y = [t[0].split('#')[0] for t in text], [float(t[2]) for t in text]
 	return x, y
 
-def load_original_reg(path='./data/EI-reg-English-Train', emotion='sadness'):
+def load_original_reg(path='./data/EI-reg-En-train', emotion='sadness'):
 	map_emoji = def_regular_emoji()
 	emoji = map_emoji.keys()
 	
@@ -126,23 +126,26 @@ def load_original_reg(path='./data/EI-reg-English-Train', emotion='sadness'):
 			text = [l.split('\t')[1:]
 			        for l in open(os.path.join(path, f)).readlines()]
 			break
-	
-	x, y = [t[0].split('#')[0] for t in text], [float(t[2]) for t in text]
+	text = text[1:]
+	# print(text[0])
+	x, y = [t[0] for t in text], [float(t[2]) for t in text]
+	# print(x[0])
+	# print(y[0])
 	return x, y
 
-def load_original_clf(path='./data/EI-oc-En-Train', emotion='sadness'):
-    map_emoji = def_regular_emoji()
-    emoji = map_emoji.keys()
+def load_original_clf(path='./data/EI-oc-En-train', emotion='sadness'):
+	map_emoji = def_regular_emoji()
+	emoji = map_emoji.keys()
 
-    for f in os.listdir(path):
-        if f.find(emotion) >= 0:
-            text = [l.split('\t')[1:]
-                    for l in open(os.path.join(path, f)).readlines()]
-            break
-
-    x = [t[0].split('#')[0].lower() for t in text]
-    y = [int(t[2].split(':')[0]) for t in text]
-    return x, y
+	for f in os.listdir(path):
+		if f.find(emotion) >= 0:
+			text = [l.split('\t')[1:]
+					for l in open(os.path.join(path, f)).readlines()]
+			break
+	text = text[1:]
+	x = [t[0] for t in text]
+	y = [int(t[2].split(':')[0]) for t in text]
+	return x, y
 
 def regular_tweet(x):
 	'''
@@ -319,6 +322,9 @@ def regular_tweet(x):
 	punc = re.findall('[.!?]+', x)
 	for p in punc:
 		x = (' '+p).join(x.split(p))
+
+	# delete hashtag symbol
+	# x = re.sub(r"#", "", x)
 
 	return x
 

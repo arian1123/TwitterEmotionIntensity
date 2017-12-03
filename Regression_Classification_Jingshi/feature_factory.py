@@ -101,9 +101,9 @@ def tweetToGlove(tweet):
 
 def write_to_file(emotion_name, feature_name, feature, lexicon):
     if lexicon:
-        file_name = './data/Features_reg/Lexicons/' + feature_name + '/' + emotion_name + '.txt'
+        file_name = './data/Features_oc/Lexicons/' + feature_name + '/' + emotion_name + '.txt'
     else:
-        file_name = './data/Features_reg/' + feature_name + '/' + emotion_name + '.txt'
+        file_name = './data/Features_oc/' + feature_name + '/' + emotion_name + '.txt'
     np.savetxt(file_name, feature)
 
 
@@ -125,15 +125,15 @@ if __name__ == '__main__':
         #     continue
         print ('')
         print ('Emotion:', _emotion)
-        train_x, train_y = load_original_reg(emotion = _emotion)
+        train_x, train_y = load_original_oc(emotion = _emotion)
 
-        # use joy's training data for sadness
-        if _emotion=='sadness' :
-            train_joy_x, train_joy_y = load_original_reg(emotion = 'joy')
-            for i in range(len(train_joy_y)):
-                train_joy_y[i] = 1 - train_joy_y[i]
-            train_x = train_x + train_joy_x
-            train_y = train_y + train_joy_y
+        # # use joy's training data for sadness
+        # if _emotion=='sadness' :
+        #     train_joy_x, train_joy_y = load_original_reg(emotion = 'joy')
+        #     for i in range(len(train_joy_y)):
+        #         train_joy_y[i] = 1 - train_joy_y[i]
+        #     train_x = train_x + train_joy_x
+        #     train_y = train_y + train_joy_y
 
         # preprocessing
         for i in range(len(train_x)):
@@ -149,6 +149,7 @@ if __name__ == '__main__':
         #bag of words
         cdict = build_dict_from_corpus(train_x, min_freq=5)
         train_BoW = lexicon_feature(train_x, cdict)
+        print(len(train_BoW[0]))
 
         # w2v
         #edingurgh embedding

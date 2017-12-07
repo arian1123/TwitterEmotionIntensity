@@ -18,11 +18,12 @@ from sklearn.decomposition import PCA
 class TweetParser:
 
     #pass in directory with training data files
-    def __init__(self, filepath, emotion="anger"):
+    def __init__(self, filepath, emotion="anger", classify=False):
 
         self.tweet_list = [] #list of dictionaries to hold tweets data
         self.tweet_list_dataframe = []
         self.emotion = emotion
+        self.classify = classify
 
         for file in filepath:
             self.process_file(file)
@@ -51,10 +52,17 @@ class TweetParser:
             data['emotion'] = tokens[2]
 
             #if parsing opposite emotion set emotion intensity to 1 -
-            if(emotion_file):
-                data['emotion_intensity'] = tokens[3]
+            #bin values if doing classification
+            if(self.classify == True):
+                if (emotion_file):
+                    data['emotion_intensity'] = self.bin_values(tokens[3])
+                else:
+                    data['emotion_intensity'] = self.bin_values(1 - float(tokens[3]))
             else:
-                data['emotion_intensity'] = 1 - float(tokens[3])
+                if(emotion_file):
+                    data['emotion_intensity'] = tokens[3]
+                else:
+                    data['emotion_intensity'] = 1 - float(tokens[3])
 
             data['hashtags'] = self.extract_hashtags(tokens[1])
             data['pos_tags'] = self.tag_token_pos(data['content'])
@@ -68,6 +76,23 @@ class TweetParser:
     #end read_file
     #
     #
+
+    def bin_values(self, val):
+
+        val = float(val)
+        i = 0
+        if(val >= 0 and val < 0.25):
+            i = 0
+        elif(val >= 0.25 and val < 0.5):
+            i = 1
+        elif(val >= 0.5 and val < 0.75):
+            i = 2
+        elif(val >= 0.75 and val < 1):
+            i = 3
+
+        return i
+
+    #end bin_values
 
 
     #extract hashtags from tweet
@@ -268,7 +293,7 @@ class TweetFeatureGenerator:
         self.depechemood_dict = {} #populate later, if need be
         self.emotion = self.tweet_data.emotion
         self.placehold_emotion_intensity = 0.5 #use value to fill missing/incomplete value for intensity
-        self.pca_n = 140
+        self.pca_n = 750
 
         features = []
 
@@ -297,13 +322,11 @@ class TweetFeatureGenerator:
 
         if(features is not []):
 
-
-            self.features_vector = self.pca_feature(features[0])
+            self.features_vector = features[0]
 
             if(len(features) > 1):
 
                 for f in features[1:]:
-                    f = self.pca_feature(f)
                     self.features_vector = np.column_stack((self.features_vector, f))
 
     #end init
@@ -408,7 +431,7 @@ class TweetFeatureGenerator:
         hashtags = self.tweet_data.tweet_list_dataframe['hashtags'].tolist()
         model = np.array([self.hashtag_intensity(h, emotion=self.emotion) for h in hashtags])
 
-        return model
+        return model.reshape((len(model), 1))
 
     #end build_hashtag_intensity
 
@@ -512,6 +535,12 @@ class TweetFeatureGenerator:
 
     #
     #
+    # TODO GloVe Embeddings model
+    #
+    #
+
+    #
+    #
     # td-idf model
     #
     #
@@ -535,6 +564,7 @@ class TweetFeatureGenerator:
     #
     #
 
+    ## TODO add 4 additional lexicons
     def build_lexicon_model(self, Emoji=False, AFINN=False, BingLiu=False, MPQA=False, NRC_Hash_Emo=False, SentiStrength=False,
                             all_lexicons=True):
 
@@ -591,8 +621,7 @@ class TweetFeatureGenerator:
                 model = np.column_stack((model, lex_vectors[lex]))
 
         #condense vector size
-        pca = PCA(n_components=300)
-        model = pca.fit_transform(model)
+        model = self.pca_feature(model)
 
         return model, lex_vectors, lexicons
 

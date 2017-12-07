@@ -8,11 +8,13 @@ import numpy as np
 from sklearn.neural_network import MLPRegressor
 from sklearn.ensemble import GradientBoostingRegressor
 from sklearn.model_selection import KFold
+from sklearn.svm import SVC
+from sklearn.metrics import accuracy_score
 
 #changeable function to run test individual features
 def main():
 
-    for emotion in ['sadness', 'fear', 'anger', 'joy']:
+    for emotion in ['anger', 'fear', 'joy', 'sadness']:
 
         print("Emotion: " + emotion)
 
@@ -31,12 +33,12 @@ def main():
 
         #done parsing files
 
-        parsed_tweets = preprocess.TweetParser(data_files, emotion=emotion)
+        parsed_tweets = preprocess.TweetParser(data_files, emotion=emotion, classify=False)
         fg = preprocess.TweetFeatureGenerator(parsed_tweets, tfidf=False, word2vec=True,
-                                              hashtag_intensity=False, lexicon=False)
+                                              hashtag_intensity=True, lexicon=True, bag_of_words=True, truncate_dict=True)
 
-        features_vector = fg.features_vector #input
-        emotion_intensities = fg.tweet_data.tweet_list_dataframe['emotion_intensity'] #output
+        features_vector = fg.features_vector  # input
+        emotion_intensities = fg.tweet_data.tweet_list_dataframe['emotion_intensity']  # output
 
         # folds
         num_folds = 10
@@ -59,64 +61,95 @@ def main():
 
         fold_data = pd.DataFrame(temp_folds, columns=['training_input', 'training_output', 'test_input', 'test_output'])
 
-        #to get average correlation coefficients across folds
-        svm_pearson_totals = []
-        svm_spearman_totals = []
-        mlp_pearson_totals = []
-        mlp_spearman_totals = []
-        xgb_pearson_totals = []
-        xgb_spearman_totals = []
 
-        # Test through SVM + Pearson's correlation for each fold
+        #decide to regress of classify
+        if(parsed_tweets.classify != True):
 
-        for idx, fold in fold_data.iterrows():
+            #to get average correlation coefficients across folds
+            svm_pearson_totals = []
+            svm_spearman_totals = []
+            mlp_pearson_totals = []
+            mlp_spearman_totals = []
+            xgb_pearson_totals = []
+            xgb_spearman_totals = []
 
-            print("Fold No. " + str(idx + 1))
+            # Test through SVM + Pearson's correlation for each fold
 
-            ###SVM###
-            svm = SVM.TwitterSVM(fold['training_input'], fold['training_output'])
-            svm_prediction = svm.predict(fold['test_input'])
+            for idx, fold in fold_data.iterrows():
 
-            # correlation
-            svm_measure, svm_correlations = measure_reg(svm_prediction.tolist(), fold['test_output'])
-            print("SVM result: " + svm_measure)
+                print("Fold No. " + str(idx + 1))
 
-            svm_pearson_totals.append(svm_correlations[0])
-            svm_spearman_totals.append(svm_correlations[1])
+                #gold_prediction = [i +  random.uniform(-0.05, 0.05) for i in fold['test_output']]
 
-            ###XBoost###
-            XGboost = GradientBoostingRegressor(n_estimators=200)
-            XGboost.fit(fold['training_input'], fold['training_output'])
-            xgb_prediction = XGboost.predict(fold['test_input'])
+                ###SVM###
+                svm = SVM.TwitterSVM(fold['training_input'], fold['training_output'])
+                svm_prediction = svm.predict(fold['test_input'])
 
-            #correlation
-            xgb_measure, xgb_correlations = measure_reg(xgb_prediction.tolist(), fold['test_output'])
-            print("XGBoost result: " + xgb_measure)
+                # correlation
+                svm_measure, svm_correlations = measure_reg(svm_prediction.tolist(), fold['test_output'])
+                #svm_measure, svm_correlations = measure_reg(gold_prediction, fold['test_output'])
+                print("SVM result: " + svm_measure)
 
-            xgb_pearson_totals.append(xgb_correlations[0])
-            xgb_spearman_totals.append(xgb_correlations[1])
+                svm_pearson_totals.append(svm_correlations[0])
+                svm_spearman_totals.append(svm_correlations[1])
 
-            ###MLP####
-            MLP = MLPRegressor(hidden_layer_sizes=[100, 50], activation='logistic')
-            MLP.fit(fold['training_input'], fold['training_output'])
-            mlp_prediction = MLP.predict(fold['test_input'])
+                ###XBoost###
+                XGboost = GradientBoostingRegressor(n_estimators=200)
+                XGboost.fit(fold['training_input'], fold['training_output'])
+                xgb_prediction = XGboost.predict(fold['test_input'])
 
-            #correlation
-            mlp_measure, mlp_correlations = measure_reg(mlp_prediction.tolist(), fold['test_output'])
-            print("MLP result: " + mlp_measure)
+                #correlation
+                xgb_measure, xgb_correlations = measure_reg(xgb_prediction.tolist(), fold['test_output'])
+                #xgb_measure, xgb_correlations = measure_reg(gold_prediction, fold['test_output'])
+                print("XGBoost result: " + xgb_measure)
 
-            mlp_pearson_totals.append(mlp_correlations[0])
-            mlp_spearman_totals.append(mlp_correlations[1])
+                xgb_pearson_totals.append(xgb_correlations[0])
+                xgb_spearman_totals.append(xgb_correlations[1])
+
+                ###MLP####
+                MLP = MLPRegressor(hidden_layer_sizes=[100, 50], activation='logistic')
+                MLP.fit(fold['training_input'], fold['training_output'])
+                mlp_prediction = MLP.predict(fold['test_input'])
+
+                #correlation
+                mlp_measure, mlp_correlations = measure_reg(mlp_prediction.tolist(), fold['test_output'])
+                #mlp_measure, mlp_correlations = measure_reg(gold_prediction, fold['test_output'])
+                print("MLP result: " + mlp_measure)
+
+                mlp_pearson_totals.append(mlp_correlations[0])
+                mlp_spearman_totals.append(mlp_correlations[1])
 
 
-        print("Average SVM Pearson correlation: " + str(np.average(svm_pearson_totals)))
-        print("Average SVM Spearman correlation: " + str(np.average(svm_spearman_totals)))
-        print("Average XGBoost Pearson correlation: " + str(np.average(xgb_pearson_totals)))
-        print("Average XGBoost Spearman correlation: " + str(np.average(xgb_spearman_totals)))
-        print("Average MLP Pearson correlation: " + str(np.average(mlp_pearson_totals)))
-        print("Average MLP Spearman correlation: " + str(np.average(mlp_spearman_totals)))
+            print("Average SVM Pearson correlation: " + str(np.average(svm_pearson_totals)))
+            print("Average SVM Spearman correlation: " + str(np.average(svm_spearman_totals)))
+            print("Average XGBoost Pearson correlation: " + str(np.average(xgb_pearson_totals)))
+            print("Average XGBoost Spearman correlation: " + str(np.average(xgb_spearman_totals)))
+            print("Average MLP Pearson correlation: " + str(np.average(mlp_pearson_totals)))
+            print("Average MLP Spearman correlation: " + str(np.average(mlp_spearman_totals)))
 
-        print("*********************")
+            print("*********************")
+
+        else:
+
+            accuracies = []
+
+            for idx, fold in fold_data.iterrows():
+
+                print("Fold No. " + str(idx + 1))
+
+                svr = SVC()
+                svr.fit(fold['training_input'], fold['training_output'])
+                svr_prediction = svr.predict(fold['test_input'])
+
+                accuracy = accuracy_score(fold['test_output'], svr_prediction)
+                accuracies.append(accuracy)
+
+                #output = "Accuracy: " + accuracy
+                print(accuracy)
+
+            print("Average SVR accuracy: " + str(np.average(accuracies) * 100))
+
+
 
 
 #end main

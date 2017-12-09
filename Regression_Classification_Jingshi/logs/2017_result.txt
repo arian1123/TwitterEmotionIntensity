@@ -1,0 +1,15 @@
+Best system on 2017 data set:
+
+Anger    Fear     Joy	   Sadness  Average
+0.6071   0.6991   0.6724   0.6137   0.648075
+
+The features used are:
+Combination of Edinburgh Embeddings, GloVe Embeddings, TF-IDF, Bag-of-Words, and all lexicons.
+
+Regressors for each emotion:
+Anger -> SVM
+Fear -> MLP
+Joy -> SVM
+Sadness -> MLP
+
+Additional note: the metric is Pearson correlation from 10 fold cross-validation.

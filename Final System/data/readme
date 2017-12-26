@@ -1,0 +1,16 @@
+DESCRIPTION OF FILES IN THIS FOLDER:
+
+Features_reg: this file stores the extracted features for regression task of 2018. Run feature extraction in main.py to store the features.
+
+Features_oc: this file stores the extracted features for classification task of 2018. 
+Run feature extraction in main.py to store the features.
+
+2017FeaturesReg: this file stores the extracted features for the regression task of 2017. Run feature extraction in main.py to store the features.
+
+El-reg-En-train: this file stores the training data for regression task of 2018.
+
+El-oc-En-train: this file stores the training data for classification task of 2018.
+
+2017train: this file stores the training data for the regression task of 2017.
+
+Lexicons: this file stores the affect lexicons.

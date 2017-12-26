@@ -22,7 +22,7 @@ We train and test our data by using 10-fold cross validation on the training dat
 #### Preprocessing:
 
 1. Run preprocessing_extract_emojis() in main.py to extract all the emojis in training dataset, save them in text.txt.   
-2. Then, manually delete characters from other languages (such as Japanese, Chinese, Arabian, etc.) and illegal forms, and save them as a file named emoji.txt.  
+2. Then, manually delete characters from other languages (such as Japanese, Chinese, Arabian, etc.) and illegal forms in text.txt, and save the cleaned text.txt as a new file named emoji.txt.  
 3. Run preprocessing_map_emojis() in main.py to map each emoji in emoji.txt to a unique string (e.g. map 😄 to 'emoji12') and save these unique strings to a file named emoji_lexicon.txt.
 
 #### Feature Extraction:

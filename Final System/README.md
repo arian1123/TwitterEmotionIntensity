@@ -32,7 +32,7 @@ We train and test our data by using 10-fold cross validation on the training dat
 
 #### Regression or Classification:
 
-1. Run run_regression() in main.py to perform regression. In default, it selects all the features, but you can select features by assigning True of False values to the parameters. For example, run_regression(tfidf=True, BoW=False, edinburgh=False, glove=False, Hashtag_Intense=False, Lexicons=False) selects only tfidf as its feature. It will automatically print out the Pearson correlations and Spearman correlations from 10-fold cross validation on training dataset, for each emotion and each regressor. That is two tables, one for Pearson correlation, the other for Spearman correlation.
+1. Run run_regression() in main.py to perform regression. In default, it selects all the features, but you can select features by assigning True of False values to the parameters. For example, run_regression(tfidf=True, BoW=False, edinburgh=False, glove=False, Hashtag_Intense=False, Lexicons=False) selects only tfidf as its feature. It will automatically print out the Pearson correlations and Spearman correlations from 10-fold cross validation on training dataset, for each emotion and each regressor. That is two tables, one's evaluation metric is Pearson correlation, the other's evaluation metric is Spearman correlation.
 2. Similarly, run run_classification() in main.py to perform classification. You can also select features by assigning True of False values to the parameters. It will automatically print out a table that shows the Pearson correlations from 10-fold cross validation on training dataset, for each emotion and each classifier.
 
 

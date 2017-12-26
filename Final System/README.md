@@ -1,6 +1,6 @@
 # Twitter Emotion Intensity
 
-## Introduction:
+### Introduction:
 Our system consists of three stages (1. preprocessing, 2. feature extraction, 3. regression/classification). 
 
 Stage 1 preprocessing:
@@ -18,7 +18,7 @@ In this stage, we use the following regressors/classifiers: 1) Support vector ma
 
 We train and test our data by using 10-fold cross validation on the training dataset. 
 
-## To Run the System:
+### To Run the System:
 
 #### Preprocessing:
 
@@ -36,4 +36,4 @@ We train and test our data by using 10-fold cross validation on the training dat
 2. Similarly, run run_classification() in main.py to perform classification. You can also select features by assigning True of False values to the parameters. It will automatically print out a table that shows the Pearson correlations from 10-fold cross validation on training dataset, for each emotion and each classifier.
 
 
-
+### Description of Files in this Folder:

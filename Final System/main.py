@@ -14,8 +14,8 @@ def main():
     extract_features()
 
     # 3. Regression or Classification
-    run_regression()
-    run_classification()
+    run_regression(tfidf=True, BoW=True, edinburgh=True, glove=True, Hashtag_Intense=True, Lexicons=True)
+    run_classification(tfidf=True, BoW=True, edinburgh=True, glove=True, Hashtag_Intense=True, Lexicons=True)
 
 def preprocessing_extract_emojis():
     '''
@@ -47,7 +47,7 @@ def extract_features():
         my_preprocessor = preprocess.Preprocessor(emotion = _emotion, classify = True)
         my_features = feature_extraction.TweetFeatureGenerator(my_preprocessor, emotion = _emotion)
 
-def run_regression():
+def run_regression(tfidf=True, BoW=True, edinburgh=True, glove=True, Hashtag_Intense=True, Lexicons=True):
     '''
     This funcion runs the regression.
     It reads features from the file Features_reg under 'data' folder.
@@ -59,9 +59,9 @@ def run_regression():
     Then, print out the evaluations for each regressor and for each emotion.
     The evaluation metrics are pearson correlation and spearman correlation.
     '''
-    regression.Regression(tfidf=True, BoW=True, edinburgh=True, glove=True, Hashtag_Intense=True, Lexicons=True)
+    regression.Regression(tfidf = tfidf, BoW = BoW, edinburgh = edinburgh, glove = glove, Hashtag_Intense = Hashtag_Intense, Lexicons = Lexicons)
 
-def run_classification():
+def run_classification(tfidf=True, BoW=True, edinburgh=True, glove=True, Hashtag_Intense=True, Lexicons=True):
     '''
     This funcion runs the classification.
     It reads features from the file Features_oc under 'data' folder.
@@ -73,7 +73,8 @@ def run_classification():
     Then, print out the evaluations for each regressor and for each emotion.
     The evaluation metrics is pearson correlation.
     '''
-    classification.Classification(tfidf=True, BoW=True, edinburgh=True, glove=True, Hashtag_Intense=True, Lexicons=True)
+    classification.Classification(tfidf = tfidf, BoW = BoW, edinburgh = edinburgh, glove = glove, Hashtag_Intense = Hashtag_Intense, Lexicons = Lexicons)
+
 
 
 if __name__ == "__main__":

@@ -9,14 +9,10 @@ Stage 1 preprocessing:
 
 Stage 2 feature extraction:  
   
-Extract all the features and save them in files.   
-The features inculude tf-idf, bag of words, edinburgh embeddings, glove embeddings, hash tag intensities, emoji lexicon, and Affect lexicon features including AFINN, BingLiu, MPQA, NRC-EmoLex, NRC-Hash-Emo, NRC-Hash-Sent, NRC10E, Sentiment140, SentiStrength.
+Extract all the features and save them in files. The features inculude tf-idf, bag of words, edinburgh embeddings, glove embeddings, hash tag intensities, emoji lexicon, and Affect lexicon features including AFINN, BingLiu, MPQA, NRC-EmoLex, NRC-Hash-Emo, NRC-Hash-Sent, NRC10E, Sentiment140, SentiStrength.
 
 Stage 3 regression/classification:  
   
-In this stage, we use the following regressors/classifiers:  
-Support vector machine (regressor and classifier) of sklearn.   
-Multi-layer Perceptron (regressor and classifier) of sklearn.   
-Gradient Boosting (regressor and classifier) of sklearn. 
+In this stage, we use the following regressors/classifiers: 1) Support vector machine (regressor and classifier) of sklearn. 2) Multi-layer Perceptron (regressor and classifier) of sklearn. 3)Gradient Boosting (regressor and classifier) of sklearn. 
 
 We train and test our data by using 10-fold cross validation on the training dataset. 

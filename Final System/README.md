@@ -9,7 +9,7 @@ Stage 1 preprocessing:
 
 Stage 2 feature extraction:  
   
-Extract all the features and save them in files. The features inculude tf-idf, bag of words, edinburgh embeddings, glove embeddings, hash tag intensities, emoji lexicon, and Affect lexicon features including AFINN, BingLiu, MPQA, NRC-EmoLex, NRC-Hash-Emo, NRC-Hash-Sent, NRC10E, Sentiment140, SentiStrength.
+Extract all the features and save them in files under the folder named data (i.e. Features_reg, Features_oc, and 2017FeaturesReg). The features inculude tf-idf, bag of words, edinburgh embeddings, glove embeddings, hash tag intensities, emoji lexicon, and Affect lexicon features including AFINN, BingLiu, MPQA, NRC-EmoLex, NRC-Hash-Emo, NRC-Hash-Sent, NRC10E, Sentiment140, SentiStrength.
 
 Stage 3 regression/classification:  
   

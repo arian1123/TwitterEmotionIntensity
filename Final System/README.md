@@ -21,19 +21,19 @@ We train and test our data by using 10-fold cross validation on the training dat
 
 1. Preprocessing.
 
-1.1 Run preprocessing_extract_emojis() in main.py to extract all the emojis in training dataset, save them in text.txt.   
-1.2 Then, manually delete characters from other languages (such as Japanese, Chinese, Arabian, etc.) and illegal forms, and save them as a file named emoji.txt.  
-1.3 Run preprocessing_map_emojis() in main.py to map each emoji in emoji.txt to a unique string (e.g. map 😄 to 'emoji12') and save these unique strings to a file named emoji_lexicon.txt.
+Run preprocessing_extract_emojis() in main.py to extract all the emojis in training dataset, save them in text.txt.   
+Then, manually delete characters from other languages (such as Japanese, Chinese, Arabian, etc.) and illegal forms, and save them as a file named emoji.txt.  
+Run preprocessing_map_emojis() in main.py to map each emoji in emoji.txt to a unique string (e.g. map 😄 to 'emoji12') and save these unique strings to a file named emoji_lexicon.txt.
 
 2. Feature Extraction.
 
-2.1 Run extract_features() in main.py. It will extract all the features and save them to a file under 'data' folder. Note this function also preprocess the row tweets (e.g. seperating punctuations, deleting hashtag symbols, and break contractions) before extracting features.
+Run extract_features() in main.py. It will extract all the features and save them to a file under 'data' folder. Note this function also preprocess the row tweets (e.g. seperating punctuations, deleting hashtag symbols, and break contractions) before extracting features.
 
 3. Regression or Classification.
 
-3.1 Run run_regression() in main.py to perform regression. It will automatically print out the Pearson correlations and Spearman correlations from 10-fold cross validation on training dataset, for each emotion and each regressor. That is two tables, one for Pearson correlation, the other for Spearman correlation.
+3.1) Run run_regression() in main.py to perform regression. It will automatically print out the Pearson correlations and Spearman correlations from 10-fold cross validation on training dataset, for each emotion and each regressor. That is two tables, one for Pearson correlation, the other for Spearman correlation.
 
-3.2 Similarly, run run_classification() in main.py to perform classification. It will automatically print out a table that shows the Pearson correlations from 10-fold cross validation on training dataset, for each emotion and each classifier.
+3.2) Similarly, run run_classification() in main.py to perform classification. It will automatically print out a table that shows the Pearson correlations from 10-fold cross validation on training dataset, for each emotion and each classifier.
 
 
 

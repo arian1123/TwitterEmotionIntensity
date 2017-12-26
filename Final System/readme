@@ -2,4 +2,4 @@ Here is a brief introduction of each file under './embedding'.
 
 To access the Word2Vec word vectors created using the Edinburgh corpus, download it from https://github.com/felipebravom/AffectiveTweets/releases/download/1.0.0/w2v.twitter.edinburgh10M.400d.csv.gz and save it in /embedding
 
-Download GloVe word vectors from https://nlp.stanford.edu/projects/glove/
+Download GloVe word vectors from https://nlp.stanford.edu/projects/glove/ and save it in /embedding

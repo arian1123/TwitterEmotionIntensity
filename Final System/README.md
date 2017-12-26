@@ -1,5 +1,6 @@
 # Twitter Emotion Intensity
 
+## Introduction:
 Our system consists of three stages (1. preprocessing, 2. feature extraction, 3. regression/classification). 
 
 Stage 1 preprocessing:

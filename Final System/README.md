@@ -20,7 +20,7 @@ Stage 3 regression/classification:
   
 In this stage, we use the following regressors/classifiers: 1) Support vector machine (regressor and classifier) of sklearn. 2) Multi-layer Perceptron (regressor and classifier) of sklearn. 3)Gradient Boosting (regressor and classifier) of sklearn. 
 
-We train and test our data by using 10-fold cross validation on the training dataset. 
+We perform 10-fold cross validation on the training dataset. 
 
 The evaluation metric for regression task is Pearson correlation and Spearman correlation, for classification task is Pearson correlation. Note our main focus is on the regression task.
 

@@ -52,7 +52,7 @@ The evaluation metric for regression task is Pearson correlation and Spearman co
 
 **emoji.txt:** this file stores the emojis that are extracted from training dataset.  
 
-**emoji_lexicon.txt:** this file stores the mapped emojis (each emoji is mapped to a unique string, for example 'emoji12').  
+**emoji_lexicon.txt:** this file stores the mapped emojis (each emoji is mapped to a unique string as descriped in the introduction section, for example 'emoji12').  
 
 **evaluation_metrics.py:** this script contains the common evaluation metrics for regression (Pearson correlation, and Spearman correlation) and classification (accuracy, micro recall, macro recall, confusion matrix, and Pearson correlation).  
 

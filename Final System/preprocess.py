@@ -14,6 +14,18 @@ class Preprocessor:
 
     # pass in directory with training data files
     def __init__(self, emotion = 'anger', classify = False, year = 2018, define_emoji = False, emoji_to_lexicon = False):
+        '''
+        this class contains all the methods for preprocessing as described in stage 1, 
+        and the method to read the row training tweets. It has three major functions, extract emojis, mapping 
+        emojis to unique strings and save them, and regular tweets. You can specify different values to the 
+        parameters to let the Preprocessor do different things. If you want to extract emojis, you can use preprocess.
+        Preprocessor(define_emoji = True), it will extract emojis from 2018's training data of regression 
+        task for the default emotion, and save them to a file named test.txt. If you want to mapping emojis 
+        to unique strings and save them, you can use preprocess.Preprocessor(emoji_to_lexicon = True), 
+        it will map and save the mapped emojis to a file named emoji_lexicon.txt for the default emotion. 
+        If you want to regular tweets, you can simply use preprocess.Preprocessor(), 
+        it will regular tweets for the default emotion.
+        '''
         self.year = year
         self.emotion = emotion
         self.classify = classify

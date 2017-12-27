@@ -12,7 +12,7 @@ Our system consists of three main stages (1. preprocessing, 2. feature extractio
 
 **Stage 2 feature extraction:**    
   
-1) Extract all the features. The features inculude tf-idf, bag of words, edinburgh embeddings, glove embeddings, hash tag intensities, emoji lexicon, and Affect lexicon features including AFINN, BingLiu, MPQA, NRC-EmoLex, NRC-Hash-Emo, NRC-Hash-Sent, NRC10E, Sentiment140, SentiStrength.
+1) Extract all the features. The features include tf-idf, bag of words, edinburgh embeddings, glove embeddings, hash tag intensities, emoji lexicon, and Affect lexicon features including AFINN, BingLiu, MPQA, NRC-EmoLex, NRC-Hash-Emo, NRC-Hash-Sent, NRC10E, Sentiment140, SentiStrength.
 2) Reduce the dimensions of lexicon features because these features are sparse and their dimensions are high. 
 3) Save them in files under the folder named data (i.e. Features_reg, Features_oc, and 2017FeaturesReg). 
 

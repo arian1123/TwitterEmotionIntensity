@@ -120,6 +120,11 @@ class Regression:
 
 
     def ten_fold_cross_validation(self, train_x, train_y, regressor, pearson, spearman):
+        '''
+        this method performs 10-fold cross validation for given training dataset, regressor,
+        and record the pearson correlations for each fold to an array named pearson,
+        record the spearman correlations for each fold to an array named spearman.
+        '''
         kf = KFold(n_splits=10, random_state=2, shuffle=True)
         folds = kf.split(train_x, train_y)
         kfold = 0
@@ -143,6 +148,9 @@ class Regression:
         return pearson, spearman
 
     def print_evaluations(self, svm_pearson_coef, boost_pearson_coef, mlp_pearson_coef, svm_spearman_coef, boost_spearman_coef, mlp_spearman_coef):
+        '''
+        this method print out the averaged pearson correlations and averaged spearman correlations as a table
+        '''
         print(' ' * 10, '   SVM  ', '    XGBoost', '  MLP')
         for i, _emotion in enumerate(['anger', 'fear', 'joy', 'sadness']):
             print('%10s%10.4f%10.4f%10.4f' % (_emotion, np.mean(svm_pearson_coef[i]), np.mean(boost_pearson_coef[i]), np.mean(mlp_pearson_coef[i])))
@@ -155,6 +163,9 @@ class Regression:
 
 
     def load_2017_reg(self, path='./data/2017train', emotion='sadness'):
+        '''
+        thi method read the row training data from 2017 regression task
+        '''
         for f in os.listdir(path):
             if f.find(emotion) >= 0:
                 text = [l.split('\t')[1:]
@@ -165,6 +176,9 @@ class Regression:
 
 
     def load_2018_reg(self, path='./data/EI-reg-En-train', emotion='sadness'):
+        '''
+        thi method read the row training data from 2018 regression task
+        '''
         for f in os.listdir(path):
             if f.find(emotion) >= 0 and f.find('_re_') < 0:
                 text = [l.split('\t')[1:]
@@ -176,6 +190,9 @@ class Regression:
 
 
     def load_2018_oc(self, path='./data/EI-oc-En-train', emotion='sadness'):
+        '''
+        thi method read the row training data from 2018 classification task
+        '''
         for f in os.listdir(path):
             if f.find(emotion) >= 0:
                 text = [l.split('\t')[1:]

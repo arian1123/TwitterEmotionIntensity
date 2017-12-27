@@ -6,6 +6,11 @@ import classification
 import numpy as np
 
 def main():
+    '''
+    This is the main funcion that integrates all stages and methods of our system.
+    Each of the three stages are commented as following.
+    To run a single stage, you can comment out the other two stages.
+    '''
     # 1. Preprocessing
     preprocessing_extract_emojis()
     preprocessing_map_emojis()
@@ -39,7 +44,7 @@ def extract_features():
     '''
     This funcion runs the feature extraction stage.
     It extracts all the features and save them to a file under 'data' folder.
-    Note the row tweets are preprocessed by Preprocessor in line 47.
+    Note the row tweets are preprocessed by Preprocessor in line 52.
     '''
     for _emotion in ['anger', 'fear', 'joy', 'sadness']:
         print ('')

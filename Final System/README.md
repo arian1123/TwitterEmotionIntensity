@@ -68,7 +68,7 @@ The evaluation metric for regression task is Pearson correlation and Spearman co
 
 **sentistrength.py:** this script contains the methods to convert a preprocessed tweet to a sentistrength lexicon feature. Note this script come from sentistrength.py in https://github.com/amanjaiman/DNNTwitterEmoInt.  
 
-**test.txt:** this file contains the emojis that extracted from training tweets. It also contains some noises such as other languages (e.g. Japanese, Chinese, Arabian, etc.) and illegal forms that needs to be deleted manually.  
+**test.txt:** this file contains the emojis that are extracted from training tweets. It also contains some noises such as other languages (e.g. Japanese, Chinese, Arabian, etc.) and illegal forms that needs to be deleted manually.  
 
 
 

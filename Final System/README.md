@@ -64,7 +64,7 @@ The evaluation metric for regression task is Pearson correlation and Spearman co
 
 **preprocess.py:** this script contains all the methods for preprocessing as described in stage 1 and the method to read the row training tweets.  
 
-**regression.py:** similar to classification.py, this script contains Regression class for the classification task. It will read the selected pre-stored features from respective files, train on three regressors (Support vector machine classifier of sklearn, Multi-layer Perceptron classifier of sklearn, and Gradient Boosting classifier of sklearn.) using 10 fold cross validation on training dataset. Then, print the averaged pearson correlations for each emotion and each regressor.  
+**regression.py:** similar to classification.py, this script contains Regression class for the Regression task. It will read the selected pre-stored features from respective files, train on three regressors (Support vector machine regressor of sklearn, Multi-layer Perceptron regressor of sklearn, and Gradient Boosting regressor of sklearn.) using 10 fold cross validation on training dataset. Then, print the averaged Pearson correlations and averaged Spearman correlations for each emotion and each regressor, as two tables.  
 
 **sentistrength.py:** this script contains the methods to convert a preprocessed tweet to a sentistrength lexicon feature. Note this script come from sentistrength.py in https://github.com/amanjaiman/DNNTwitterEmoInt.  
 

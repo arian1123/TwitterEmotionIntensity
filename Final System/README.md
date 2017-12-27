@@ -14,7 +14,7 @@ Our system consists of three main stages (1. preprocessing, 2. feature extractio
   
 1) Extract all the features. The features include tf-idf, bag of words, Edinburgh embeddings, GloVe embeddings, hash tag intensities, emoji lexicon, and Affect lexicon features including AFINN, BingLiu, MPQA, NRC-EmoLex, NRC-Hash-Emo, NRC-Hash-Sent, NRC10E, Sentiment140, SentiStrength.
 2) Reduce the dimensions of lexicon features because these features are sparse and their dimensions are high. 
-3) Save them in files under the folder named data (i.e. the folders named Features_reg, Features_oc, and 2017FeaturesReg). 
+3) Save them in files under the folder 'data' (i.e. the folders named Features_reg, Features_oc, and 2017FeaturesReg). 
 
 **Stage 3 regression/classification:**    
   

@@ -21,6 +21,14 @@ from sklearn.decomposition import PCA
 class Regression:
 
     def __init__(self, tfidf = False, BoW = False, edinburgh = False, glove = False, Hashtag_Intense = False, Lexicons = False):
+        '''
+        this class read the selected pre-stored features from respective files, 
+        train on three regressors (Support vector machine regressor of sklearn, 
+        Multi-layer Perceptron regressor of sklearn, and Gradient Boosting regressor of sklearn.) 
+        using 10 fold cross validation on training dataset. 
+        Then, print the averaged Pearson correlations and 
+        averaged Spearman correlations for each emotion and each regressor, as two tables.
+        '''
         SVM = SVR()
         XGboost = GradientBoostingRegressor(n_estimators=200)
         MLP = MLPRegressor(hidden_layer_sizes=[100, 50], activation='logistic')

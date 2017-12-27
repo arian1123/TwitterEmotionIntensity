@@ -54,7 +54,7 @@ The evaluation metric for regression task is Pearson correlation and Spearman co
 
 **emoji_lexicon.txt:** this file stores the mapped emojis (each emoji is mapped to a unique string as described in the introduction section, for example 'emoji12').  
 
-**evaluation_metrics.py:** this script contains the common evaluation metrics for regression (Pearson correlation, and Spearman correlation) and classification (accuracy, micro recall, macro recall, confusion matrix, and Pearson correlation).  
+**evaluation_metrics.py:** this script contains the common evaluation metrics for regression (Pearson correlation, and Spearman correlation) and classification (accuracy, micro recall, macro recall, confusion matrix, and Pearson correlation). Since the major evaluation matric for SemEval 2018 Task 1 and Task 2 is Pearson correlation, we focus on Pearson correlations.  
 
 **feature_extraction.py:** this script contains the methods to extract all the features of preprocessed training tweets.  
 

@@ -8,7 +8,7 @@ Our system consists of three main stages (1. preprocessing, 2. feature extractio
 **Stage 1 preprocessing:**  
 1) Extract all the emojis in training dataset, save them in test.txt, manually delete characters from other languages (such as Japanese, Chinese, Arabian, etc.) and illegal forms, and save them as a file named emoji.txt. (i.e. define_emoji in preprocess.py)
 2) Map each emoji in emoji.txt to a unique string (e.g. map 😄  to 'emoji12') and save these unique strings to a file named emoji_lexicon.txt. (i.e. def_regular_emoji, and emoji_to_lexicon in preprocess.py)
-3) Preprocessing raw tweets includes regular emoji (map each emoji to a unique string), spelling correction, acronym, special words, separating punctuations, symbol replacement, deleting hashtag symbols, breaking contractions, and hashtags extraction. (i.e. regular_tweet in preprocess.py)
+3) Preprocessing raw tweets includes hashtags extraction, regular emoji (map each emoji to a unique string), spelling correction, acronym, special words, separating punctuations, symbol replacement, deleting hashtag symbols, and breaking contractions. (i.e. regular_tweet in preprocess.py)
 
 **Stage 2 feature extraction:**    
   

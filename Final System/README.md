@@ -52,7 +52,7 @@ Note: all the stages are integrated into main.py, specifically, main() in main.p
 
 **classification.py:** this script contains Classification class for the classification task. It will read the selected pre-stored features from respective files, train on three classifiers (Support vector machine classifier of sklearn, Multi-layer Perceptron classifier of sklearn, and Gradient Boosting classifier of sklearn.) using 10 fold cross validation on training dataset. Then, print the averaged pearson correlations for each emotion and each classifier, as a table.  
 
-**emoji.txt:** this file stores the "cleaned" emojis from test.txt which contains emojis with "noises" such as other languages (e.g. Japanese, Chinese, Arabian, etc.) and illegal forms extracted from training dataset. In other words, "emoji.txt" is created by manually deleting the "noises" in test.txt. 
+**emoji.txt:** this file stores the "cleaned" emojis from test.txt which contains emojis with "noises" such as other languages (e.g. Japanese, Chinese, Arabian, etc.) and illegal forms extracted from training dataset. In other words, emoji.txt is created by manually deleting the "noises" in test.txt. 
 
 **emoji_lexicon.txt:** this file stores the mapped emojis (each emoji is mapped to a unique string as described in the introduction section, for example 'emoji12').  
 

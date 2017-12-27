@@ -44,7 +44,7 @@ The evaluation metric for regression task is Pearson correlation and Spearman co
 
 **DepecheMood:** this folder contains three versions of the Lexicon 'DepecheMood'. The detailed description is in the README.txt in the folder.  
 
-**data:** this folder contains 1) the training data for regression task and classification task in 2018, and the training data for the regression task in 2017. 2) Affect lexicons (row lexicons). 3) The folders to store extracted features for corresponding training datasets.  
+**data:** this folder contains 1) the training data for regression task and classification task in 2018, and the training data for the regression task in 2017. 2) Affect lexicons (AFINN, BingLiu, MPQA, NRC-EmoLex, NRC-Hash-Emo, NRC-Hash-Sent, NRC10E, Sentiment140, SentiWordNet, SentiStrength). 3) The folders to store extracted features for corresponding training datasets.  
 
 **embedding:** this folder contains Edinburgh word vectors and GloVe word vectors. They are pre-trained and can be downloaded from the links givien in the folder's readme file.  
 

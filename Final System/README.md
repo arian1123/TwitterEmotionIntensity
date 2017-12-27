@@ -6,7 +6,7 @@ SemEval 2018 Task 1 (Mohammed et al., 2018) addresses the task of detecting the 
 Our system consists of three main stages (1. preprocessing, 2. feature extraction, 3. regression/classification). 
 
 Stage 1 preprocessing:
-1) Extract all the emojis in training dataset, save them in text.txt, manually delete characters from other languages (such as Japanese, Chinese, Arabian, etc.) and illegal forms, and save them as a file named emoji.txt. (i.e. define_emoji in preprocess.py)
+1) Extract all the emojis in training dataset, save them in test.txt, manually delete characters from other languages (such as Japanese, Chinese, Arabian, etc.) and illegal forms, and save them as a file named emoji.txt. (i.e. define_emoji in preprocess.py)
 2) Map each emoji in emoji.txt to a unique string (e.g. map 😄  to 'emoji12') and save these unique strings to a file named emoji_lexicon.txt. (i.e. def_regular_emoji, and emoji_to_lexicon in preprocess.py)
 3) Preprocessing raw tweets includes regular emoji (map each emoji to a unique string), spelling correction, acronym, special words, punctuation, symbol replacement, deleting hashtag symbols, and break contractions. (i.e. regular_tweet in preprocess.py)
 
@@ -62,7 +62,7 @@ The evaluation metric for regression task is Pearson correlation and Spearman co
 
 **main.py:** this is the main script that integrate and run all the stages, and methods. It includes preprocessing, feature extraction, and regression/classification. To run a single stage, you can comment out the other two stages in main(). 
 
-**preprocess.py:** this script contains all the methods for preprocessing as described in stage 1 and the method to read the row training tweets.  
+**preprocess.py:** this script contains Preprocesor calss with all the methods for preprocessing as described in stage 1, and the method to read the row training tweets. It has three major functions, extract emojis, mapping emojis to unique strings and save them, and regular tweets. You can assign different values to the paramenters to let Preprocessor do different thing. If you want to extract emojis, you can use preprocess.Preprocessor(define_emoji = True), it will extract emojis from 2018's training data of regression task for the default emotion, and save them to a file named test.txt. If you want to mapping emojis to unique strings and save them, you can use preprocess.Preprocessor(emoji_to_lexicon = True), it will map and save the mapped emojis to a file named emoji_lexicon.txt for the default emotion. If you want to regular tweets, you can simply use preprocess.Preprocessor(), it will regular tweets for the default emotion.
 
 **regression.py:** similar to classification.py, this script contains Regression class for the Regression task. It will read the selected pre-stored features from respective files, train on three regressors (Support vector machine regressor of sklearn, Multi-layer Perceptron regressor of sklearn, and Gradient Boosting regressor of sklearn.) using 10 fold cross validation on training dataset. Then, print the averaged Pearson correlations and averaged Spearman correlations for each emotion and each regressor, as two tables.  
 

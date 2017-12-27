@@ -23,6 +23,13 @@ from sklearn.decomposition import PCA
 class Classification:
 
     def __init__(self, tfidf = False, BoW = False, edinburgh = False, glove = False, Hashtag_Intense = False, Lexicons = False):
+        '''
+        This class will read the selected pre-stored features from respective files, 
+        train on three classifiers (Support vector machine classifier of sklearn, 
+        Multi-layer Perceptron classifier of sklearn, and Gradient Boosting classifier of sklearn.) 
+        using 10 fold cross validation on training dataset. 
+        Then, print the averaged pearson correlations for each emotion and each classifier, as a table.
+        '''
         SVM = SVC()
         XGboost = GradientBoostingClassifier(n_estimators=200)
         MLP = MLPClassifier(hidden_layer_sizes=[100, 20])
@@ -45,10 +52,11 @@ class Classification:
                     train_joy_y[i] = 1 - train_joy_y[i]
                 train_x = train_x + train_joy_x
                 train_y = train_y + train_joy_y
-
+            
+            # use train_x_changed as a flag to see if train_x has been assigned with any feature values
             train_x_changed = False
+            
             # load features
-
             if tfidf:
                 train_tfidf = np.loadtxt('./data/Features_oc/tfidf/' + _emotion + '.txt')
                 if train_x_changed:
@@ -107,21 +115,29 @@ class Classification:
                     train_x = All_Lexicons
                     train_x_changed = True
 
-            # print ('training data has', len(train_x), 'samples', len(train_x[1]), 'dims')
-
+            # Finishing reading features, start classification.
+            
+            # 10-fold cross validation classification by SVM regressor
             print ('SVM regressor')
             svm_pearson_coef = self.ten_fold_cross_validation(train_x, train_y, SVM, svm_pearson_coef)
-
+            
+            # 10-fold cross validation classification by XGBoost regressor
             print ('XGBoost regressor')
             boost_pearson_coef = self.ten_fold_cross_validation(train_x, train_y, XGboost, boost_pearson_coef)
 
+            # 10-fold cross validation classification by MLP regressor
             print ('MLP regressor')
             mlp_pearson_coef = self.ten_fold_cross_validation(train_x, train_y, MLP, mlp_pearson_coef)
-
+        
+        # print out the results
         self.print_evaluations(svm_pearson_coef, boost_pearson_coef, mlp_pearson_coef)
 
 
     def ten_fold_cross_validation(self, train_x, train_y, classifier, pearson):
+        '''
+        this method performs 10-fold cross validation for given training dataset, classifier,
+        and save the pearson correlations for each fold to an array named pearson.
+        '''
         kf = KFold(n_splits=10, random_state=2, shuffle=True)
         folds = kf.split(train_x, train_y)
         kfold = 0
@@ -142,6 +158,9 @@ class Classification:
         return pearson
 
     def print_evaluations(self, svm_pearson_coef, boost_pearson_coef, mlp_pearson_coef, svm_spearman_coef, boost_spearman_coef, mlp_spearman_coef):
+        '''
+        this method print out the averaged pearson correlations as a table
+        '''
         print(' ' * 10, '   SVM  ', '    XGBoost', '  MLP')
         for i, _emotion in enumerate(['anger', 'fear', 'joy', 'sadness']):
             print('%10s%10.4f%10.4f%10.4f' % (_emotion, np.mean(svm_pearson_coef[i]), np.mean(boost_pearson_coef[i]), np.mean(mlp_pearson_coef[i])))
@@ -150,6 +169,9 @@ class Classification:
 
 
     def load_2017_reg(self, path='./data/2017train', emotion='sadness'):
+        '''
+        thi method read the row training data from 2017 regression task
+        '''        
         for f in os.listdir(path):
             if f.find(emotion) >= 0:
                 text = [l.split('\t')[1:]
@@ -160,6 +182,9 @@ class Classification:
 
 
     def load_2018_reg(self, path='./data/EI-reg-En-train', emotion='sadness'):
+        '''
+        thi method read the row training data from 2018 regression task
+        '''        
         for f in os.listdir(path):
             if f.find(emotion) >= 0 and f.find('_re_') < 0:
                 text = [l.split('\t')[1:]
@@ -171,6 +196,9 @@ class Classification:
 
 
     def load_2018_oc(self, path='./data/EI-oc-En-train', emotion='sadness'):
+        '''
+        thi method read the row training data from 2018 classification task
+        '''        
         for f in os.listdir(path):
             if f.find(emotion) >= 0:
                 text = [l.split('\t')[1:]

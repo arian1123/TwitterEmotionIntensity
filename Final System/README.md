@@ -32,7 +32,7 @@ Our system consists of three main stages (1. preprocessing, 2. feature extractio
 
 #### Feature Extraction:
 
-1. Run extract_features() in main.py. It will extract all the features, reduce the dimensions of lexicon features, and save them to a file under 'data' folder. Note this function also preprocess the row tweets (e.g. seperating punctuations, deleting hashtag symbols, and break contractions) before extracting features.
+1. Run extract_features() in main.py. It will extract all the features, reduce the dimensions of lexicon features, and save them to a file under 'data' folder. Note this function also preprocess the row tweets (e.g. separating punctuations, deleting hashtag symbols, and break contractions) before extracting features.
 
 #### Regression or Classification:
 

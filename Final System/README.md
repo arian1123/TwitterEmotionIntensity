@@ -18,11 +18,9 @@ Our system consists of three main stages (1. preprocessing, 2. feature extractio
 
 **Stage 3 regression/classification:**    
   
-In this stage, we use the following regressors/classifiers: 1) Support vector machine (regressor and classifier) of sklearn. 2) Multi-layer Perceptron (regressor and classifier) of sklearn. 3)Gradient Boosting (regressor and classifier) of sklearn. 
+1. In this stage, we use the following regressors/classifiers: 1) Support vector machine (regressor and classifier) of sklearn. 2) Multi-layer Perceptron (regressor and classifier) of sklearn. 3)Gradient Boosting (regressor and classifier) of sklearn, to perform 10-fold cross validation on the training dataset. 
 
-We perform 10-fold cross validation on the training dataset. 
-
-The evaluation metric for regression task is Pearson correlation and Spearman correlation, for classification task is Pearson correlation. Note our main focus is on the regression task.
+2. Then we print out the averaged evaluations from the above 10-fold cross validation and record them in Regression_Results.xlsx. The evaluation metric for regression task is Pearson correlation and Spearman correlation, for classification task is Pearson correlation. Note our main focus is on the regression task.
 
 ## To Run the System:
 

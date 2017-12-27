@@ -168,7 +168,7 @@ class Preprocessor:
 
     def load_2017_reg(self, path='./data/2017train', emotion='sadness'):
         '''
-        thi method read the row training data from 2017 regression task
+        this method read the row training data from 2017 regression task
         '''
         for f in os.listdir(path):
             if f.find(emotion) >= 0:
@@ -181,7 +181,7 @@ class Preprocessor:
 
     def load_2018_reg(self, path='./data/EI-reg-En-train', emotion='sadness'):
         '''
-        thi method read the row training data from 2018 regression task
+        this method read the row training data from 2018 regression task
         '''
         for f in os.listdir(path):
             if f.find(emotion) >= 0 and f.find('_re_') < 0:
@@ -195,7 +195,7 @@ class Preprocessor:
 
     def load_2018_oc(self, path='./data/EI-oc-En-train', emotion='sadness'):
         '''
-        thi method read the row training data from 2018 classification task
+        this method read the row training data from 2018 classification task
         '''
         for f in os.listdir(path):
             if f.find(emotion) >= 0:

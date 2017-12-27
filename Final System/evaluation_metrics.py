@@ -1,4 +1,3 @@
-
 # coding=utf-8
 """
 Created on November 5 2017

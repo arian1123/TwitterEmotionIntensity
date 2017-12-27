@@ -1,6 +1,6 @@
 # Twitter Emotion Intensity
 
-### Introduction:
+## Introduction:
 Our system consists of three stages (1. preprocessing, 2. feature extraction, 3. regression/classification). 
 
 Stage 1 preprocessing:
@@ -20,7 +20,7 @@ We train and test our data by using 10-fold cross validation on the training dat
 
 The evaluation metric for regression task is Pearson correlation and Spearman correlation, for classification task is Pearson correlation.
 
-### To Run the System:
+## To Run the System:
 
 #### Preprocessing:
 
@@ -38,7 +38,7 @@ The evaluation metric for regression task is Pearson correlation and Spearman co
 2. Similarly, run run_classification() in main.py to perform classification. You can also select features by assigning True or False values to the parameters. It will automatically print out a table that shows the averaged Pearson correlations from 10-fold cross validation on training dataset, for each emotion and each classifier.
 
 
-### Description of Files in this Folder:
+## Description of Files in this Folder:
 
 **DepecheMood:** this folder contains three versions of the Lexicon 'DepecheMood'. The detailed description is in the README.txt in the folder.
 

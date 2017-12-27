@@ -51,10 +51,11 @@ class Regression:
                     train_joy_y[i] = 1 - train_joy_y[i]
                 train_x = train_x + train_joy_x
                 train_y = train_y + train_joy_y
-
+            
+            # use train_x_changed as a flag to see if train_x has been assigned with any feature values
             train_x_changed = False
+            
             # load features
-
             if tfidf:
                 train_tfidf = np.loadtxt('./data/Features_reg/tfidf/' + _emotion + '.txt')
                 if train_x_changed:
@@ -113,17 +114,18 @@ class Regression:
                     train_x = All_Lexicons
                     train_x_changed = True
 
-            # print ('training data has', len(train_x), 'samples', len(train_x[1]), 'dims')
+            # Finishing reading features, start regression.
 
-            print ('SVM regressor')
+            # regression by SVM regressor
             svm_pearson_coef, svm_spearman_coef = self.ten_fold_cross_validation(train_x, train_y, SVM, svm_pearson_coef, svm_spearman_coef)
 
-            print ('XGBoost regressor')
+            # regression by XGBoost regressor
             boost_pearson_coef, boost_spearman_coef = self.ten_fold_cross_validation(train_x, train_y, XGboost, boost_pearson_coef, boost_spearman_coef)
 
-            print ('MLP regressor')
+            # regression by MLP regressor
             mlp_pearson_coef, mlp_spearman_coef = self.ten_fold_cross_validation(train_x, train_y, MLP, mlp_pearson_coef, mlp_spearman_coef)
-
+        
+        # print out the results
         self.print_evaluations(svm_pearson_coef, svm_spearman_coef, boost_pearson_coef, boost_spearman_coef, mlp_pearson_coef, mlp_spearman_coef)
 
 

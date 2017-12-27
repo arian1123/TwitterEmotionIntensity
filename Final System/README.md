@@ -40,33 +40,33 @@ The evaluation metric for regression task is Pearson correlation and Spearman co
 
 ## Description of Files in this Folder:
 
-**DepecheMood:** this folder contains three versions of the Lexicon 'DepecheMood'. The detailed description is in the README.txt in the folder.
+**DepecheMood:** this folder contains three versions of the Lexicon 'DepecheMood'. The detailed description is in the README.txt in the folder.  
 
-**data:** this folder contains 1) the training data for regression task and classification task in 2018, and the training data for the regression task in 2017. 2) Affect lexicons (row lexicons). 3) The folders to store extracted features for corresponding training datasets.
+**data:** this folder contains 1) the training data for regression task and classification task in 2018, and the training data for the regression task in 2017. 2) Affect lexicons (row lexicons). 3) The folders to store extracted features for corresponding training datasets.  
 
-**embedding:** this folder contains Edinburgh word vectors and GloVe word vectors. They are pre-trained and can be downloaded from the links givien in the folder's readme file.
+**embedding:** this folder contains Edinburgh word vectors and GloVe word vectors. They are pre-trained and can be downloaded from the links givien in the folder's readme file.  
 
-**classification.py:** this script contains Classification class for the classification task. It will read the selected pre-stored features from respective files, train on three classifiers (Support vector machine classifier of sklearn, Multi-layer Perceptron classifier of sklearn, and Gradient Boosting classifier of sklearn.) using 10 fold cross validation on training dataset. Then, print the averaged pearson correlations for each emotion and each classifier.
+**classification.py:** this script contains Classification class for the classification task. It will read the selected pre-stored features from respective files, train on three classifiers (Support vector machine classifier of sklearn, Multi-layer Perceptron classifier of sklearn, and Gradient Boosting classifier of sklearn.) using 10 fold cross validation on training dataset. Then, print the averaged pearson correlations for each emotion and each classifier.  
 
-**emoji.txt:** this files stores the emojis that are extracted from training dataset.
+**emoji.txt:** this files stores the emojis that are extracted from training dataset.  
 
-**emoji_lexicon.txt:** this files stores the mapped emojis (each emoji is mapped to a unique string, for example 'emoji12').
+**emoji_lexicon.txt:** this files stores the mapped emojis (each emoji is mapped to a unique string, for example 'emoji12').  
 
-**evaluation_metrics.py:** this script contains the common evaluation metrics for regression (Pearson correlation, and Spearman correlation) and classification (accuracy, micro recall, macro recall, confusion matrix, and Pearson correlation).
+**evaluation_metrics.py:** this script contains the common evaluation metrics for regression (Pearson correlation, and Spearman correlation) and classification (accuracy, micro recall, macro recall, confusion matrix, and Pearson correlation).  
 
-**feature_extraction.py:** this script contains the methods to extract all the features of preprocessed training tweets.
+**feature_extraction.py:** this script contains the methods to extract all the features of preprocessed training tweets.  
 
-**lexicons.py:** this script contains the methods to extract affect lexicon features for a single preprocessed tweet. Note besides tweetToEmoji method, the other parts of this script come from https://github.com/amanjaiman/DNNTwitterEmoInt  
+**lexicons.py:** this script contains the methods to extract affect lexicon features for a single preprocessed tweet. Note besides tweetToEmoji method, the other parts of this script come from lexicons.py in https://github.com/amanjaiman/DNNTwitterEmoInt.  
 
-**main.py:** this is the main script that integrate and run all the stages, and methods.
+**main.py:** this is the main script that integrate and run all the stages, and methods.  
 
-**preprocess.py:** this script contains all the methods for preprocessing as described in stage 1 and the method to read the row training tweets.
+**preprocess.py:** this script contains all the methods for preprocessing as described in stage 1 and the method to read the row training tweets.  
 
-**regression.py:** similar to classification.py, this script contains Regression class for the classification task. It will read the selected pre-stored features from respective files, train on three regressors (Support vector machine classifier of sklearn, Multi-layer Perceptron classifier of sklearn, and Gradient Boosting classifier of sklearn.) using 10 fold cross validation on training dataset. Then, print the averaged pearson correlations for each emotion and each regressor.
+**regression.py:** similar to classification.py, this script contains Regression class for the classification task. It will read the selected pre-stored features from respective files, train on three regressors (Support vector machine classifier of sklearn, Multi-layer Perceptron classifier of sklearn, and Gradient Boosting classifier of sklearn.) using 10 fold cross validation on training dataset. Then, print the averaged pearson correlations for each emotion and each regressor.  
 
-**sentistrength.py:** this script contains the methods to convert a preprocessed tweet to a sentistrength lexicon feature. Note this script come from https://github.com/amanjaiman/DNNTwitterEmoInt
+**sentistrength.py:** this script contains the methods to convert a preprocessed tweet to a sentistrength lexicon feature. Note this script come from sentistrength.py in https://github.com/amanjaiman/DNNTwitterEmoInt.  
 
-**test.txt:** this file contains the emojis that extracted from training tweets. It also contains some noises such as other languages (e.g. Japanese, Chinese, Arabian, etc.) and illegal forms that needs to be deleted manually.
+**test.txt:** this file contains the emojis that extracted from training tweets. It also contains some noises such as other languages (e.g. Japanese, Chinese, Arabian, etc.) and illegal forms that needs to be deleted manually.  
 
 
 

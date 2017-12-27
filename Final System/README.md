@@ -12,7 +12,7 @@ Stage 1 preprocessing:
 
 Stage 2 feature extraction:  
   
-Extract all the features and save them in files under the folder named data (i.e. Features_reg, Features_oc, and 2017FeaturesReg). The features inculude tf-idf, bag of words, edinburgh embeddings, glove embeddings, hash tag intensities, emoji lexicon, and Affect lexicon features including AFINN, BingLiu, MPQA, NRC-EmoLex, NRC-Hash-Emo, NRC-Hash-Sent, NRC10E, Sentiment140, SentiStrength.
+Extract all the features. Reduce the dimensions of lexicon features because these features are sparse and their dimensions are high. Save them in files under the folder named data (i.e. Features_reg, Features_oc, and 2017FeaturesReg). The features inculude tf-idf, bag of words, edinburgh embeddings, glove embeddings, hash tag intensities, emoji lexicon, and Affect lexicon features including AFINN, BingLiu, MPQA, NRC-EmoLex, NRC-Hash-Emo, NRC-Hash-Sent, NRC10E, Sentiment140, SentiStrength.
 
 Stage 3 regression/classification:  
   
@@ -32,7 +32,7 @@ The evaluation metric for regression task is Pearson correlation and Spearman co
 
 #### Feature Extraction:
 
-1. Run extract_features() in main.py. It will extract all the features and save them to a file under 'data' folder. Note this function also preprocess the row tweets (e.g. seperating punctuations, deleting hashtag symbols, and break contractions) before extracting features.
+1. Run extract_features() in main.py. It will extract all the features, reduce the dimensions of lexicon features, and save them to a file under 'data' folder. Note this function also preprocess the row tweets (e.g. seperating punctuations, deleting hashtag symbols, and break contractions) before extracting features.
 
 #### Regression or Classification:
 

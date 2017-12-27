@@ -20,7 +20,7 @@ In this stage, we use the following regressors/classifiers: 1) Support vector ma
 
 We train and test our data by using 10-fold cross validation on the training dataset. 
 
-The evaluation metric for regression task is Pearson correlation and Spearman correlation, for classification task is Pearson correlation.
+The evaluation metric for regression task is Pearson correlation and Spearman correlation, for classification task is Pearson correlation. Note our main focus is on the regression task.
 
 ## To Run the System:
 

@@ -56,7 +56,7 @@ The evaluation metric for regression task is Pearson correlation and Spearman co
 
 **feature_extraction.py:** this script contains the methods to extract all the features of preprocessed training tweets.
 
-**lexicons.py:** this script contains the methods to extract affect lexicon features for a single preprocessed tweet. 
+**lexicons.py:** this script contains the methods to extract affect lexicon features for a single preprocessed tweet. Note besides tweetToEmoji method, the other parts of this script come from https://github.com/amanjaiman/DNNTwitterEmoInt  
 
 **main.py:** this is the main script that integrate and run all the stages, and methods.
 
@@ -64,7 +64,7 @@ The evaluation metric for regression task is Pearson correlation and Spearman co
 
 **regression.py:** similar to classification.py, this script contains Regression class for the classification task. It will read the selected pre-stored features from respective files, train on three regressors (Support vector machine classifier of sklearn, Multi-layer Perceptron classifier of sklearn, and Gradient Boosting classifier of sklearn.) using 10 fold cross validation on training dataset. Then, print the averaged pearson correlations for each emotion and each regressor.
 
-**sentistrength.py:** this script contains the methods to convert a preprocessed tweet to a sentistrength lexicon feature.
+**sentistrength.py:** this script contains the methods to convert a preprocessed tweet to a sentistrength lexicon feature. Note this script come from https://github.com/amanjaiman/DNNTwitterEmoInt
 
 **test.txt:** this file contains the emojis that extracted from training tweets. It also contains some noises such as other languages (e.g. Japanese, Chinese, Arabian, etc.) and illegal forms that needs to be deleted manually.
 

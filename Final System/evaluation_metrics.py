@@ -13,8 +13,8 @@ def measure_oc(y, z):
 	macro_recall = recall_score(y, z, average='macro')
 	from sklearn.metrics import confusion_matrix
 	cm = confusion_matrix(y, z)
-	spear_corr = scipy.stats.spearmanr(y, z)[0]
-	return spear_corr, accuracy, micro_recall, macro_recall, cm
+	pears_corr = scipy.stats.pearsonr(y, z)[0]
+	return pears_corr, accuracy, micro_recall, macro_recall, cm
 
 def measure_reg(y, z):
 	'''

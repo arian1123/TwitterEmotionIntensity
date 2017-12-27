@@ -96,7 +96,7 @@ def run_classification(tfidf=True, BoW=True, edinburgh=True, glove=True, Hashtag
 if __name__ == "__main__":
     # To run the system, specify which stage you want to run by assigning True or False values to the states (i.e. stage1, stage2, and stage3).
     # You also need to specify whether you want to run regression or classification by assign True or False to classify.
-    # Specify year of the data you want to uese by assign values to year.
+    # Specify year of the data you want to use by assign values to year.
     # Then, you need to specify the features you want to use by assigning True or False to the features.
     # Note the features are tfidf, BoW (bag of words), edinburgh (Edinburgh embeddings), glove (GloVe embeddings),
     # Hashtag_Intense (Hashtag intensity), Lexicons (Affect lexicon features, which is the combination of all affect lexicon features)

@@ -47,7 +47,7 @@ class Preprocessor:
                 self.path += '/2017train'
             self.define_emoji()
         
-        # map emojis to unique strings 
+        # map emojis to unique strings and save them
         elif emoji_to_lexicon:
             self.emoji_to_lexicon()
         

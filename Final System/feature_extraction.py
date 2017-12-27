@@ -16,6 +16,15 @@ from sklearn.decomposition import PCA
 class TweetFeatureGenerator:
 
     def __init__(self, Preprocessor, emotion = 'anger'):
+        '''
+        This class extracts all the features from preprocessed traininig tweets, reduce the dimentions of lexicon features, 
+        then save them to a file under 'data' folder.
+        
+        The features include tf-idf, bag of words, Edinburgh embeddings, 
+        GloVe embeddings, hashtag intensity, emoji lexicon feature, 
+        and affect lexicon features (AFINN, BingLiu, MPQA, NRC-EmoLex, 
+        NRC-Hash-Emo, NRC-Hash-Sent, NRC10E, Sentiment140, SentiStrength).
+        '''
         self.train_x = Preprocessor.train_x
         self.Preprocessor = Preprocessor
         self.emotion = emotion

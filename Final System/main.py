@@ -1,3 +1,9 @@
+# coding=utf-8
+"""
+Created on November 20 2017
+
+@author: Jingshi & Arian
+"""
 import preprocess
 import evaluation_metrics
 import feature_extraction

@@ -33,6 +33,7 @@ def main(stage1 = False, stage2 = False, stage3 = False, classify = False, year 
         else:
             run_regression(year = year, tfidf=tfidf, BoW=BoW, edinburgh=edinburgh, glove=glove, Hashtag_Intense=Hashtag_Intense, Lexicons=Lexicons)
 
+
 def preprocessing_extract_emojis(classify = False, year = 2018):
     '''
     This funcion runs part of the preprocessing stage.
@@ -43,6 +44,7 @@ def preprocessing_extract_emojis(classify = False, year = 2018):
     '''
     preprocess.Preprocessor(define_emoji= True, year = year, classify= classify)
 
+
 def preprocessing_map_emojis(classify = False, year = 2018):
     '''
     This funcion runs part of the preprocessing stage.
@@ -50,6 +52,7 @@ def preprocessing_map_emojis(classify = False, year = 2018):
     and save these unique strings to a file named emoji_lexicon.txt.
     '''
     preprocess.Preprocessor(emoji_to_lexicon= True, year = year, classify= classify)
+
 
 def extract_features(classify = False, year = 2018):
     '''
@@ -62,6 +65,7 @@ def extract_features(classify = False, year = 2018):
         print ('Emotion:', _emotion)
         my_preprocessor = preprocess.Preprocessor(emotion = _emotion, classify = classify, year = year)
         my_features = feature_extraction.TweetFeatureGenerator(my_preprocessor, emotion = _emotion)
+
 
 def run_regression(year = 2018, tfidf=True, BoW=True, edinburgh=True, glove=True, Hashtag_Intense=True, Lexicons=True):
     '''
@@ -76,6 +80,7 @@ def run_regression(year = 2018, tfidf=True, BoW=True, edinburgh=True, glove=True
     The evaluation metrics are pearson correlation and spearman correlation.
     '''
     regression.Regression(year = year, tfidf = tfidf, BoW = BoW, edinburgh = edinburgh, glove = glove, Hashtag_Intense = Hashtag_Intense, Lexicons = Lexicons)
+
 
 def run_classification(tfidf=True, BoW=True, edinburgh=True, glove=True, Hashtag_Intense=True, Lexicons=True):
     '''

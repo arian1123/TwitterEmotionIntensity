@@ -1,9 +1,9 @@
 # Twitter Emotion Intensity
 
 ## Introduction:
-SemEval 2018 Task 1 (Mohammed et al., 2018) addresses the task of detecting the intensity of emotion in tweets. In our approach we used a variety of preprocessing and combination of feature extraction methods, including tf-idf, bag of words, lexicons, etc, proposed in previous works. We then ran our model through different regressors to gauge the best results.  
+This repository contains the implementation of SemEval 2018 Task 1 (Mohammed et al., 2018) which addresses the task of detecting the intensity of emotion in tweets. In our approach we used a variety of preprocessing and combination of feature extraction methods, including tf-idf, bag of words, lexicons, etc, proposed in previous works. We then ran our model through different regressors to gauge the best results.  
 
-Our system consists of three stages (1. preprocessing, 2. feature extraction, 3. regression/classification). 
+Our system consists of three main stages (1. preprocessing, 2. feature extraction, 3. regression/classification). 
 
 Stage 1 preprocessing:
 1) Extract all the emojis in training dataset, save them in text.txt, manually delete characters from other languages (such as Japanese, Chinese, Arabian, etc.) and illegal forms, and save them as a file named emoji.txt. (i.e. define_emoji in preprocess.py)

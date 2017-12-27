@@ -56,7 +56,7 @@ The evaluation metric for regression task is Pearson correlation and Spearman co
 
 **evaluation_metrics.py:** this script contains the common evaluation metrics for regression (Pearson correlation, and Spearman correlation) and classification (accuracy, micro recall, macro recall, confusion matrix, and Pearson correlation). Since the major evaluation matric for SemEval 2018 Task 1 and Task 2 is Pearson correlation, we focus on Pearson correlations.  
 
-**feature_extraction.py:** this script contains TweetFeatureGenerator class with the methods to extract all the features from preprocessed training tweets. The features include tf-idf, bag of words, Edinburgh embeddings, GloVe embeddings, hashtag intensity, emoji lexicon feature, and affect lexicon features (AFINN, BingLiu, MPQA, NRC-EmoLex, NRC-Hash-Emo, NRC-Hash-Sent, NRC10E, Sentiment140, SentiStrength).
+**feature_extraction.py:** this script contains TweetFeatureGenerator class with the methods to extract all the features from preprocessed training tweets. Reduce the dimentions of lexicon features, because their dimentions are high (e.g. over 5000). Then save these features to a file under 'data' folder. The features include tf-idf, bag of words, Edinburgh embeddings, GloVe embeddings, hashtag intensity, emoji lexicon feature, and affect lexicon features (AFINN, BingLiu, MPQA, NRC-EmoLex, NRC-Hash-Emo, NRC-Hash-Sent, NRC10E, Sentiment140, SentiStrength).
 
 **lexicons.py:** this script contains the methods to extract affect lexicon features for a single preprocessed tweet. Note besides tweetToEmoji method, the other parts of this script come from lexicons.py in https://github.com/amanjaiman/DNNTwitterEmoInt.  
 

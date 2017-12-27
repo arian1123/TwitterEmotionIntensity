@@ -1,3 +1,10 @@
+
+# coding=utf-8
+"""
+Created on November 5 2017
+
+@author: Jingshi & Arian
+"""
 import numpy as np
 from sklearn.metrics import recall_score, accuracy_score, confusion_matrix
 import pickle

@@ -48,7 +48,7 @@ The evaluation metric for regression task is Pearson correlation and Spearman co
 
 **embedding:** this folder contains Edinburgh word vectors and GloVe word vectors. They are pre-trained and can be downloaded from the links givien in the folder's readme file. Note that they need to be downloaded in order to run extract_features() in main.py.
 
-**classification.py:** this script contains Classification class for the classification task. It will read the selected pre-stored features from respective files, train on three classifiers (Support vector machine classifier of sklearn, Multi-layer Perceptron classifier of sklearn, and Gradient Boosting classifier of sklearn.) using 10 fold cross validation on training dataset. Then, print the averaged pearson correlations for each emotion and each classifier.  
+**classification.py:** this script contains Classification class for the classification task. It will read the selected pre-stored features from respective files, train on three classifiers (Support vector machine classifier of sklearn, Multi-layer Perceptron classifier of sklearn, and Gradient Boosting classifier of sklearn.) using 10 fold cross validation on training dataset. Then, print the averaged pearson correlations for each emotion and each classifier, as a table.  
 
 **emoji.txt:** this files stores the emojis that are extracted from training dataset.  
 

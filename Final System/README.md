@@ -70,7 +70,7 @@ The evaluation metric for regression task is Pearson correlation and Spearman co
 
 **test.txt:** this file contains the emojis that are extracted from training tweets. It also contains some noises such as other languages (e.g. Japanese, Chinese, Arabian, etc.) and illegal forms that needs to be deleted manually.  
 
-
+**Regression_Results.xlsx:** is the evaluation results for different single features and combinations of features that we ran. Note that the results come from 10-fold cross validation on training dataset. The evaluation matric is Pearson Correlation. The high scores are in bold. The regressor used is MLPRegressor.
 
 
 

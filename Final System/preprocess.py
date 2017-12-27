@@ -32,18 +32,29 @@ class Preprocessor:
         self.emotion = emotion
         self.classify = classify
         self.path = './data'
+        # extract emojis and save them to test.txt
         if define_emoji:
+            # the task for 2018 regression dataset
             if self.classify == False and self.year == 2018:
                 self.path += '/EI-reg-En-train'
+            
+            # the task for 2018 classification dataset
             elif self.classify and self.year == 2018:
                 self.path += '/EI-oc-En-train'
+            
+            # the task for 2017 regression dataset
             elif self.year == 2017:
                 self.path += '/2017train'
             self.define_emoji()
+        
+        # map emojis to unique strings 
         elif emoji_to_lexicon:
             self.emoji_to_lexicon()
+        
+        # regular raw tweets
         else:
-
+            
+            # the task for 2018 regression dataset
             if self.classify == False and self.year == 2018:
                 self.path += '/EI-reg-En-train'
                 self.train_x, self.train_y = self.load_2018_reg(emotion= self.emotion)
@@ -56,7 +67,6 @@ class Preprocessor:
                     self.train_x = self.train_x + train_joy_x
                     self.train_y = self.train_y + train_joy_y
 
-
                 # hashtags
                 self.hashtags = deepcopy(self.train_x)
                 for i in range(len(self.train_x)):
@@ -65,12 +75,12 @@ class Preprocessor:
                 # preprocessing
                 for i in range(len(self.train_x)):
                     self.train_x[i] = self.regular_tweet(self.train_x[i])
-
+            
+            # the task for 2018 classification dataset
             elif self.classify and self.year == 2018:
                 self.path += '/EI-oc-En-train'
                 self.train_x, self.train_y = self.load_2018_oc(emotion= self.emotion)
 
-
                 # hashtags
                 self.hashtags = deepcopy(self.train_x)
                 for i in range(len(self.train_x)):
@@ -79,17 +89,16 @@ class Preprocessor:
                 # preprocessing
                 for i in range(len(self.train_x)):
                     self.train_x[i] = self.regular_tweet(self.train_x[i])
-
+            
+            # the task for 2017 regression dataset
             elif self.year == 2017:
                 self.path += '/2017train'
                 self.train_x, self.train_y = self.load_2017_reg(emotion= self.emotion)
-
 
                 # hashtags
                 self.hashtags = deepcopy(self.train_x)
                 for i in range(len(self.train_x)):
                     self.hashtags[i] = self.extract_hashtags(self.train_x[i])
-
 
                 # preprocessing
                 for i in range(len(self.train_x)):

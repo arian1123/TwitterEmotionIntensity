@@ -1,9 +1,10 @@
+# Note besides tweetToEmoji method, the other parts of this script come from https://github.com/amanjaiman/DNNTwitterEmoInt
 import numpy as np
 from nltk.tokenize import TweetTokenizer
 from nltk.corpus import sentiwordnet as swn # sentiwordnet lexicon
 import sentistrength
 
-# Note besides tweetToEmoji method, the other parts of this script come from https://github.com/amanjaiman/DNNTwitterEmoInt
+
 ### Lexicons ###
 emo10e = open("data/Lexicons/uni-bwn-pos-dp-BCC-Lex.csv").readlines()
 hashtag_senti = open("data/Lexicons/Lexicons/NRC-Hashtag-Sentiment-Lexicon-v1.0/HS-unigrams.txt", "r").readlines()

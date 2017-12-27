@@ -116,13 +116,13 @@ class Regression:
 
             # Finishing reading features, start regression.
 
-            # regression by SVM regressor
+            # 10-fold cross validation classification regression by SVM regressor
             svm_pearson_coef, svm_spearman_coef = self.ten_fold_cross_validation(train_x, train_y, SVM, svm_pearson_coef, svm_spearman_coef)
 
-            # regression by XGBoost regressor
+            # 10-fold cross validation classification regression by XGBoost regressor
             boost_pearson_coef, boost_spearman_coef = self.ten_fold_cross_validation(train_x, train_y, XGboost, boost_pearson_coef, boost_spearman_coef)
 
-            # regression by MLP regressor
+            # 10-fold cross validation classification regression by MLP regressor
             mlp_pearson_coef, mlp_spearman_coef = self.ten_fold_cross_validation(train_x, train_y, MLP, mlp_pearson_coef, mlp_spearman_coef)
         
         # print out the results
@@ -132,8 +132,8 @@ class Regression:
     def ten_fold_cross_validation(self, train_x, train_y, regressor, pearson, spearman):
         '''
         this method performs 10-fold cross validation for given training dataset, regressor,
-        and record the pearson correlations for each fold to an array named pearson,
-        record the spearman correlations for each fold to an array named spearman.
+        and save the pearson correlations for each fold to an array named pearson,
+        save the spearman correlations for each fold to an array named spearman.
         '''
         kf = KFold(n_splits=10, random_state=2, shuffle=True)
         folds = kf.split(train_x, train_y)

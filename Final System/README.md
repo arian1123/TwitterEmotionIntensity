@@ -60,7 +60,7 @@ The evaluation metric for regression task is Pearson correlation and Spearman co
 
 **lexicons.py:** this script contains the methods to extract affect lexicon features for a single preprocessed tweet. Note besides tweetToEmoji method, the other parts of this script come from lexicons.py in https://github.com/amanjaiman/DNNTwitterEmoInt.  
 
-**main.py:** this is the main script that integrate and run all the stages, and methods.  
+**main.py:** this is the main script that integrate and run all the stages, and methods. It includes preprocessing, feature extraction, and regression/classification. To run a single stage, you can comment out the other two stages in main(). 
 
 **preprocess.py:** this script contains all the methods for preprocessing as described in stage 1 and the method to read the row training tweets.  
 

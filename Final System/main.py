@@ -11,14 +11,14 @@ def main():
     Each of the three stages are commented as following.
     To run a single stage, you can comment out the other two stages.
     '''
-    # 1. Preprocessing
+    # Stage 1: Preprocessing
     preprocessing_extract_emojis()
     preprocessing_map_emojis()
 
-    # 2. Featrue Extraction
+    # Stage 2: Featrue Extraction
     extract_features()
 
-    # 3. Regression or Classification
+    # Stage 3: Regression or Classification
     run_regression(tfidf=True, BoW=True, edinburgh=True, glove=True, Hashtag_Intense=True, Lexicons=True)
     run_classification(tfidf=True, BoW=True, edinburgh=True, glove=True, Hashtag_Intense=True, Lexicons=True)
 

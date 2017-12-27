@@ -151,6 +151,11 @@ class Preprocessor:
 
 
     def emoji_to_lexicon(self):
+        '''
+        this method maps each emoji to a unique string, 
+        and save the unique strings to a file named emoji_lexicon.txt.
+        for example, a smile face emoji may be mapped to 'emoji12'.
+        '''
         prefix = ' emoji'  # extra space ensures independence
         with open('emoji.txt') as f:
             emoji = [l.strip() for l in f.readlines()]

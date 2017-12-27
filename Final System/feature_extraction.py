@@ -1,3 +1,9 @@
+# coding=utf-8
+"""
+Created on November 17 2017
+
+@author: Jingshi & Arian
+"""
 import pickle
 from evaluation_metrics import *
 from preprocess import *

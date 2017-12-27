@@ -349,12 +349,10 @@ class TweetFeatureGenerator:
         else:
             file_name = './data/Features_reg/' + feature_name + '/' + emotion_name + '.txt'
         np.savetxt(file_name, feature)
-    #
-    #
+    
+        
     # The rest are functions for hashtag intensity
-    #
-    #
-    #
+    
     def build_hashtag_intensity(self):
         '''
         generate hashtag intensity model (for use in feature vector)

@@ -27,6 +27,8 @@ Our system consists of three main stages (1. preprocessing, 2. feature extractio
 main() in main.py is the main funcion that integrates all stages and methods of our system. To run the system, specify which stage you want to run by assigning True values to the states (i.e. stage1, stage2, and stage3). You also need to specify whether you want to run regression or classification by assign True or False to classify (True means run classification, False means run regression). Then, specify year of the data you want to use by assign values to year. Finally, you need to specify the features you want to use by assigning True value to the feature parameters.  
 Note the features are tfidf, BoW (bag of words), edinburgh (Edinburgh embeddings), glove (GloVe embeddings), Hashtag_Intense (Hashtag intensity), Lexicons (Affect lexicon features, which is the combination of all affect lexicon features)
 
+Note: the pre-trained GloVe word vectors and pre-trained Edinburgh word vectors needs to be downloaded to the 'embedding' folder before running stage 2 feature extraction.
+
 #### Preprocessing:
 
 1. Run main(stage1 = True, stage2 = False, stage3 = False, classify = False, year = 2018) in main.py to extract all the emojis in training dataset, save them in text.txt.   

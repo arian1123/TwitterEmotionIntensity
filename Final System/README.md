@@ -24,20 +24,23 @@ Our system consists of three main stages (1. preprocessing, 2. feature extractio
 
 ## To Run the System:
 
+To run the system, specify which stage you want to run by assigning True or False values to the states (i.e. stage1, stage2, and stage3). You also need to specify whether you want to run regression or classification by assign True or False to classify. Then, specify year of the data you want to use by assign values to year. Finally, you need to specify the features you want to use by assigning True or False to the features.  
+Note the features are tfidf, BoW (bag of words), edinburgh (Edinburgh embeddings), glove (GloVe embeddings), Hashtag_Intense (Hashtag intensity), Lexicons (Affect lexicon features, which is the combination of all affect lexicon features)
+
 #### Preprocessing:
 
-1. Run preprocessing_extract_emojis() in main.py to extract all the emojis in training dataset, save them in text.txt.   
+1. Run main(stage1 = True, stage2 = False, stage3 = False, classify = False, year = 2018) in main.py to extract all the emojis in training dataset, save them in text.txt.   
 2. Then, manually delete characters from other languages (such as Japanese, Chinese, Arabian, etc.) and illegal forms in text.txt, and save the cleaned text.txt as a new file named emoji.txt.  
-3. Run preprocessing_map_emojis() in main.py to map each emoji in emoji.txt to a unique string (e.g. map 😄 to 'emoji12') and save these unique strings to a file named emoji_lexicon.txt.
+3. Run main(stage1 = True, stage2 = False, stage3 = False, classify = False, year = 2018) in main.py again to map each emoji in emoji.txt to a unique string (e.g. map 😄 to 'emoji12') and save these unique strings to a file named emoji_lexicon.txt.
 
 #### Feature Extraction:
 
-1. Run extract_features() in main.py. It will extract all the features, reduce the dimensions of lexicon features, and save them to a file under 'data' folder. Note this function also preprocess the row tweets (e.g. separating punctuations, deleting hashtag symbols, and break contractions) before extracting features.
+1. Run main(stage1 = False, stage2 = True, stage3 = False, classify = False, year = 2018) in main.py. It will extract all the features, reduce the dimensions of lexicon features, and save them to a file under 'data' folder. 
 
 #### Regression or Classification:
 
-1. Run run_regression() in main.py to perform 10-fold cross validation regression. In default, it selects all the features, but you can select features by assigning True or False values to the parameters. For example, run_regression(tfidf=True, BoW=False, edinburgh=False, glove=False, Hashtag_Intense=False, Lexicons=False) selects only tfidf as its feature. It will automatically print out the averaged Pearson correlations and averaged Spearman correlations from 10-fold cross validation on training dataset, for each emotion and each regressor. That is two tables, one's evaluation metric is Pearson correlation, the other's evaluation metric is Spearman correlation.
-2. Similarly, run run_classification() in main.py to perform 10-fold cross validation classification. You can also select features by assigning True or False values to the parameters. It will automatically print out a table that shows the averaged Pearson correlations from 10-fold cross validation on training dataset, for each emotion and each classifier.  
+1. Run main(stage1 = False, stage2 = True, stage3 = False, classify = False, year = 2018, tfidf=True, BoW=True, edinburgh=True, glove=True, Hashtag_Intense=True, Lexicons=True) in main.py to to perform 10-fold cross validation regression. You can select features by assigning True values to the feature parameters. It will automatically print out the averaged Pearson correlations and averaged Spearman correlations from 10-fold cross validation on training dataset, for each emotion and each regressor. That is two tables, one's evaluation metric is Pearson correlation, the other's evaluation metric is Spearman correlation. 
+2. To perform 10-fold cross validation classification, you just need to change to parameter classify's value to be true. You can also select features by assigning True or False values to the parameters. It will automatically print out a table that shows the averaged Pearson correlations from 10-fold cross validation on training dataset, for each emotion and each classifier.  
 
 Note: all the stages are integrated into main.py, specifically, main() in main.py. 
 
@@ -62,7 +65,7 @@ Note: all the stages are integrated into main.py, specifically, main() in main.p
 
 **lexicons.py:** this script contains the methods to extract affect lexicon features for a single preprocessed tweet. Note besides tweetToEmoji method, the other parts of this script come from lexicons.py in https://github.com/amanjaiman/DNNTwitterEmoInt.  
 
-**main.py:** this is the main script that integrate and run all the stages, and methods. It includes preprocessing, feature extraction, and regression/classification. To run a single stage, you can comment out the other two stages in main(). 
+**main.py:** this is the main script that integrate and run all the stages, and methods. It includes preprocessing, feature extraction, and regression/classification. You can specify the parameters in main() to let it run different stages for different years' data and different task(regression or classification). 
 
 **preprocess.py:** this script contains Preprocessor class with all the methods for preprocessing as described in stage 1, and the method to read the row training tweets. It has three major functions, extract emojis, mapping emojis to unique strings and save them, and regular tweets (e.g. separating punctuations, deleting hashtag symbols, and break contractions). You can specify different values to the parameters to let the Preprocessor do different things. If you want to extract emojis, you can use preprocess.Preprocessor(define_emoji = True), it will extract emojis from 2018's training data of regression task for the default emotion, and save them to a file named test.txt. If you want to mapping emojis to unique strings and save them, you can use preprocess.Preprocessor(emoji_to_lexicon = True), it will map and save the mapped emojis to a file named emoji_lexicon.txt for the default emotion. If you want to regular tweets, you can simply use preprocess.Preprocessor(), it will regular tweets for the default emotion.
 

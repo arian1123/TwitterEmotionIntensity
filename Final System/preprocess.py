@@ -7,7 +7,6 @@ Created on November 15 2017
 import re
 import os, sys
 from copy import deepcopy
-# import pandas as pd
 import nltk
 from nltk.sentiment.util import mark_negation
 import numpy as np

@@ -1,4 +1,4 @@
-# Note this script come from https://github.com/amanjaiman/DNNTwitterEmoInt
+# Note this script comes from https://github.com/amanjaiman/DNNTwitterEmoInt
 import numpy as np
 from nltk.tokenize import TweetTokenizer
 

@@ -54,6 +54,23 @@ emoji_lexicon.txt: this files stores the mapped emojis (each emoji is mapped to 
 
 evaluation_metrics.py: this script contains the common evaluation metrics for regression (Pearson correlation, and Spearman correlation) and classification (accuracy, micro recall, macro recall, confusion matrix, and Pearson correlation).
 
+feature_extraction.py: this script contains the methods to extract all the features of preprocessed training tweets.
+
+lexicons.py: this script contains the methods to extract affect lexicon features for a single preprocessed tweet. 
+
+main.py: this is the main script that integrate and run all the stages, and methods.
+
+preprocess.py: this script contains all the methods for preprocessing as described in stage 1 and the method to read the row training tweets.
+
+regression.py: similar to classification.py, this script contains Regression class for the classification task. It will read the selected pre-stored features from respective files, train on three regressors (Support vector machine classifier of sklearn, Multi-layer Perceptron classifier of sklearn, and Gradient Boosting classifier of sklearn.) using 10 fold cross validation on training dataset. Then, print the averaged pearson correlations for each emotion and each regressor.
+
+sentistrength.py: this script contains the methods to convert a preprocessed tweet to a sentistrength lexicon feature.
+
+test.txt: this file contains the emojis that extracted from training tweets. It also contains some noises such as other languages (e.g. Japanese, Chinese, Arabian, etc.) and illegal forms that needs to be deleted manually.
+
+
+
+
 
 
 

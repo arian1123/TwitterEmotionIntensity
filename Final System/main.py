@@ -75,7 +75,7 @@ def run_classification(tfidf=True, BoW=True, edinburgh=True, glove=True, Hashtag
     2) Multi-layer Perceptron (classifier) of sklearn.
     3)Gradient Boosting (classifier) of sklearn.
 
-    Then, print out the evaluations for each regressor and for each emotion.
+    Then, print out the evaluations for each classifier and for each emotion.
     The evaluation metrics is pearson correlation.
     '''
     classification.Classification(tfidf = tfidf, BoW = BoW, edinburgh = edinburgh, glove = glove, Hashtag_Intense = Hashtag_Intense, Lexicons = Lexicons)

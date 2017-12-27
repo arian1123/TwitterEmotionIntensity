@@ -18,6 +18,8 @@ In this stage, we use the following regressors/classifiers: 1) Support vector ma
 
 We train and test our data by using 10-fold cross validation on the training dataset. 
 
+The evaluation metric for regression task is Pearson correlation and Spearman correlation, for classification task is Pearson correlation.
+
 ### To Run the System:
 
 #### Preprocessing:
@@ -32,8 +34,26 @@ We train and test our data by using 10-fold cross validation on the training dat
 
 #### Regression or Classification:
 
-1. Run run_regression() in main.py to perform regression. In default, it selects all the features, but you can select features by assigning True or False values to the parameters. For example, run_regression(tfidf=True, BoW=False, edinburgh=False, glove=False, Hashtag_Intense=False, Lexicons=False) selects only tfidf as its feature. It will automatically print out the Pearson correlations and Spearman correlations from 10-fold cross validation on training dataset, for each emotion and each regressor. That is two tables, one's evaluation metric is Pearson correlation, the other's evaluation metric is Spearman correlation.
-2. Similarly, run run_classification() in main.py to perform classification. You can also select features by assigning True or False values to the parameters. It will automatically print out a table that shows the Pearson correlations from 10-fold cross validation on training dataset, for each emotion and each classifier.
+1. Run run_regression() in main.py to perform regression. In default, it selects all the features, but you can select features by assigning True or False values to the parameters. For example, run_regression(tfidf=True, BoW=False, edinburgh=False, glove=False, Hashtag_Intense=False, Lexicons=False) selects only tfidf as its feature. It will automatically print out the averaged Pearson correlations and averaged Spearman correlations from 10-fold cross validation on training dataset, for each emotion and each regressor. That is two tables, one's evaluation metric is Pearson correlation, the other's evaluation metric is Spearman correlation.
+2. Similarly, run run_classification() in main.py to perform classification. You can also select features by assigning True or False values to the parameters. It will automatically print out a table that shows the averaged Pearson correlations from 10-fold cross validation on training dataset, for each emotion and each classifier.
 
 
 ### Description of Files in this Folder:
+
+DepecheMood: this folder contains three versions of the Lexicon 'DepecheMood'. The detailed description is in the README.txt in the folder.
+
+data: this folder contains 1) the training data for regression task and classification task in 2018, and the training data for the regression task in 2017. 2) Affect lexicons (row lexicons). 3) The folders to store extracted features for corresponding training datasets.
+
+embedding: this folder contains Edinburgh word vectors and GloVe word vectors. They are pre-trained and can be downloaded from the links givien in the folder's readme file.
+
+classification.py: this script contains Classification class for the classification task. It will read the selected pre-stored features from respective files, train on three classifiers (Support vector machine classifier of sklearn, Multi-layer Perceptron classifier of sklearn, and Gradient Boosting classifier of sklearn.) using 10 fold cross validation on training dataset. Then, print the averaged pearson correlations for each emotion and each classifier.
+
+emoji.txt: this files stores the emojis that are extracted from training dataset.
+
+emoji_lexicon.txt: this files stores the mapped emojis (each emoji is mapped to a unique string, for example 'emoji12').
+
+evaluation_metrics.py: this script contains the common evaluation metrics for regression (Pearson correlation, and Spearman correlation) and classification (accuracy, micro recall, macro recall, confusion matrix, and Pearson correlation).
+
+
+
+

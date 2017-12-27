@@ -40,7 +40,7 @@ class Preprocessor:
             elif self.year == 2017:
                 self.path += '/2017train'
             self.define_emoji()
-        if emoji_to_lexicon:
+        elif emoji_to_lexicon:
             self.emoji_to_lexicon()
         else:
 

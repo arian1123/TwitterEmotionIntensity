@@ -67,12 +67,12 @@ class Preprocessor:
                     self.train_x = self.train_x + train_joy_x
                     self.train_y = self.train_y + train_joy_y
 
-                # hashtags
+                # extract hashtags
                 self.hashtags = deepcopy(self.train_x)
                 for i in range(len(self.train_x)):
                     self.hashtags[i] = self.extract_hashtags(self.train_x[i])
 
-                # preprocessing
+                # preprocessing raw tweets
                 for i in range(len(self.train_x)):
                     self.train_x[i] = self.regular_tweet(self.train_x[i])
             
@@ -81,12 +81,12 @@ class Preprocessor:
                 self.path += '/EI-oc-En-train'
                 self.train_x, self.train_y = self.load_2018_oc(emotion= self.emotion)
 
-                # hashtags
+                # extract hashtags
                 self.hashtags = deepcopy(self.train_x)
                 for i in range(len(self.train_x)):
                     self.hashtags[i] = self.extract_hashtags(self.train_x[i])
 
-                # preprocessing
+                # preprocessing raw tweets
                 for i in range(len(self.train_x)):
                     self.train_x[i] = self.regular_tweet(self.train_x[i])
             
@@ -95,12 +95,12 @@ class Preprocessor:
                 self.path += '/2017train'
                 self.train_x, self.train_y = self.load_2017_reg(emotion= self.emotion)
 
-                # hashtags
+                # extract hashtags
                 self.hashtags = deepcopy(self.train_x)
                 for i in range(len(self.train_x)):
                     self.hashtags[i] = self.extract_hashtags(self.train_x[i])
 
-                # preprocessing
+                # preprocessing raw tweets
                 for i in range(len(self.train_x)):
                     self.train_x[i] = self.regular_tweet(self.train_x[i])
 

@@ -1,4 +1,3 @@
-
 import pickle
 from evaluation_metrics import *
 from preprocess import *
@@ -350,11 +349,9 @@ class TweetFeatureGenerator:
         else:
             file_name = './data/Features_reg/' + feature_name + '/' + emotion_name + '.txt'
         np.savetxt(file_name, feature)
-
-
     #
     #
-    # Functions for Hashtag intensity
+    # The rest are functions for hashtag intensity
     #
     #
     #

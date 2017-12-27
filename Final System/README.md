@@ -24,7 +24,7 @@ Our system consists of three main stages (1. preprocessing, 2. feature extractio
 
 ## To Run the System:
 
-To run the system, specify which stage you want to run by assigning True or False values to the states (i.e. stage1, stage2, and stage3). You also need to specify whether you want to run regression or classification by assign True or False to classify. Then, specify year of the data you want to use by assign values to year. Finally, you need to specify the features you want to use by assigning True or False to the features.  
+main() in main.py is the main funcion that integrates all stages and methods of our system. To run the system, specify which stage you want to run by assigning True values to the states (i.e. stage1, stage2, and stage3). You also need to specify whether you want to run regression or classification by assign True or False to classify (True means run classification, False means run regression). Then, specify year of the data you want to use by assign values to year. Finally, you need to specify the features you want to use by assigning True value to the feature parameters.  
 Note the features are tfidf, BoW (bag of words), edinburgh (Edinburgh embeddings), glove (GloVe embeddings), Hashtag_Intense (Hashtag intensity), Lexicons (Affect lexicon features, which is the combination of all affect lexicon features)
 
 #### Preprocessing:
@@ -42,7 +42,7 @@ Note the features are tfidf, BoW (bag of words), edinburgh (Edinburgh embeddings
 1. Run main(stage1 = False, stage2 = True, stage3 = False, classify = False, year = 2018, tfidf=True, BoW=True, edinburgh=True, glove=True, Hashtag_Intense=True, Lexicons=True) in main.py to to perform 10-fold cross validation regression. You can select features by assigning True values to the feature parameters. It will automatically print out the averaged Pearson correlations and averaged Spearman correlations from 10-fold cross validation on training dataset, for each emotion and each regressor. That is two tables, one's evaluation metric is Pearson correlation, the other's evaluation metric is Spearman correlation. 
 2. To perform 10-fold cross validation classification, you just need to change to parameter classify's value to be true. You can also select features by assigning True or False values to the parameters. It will automatically print out a table that shows the averaged Pearson correlations from 10-fold cross validation on training dataset, for each emotion and each classifier.  
 
-Note: all the stages are integrated into main.py, specifically, main() in main.py. 
+Note: all the stages are integrated into main() in main.py. 
 
 
 ## Description of Files in this Folder:

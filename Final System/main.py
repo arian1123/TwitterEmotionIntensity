@@ -11,7 +11,7 @@ import regression
 import classification
 import numpy as np
 
-def main(stage1 = True, stage2 = True, stage3 = True, classify = False, year = 2018, tfidf=True, BoW=True, edinburgh=True, glove=True, Hashtag_Intense=True, Lexicons=True):
+def main(stage1 = False, stage2 = False, stage3 = False, classify = False, year = 2018, tfidf=False, BoW=False, edinburgh=False, glove=False, Hashtag_Intense=False, Lexicons=False):
     '''
     This is the main funcion that integrates all stages and methods of our system.
     Each of the three stages are commented as following.
@@ -28,10 +28,10 @@ def main(stage1 = True, stage2 = True, stage3 = True, classify = False, year = 2
     # Stage 3: Regression or Classification
     if stage3:
         if classify:
-            run_classification(tfidf=True, BoW=True, edinburgh=True, glove=True, Hashtag_Intense=True, Lexicons=True)
+            run_classification(tfidf=tfidf, BoW=BoW, edinburgh=edinburgh, glove=glove, Hashtag_Intense=Hashtag_Intense, Lexicons=Lexicons)
 
         else:
-            run_regression(year = year, tfidf=True, BoW=True, edinburgh=True, glove=True, Hashtag_Intense=True, Lexicons=True)
+            run_regression(year = year, tfidf=tfidf, BoW=BoW, edinburgh=edinburgh, glove=glove, Hashtag_Intense=Hashtag_Intense, Lexicons=Lexicons)
 
 def preprocessing_extract_emojis(classify = False, year = 2018):
     '''

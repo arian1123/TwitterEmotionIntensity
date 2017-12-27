@@ -50,9 +50,9 @@ The evaluation metric for regression task is Pearson correlation and Spearman co
 
 **classification.py:** this script contains Classification class for the classification task. It will read the selected pre-stored features from respective files, train on three classifiers (Support vector machine classifier of sklearn, Multi-layer Perceptron classifier of sklearn, and Gradient Boosting classifier of sklearn.) using 10 fold cross validation on training dataset. Then, print the averaged pearson correlations for each emotion and each classifier, as a table.  
 
-**emoji.txt:** this files stores the emojis that are extracted from training dataset.  
+**emoji.txt:** this file stores the emojis that are extracted from training dataset.  
 
-**emoji_lexicon.txt:** this files stores the mapped emojis (each emoji is mapped to a unique string, for example 'emoji12').  
+**emoji_lexicon.txt:** this file stores the mapped emojis (each emoji is mapped to a unique string, for example 'emoji12').  
 
 **evaluation_metrics.py:** this script contains the common evaluation metrics for regression (Pearson correlation, and Spearman correlation) and classification (accuracy, micro recall, macro recall, confusion matrix, and Pearson correlation).  
 

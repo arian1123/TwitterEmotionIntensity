@@ -17,7 +17,7 @@ class TweetFeatureGenerator:
 
     def __init__(self, Preprocessor, emotion = 'anger'):
         '''
-        This class extracts all the features from preprocessed traininig tweets, reduce the dimentions of lexicon features, 
+        This class extracts all the features from preprocessed traininig tweets, reduce the dimensions of lexicon features, 
         then save them to a file under 'data' folder.
         
         The features include tf-idf, bag of words, Edinburgh embeddings, 
@@ -54,17 +54,17 @@ class TweetFeatureGenerator:
         self.Sentiment140 = self.Sentiment140_feature(self.train_x)
         self.SentiStrength = self.SentiStrength_feature(self.train_x)
 
-        # reduce the dimention to 140 based on a huristic that each tweet has a maximum length of 140.
-        self.Emoji = self.reduce_dimention(self.Emoji)
-        self.AFINN = self.reduce_dimention(self.AFINN)
-        self.BingLiu = self.reduce_dimention(self.BingLiu)
-        self.MPQA = self.reduce_dimention(self.MPQA)
-        self.NRC_EmoLex = self.reduce_dimention(self.NRC_EmoLex)
-        self.NRC10E = self.reduce_dimention(self.NRC10E)
-        self.NRC_Hash_Emo = self.reduce_dimention(self.NRC_Hash_Emo)
-        self.NRC_Hash_Sent = self.reduce_dimention(self.NRC_Hash_Sent)
-        self.Sentiment140 = self.reduce_dimention(self.Sentiment140)
-        self.SentiStrength = self.reduce_dimention(self.SentiStrength)
+        # reduce the dimension to 140 based on a huristic that each tweet has a maximum length of 140.
+        self.Emoji = self.reduce_dimension(self.Emoji)
+        self.AFINN = self.reduce_dimension(self.AFINN)
+        self.BingLiu = self.reduce_dimension(self.BingLiu)
+        self.MPQA = self.reduce_dimension(self.MPQA)
+        self.NRC_EmoLex = self.reduce_dimension(self.NRC_EmoLex)
+        self.NRC10E = self.reduce_dimension(self.NRC10E)
+        self.NRC_Hash_Emo = self.reduce_dimension(self.NRC_Hash_Emo)
+        self.NRC_Hash_Sent = self.reduce_dimension(self.NRC_Hash_Sent)
+        self.Sentiment140 = self.reduce_dimension(self.Sentiment140)
+        self.SentiStrength = self.reduce_dimension(self.SentiStrength)
 
         # save the features to files
         self.write_to_file(self.emotion, 'tfidf', self.train_tfidf, False)
@@ -327,9 +327,9 @@ class TweetFeatureGenerator:
         return SentiStrength
 
 
-    def reduce_dimention(self, feature):
+    def reduce_dimension(self, feature):
         '''
-        reduce dimention of a feature, by using PCA
+        reduce dimension of a feature, by using PCA
         '''
         pca_pre = PCA(n_components=5000)
         pca = PCA(n_components=140)

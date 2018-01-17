@@ -6,7 +6,7 @@ SemEval 2018 Task 1 (Mohammed et al., 2018) addresses the task of detecting the 
 Our system consists of three main stages (1. preprocessing, 2. feature extraction, 3. regression/classification), as described in the following: 
 
 **Stage 1 preprocessing:**  
-1) Extract all the emojis in training dataset, save them in test.txt, manually delete characters from other languages (such as Japanese, Chinese, Arabian, etc.) and illegal forms, and save them as a file named emoji.txt. (i.e. the method define_emoji() in preprocess.py)
+1) Extract all the emojis in training dataset, save them in test.txt, manually delete characters from other languages (such as Japanese, Chinese, Arabic, etc.) and illegal forms, and save them as a file named emoji.txt. (i.e. the method define_emoji() in preprocess.py)
 2) Map each emoji in emoji.txt to a unique string (e.g. map 😄  to 'emoji12') and save these unique strings to a file named emoji_lexicon.txt. (i.e. the methods regular_emoji(), and emoji_to_lexicon() in preprocess.py)
 3) Preprocessing raw tweets includes regular emoji (map each emoji to a unique string), spelling correction, acronym, special words, separating punctuations, symbol replacement, hashtag extraction, deleting hashtag symbols, and breaking contractions. (i.e. the methods extract_hashtags() and regular_tweet() in preprocess.py)
 
